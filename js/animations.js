@@ -7,6 +7,11 @@
 (function() {
     'use strict';
 
+    // Verifica se o fiberCanvas está ativado no SiteConfig
+    if (typeof SiteConfig !== 'undefined' && !SiteConfig.fiberCanvas) {
+        return; // Não inicializa se estiver desativado
+    }
+
     // Color palette from brand guidelines
     const COLORS = {
         azulConexao: '#00249C',

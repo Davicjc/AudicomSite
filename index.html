@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Audicom Telecom - Internet de qualidade com fibra óptica. Planos residenciais, empresariais e rurais em Uberlândia e região.">
     <meta name="keywords" content="internet, fibra óptica, telecom, Uberlândia, internet rural, link dedicado">
-    <title>Audicom Telecom | Internet de Alta Velocidade</title>
+    <title>audicom Telecom | Internet de Alta Velocidade</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Styles -->
     <link rel="stylesheet" href="css/style.css">
@@ -22,27 +22,116 @@
     <!-- Mouse Blur Effect -->
     <div id="mouse-blur"></div>
 
-    <!-- Header / Navigation -->
-    <header class="header">
-        <nav class="nav">
-            <a href="#home" class="nav-link active" data-section="home">Home</a>
-            <a href="#planos" class="nav-link" data-section="planos">Planos</a>
-            <a href="#sobre" class="nav-link" data-section="sobre">Sobre</a>
-            <a href="#cobertura" class="nav-link" data-section="cobertura">Cobertura</a>
-            <a href="#contato" class="nav-link" data-section="contato">Contato</a>
+    <!-- Staggered Menu -->
+    <div class="staggered-menu-wrapper" data-position="right">
+        <!-- Header com Logo e Botão -->
+        <div class="staggered-menu-header">
+            <a href="#home" class="sm-logo">
+                <img src="assets/logo-audicom-branco.png" alt="Audicom Telecom" class="sm-logo-img">
+            </a>
+            <button class="sm-toggle" aria-label="Abrir menu" aria-expanded="false">
+                <span class="sm-toggle-textWrap">
+                    <span class="sm-toggle-textInner">
+                        <span class="sm-toggle-line">Menu</span>
+                        <span class="sm-toggle-line">Fechar</span>
+                    </span>
+                </span>
+                <span class="sm-icon">
+                    <span class="sm-icon-line sm-icon-line-1"></span>
+                    <span class="sm-icon-line sm-icon-line-2"></span>
+                </span>
+            </button>
+        </div>
+
+        <!-- Camadas de fundo animadas -->
+        <div class="sm-prelayers">
+            <div class="sm-prelayer sm-prelayer-1"></div>
+            <div class="sm-prelayer sm-prelayer-2"></div>
+        </div>
+
+        <!-- Painel do Menu -->
+        <nav class="staggered-menu-panel" aria-hidden="true">
+            <div class="sm-panel-inner">
+                <ul class="sm-panel-list" data-numbering>
+                    <li>
+                        <a href="#home" class="sm-panel-item" aria-label="Ir para Home">
+                            <span class="sm-panel-itemWrap">
+                                <span class="sm-panel-itemLabel">Home</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#planos" class="sm-panel-item" aria-label="Ver nossos planos">
+                            <span class="sm-panel-itemWrap">
+                                <span class="sm-panel-itemLabel">Planos</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#sobre" class="sm-panel-item" aria-label="Saiba mais sobre nós">
+                            <span class="sm-panel-itemWrap">
+                                <span class="sm-panel-itemLabel">Sobre</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#insights" class="sm-panel-item" aria-label="Ver insights">
+                            <span class="sm-panel-itemWrap">
+                                <span class="sm-panel-itemLabel">Insights</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#cobertura" class="sm-panel-item" aria-label="Ver área de cobertura">
+                            <span class="sm-panel-itemWrap">
+                                <span class="sm-panel-itemLabel">Cobertura</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#contato" class="sm-panel-item" aria-label="Entre em contato">
+                            <span class="sm-panel-itemWrap">
+                                <span class="sm-panel-itemLabel">Contato</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Redes Sociais -->
+                <div class="sm-socials">
+                    <h3 class="sm-socials-title">Redes Sociais</h3>
+                    <ul class="sm-socials-list">
+                        <li>
+                            <a href="https://www.facebook.com/audicomtelecom" target="_blank" class="sm-socials-link">Facebook</a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/audicomtelecom/" target="_blank" class="sm-socials-link">Instagram</a>
+                        </li>
+                        <li>
+                            <a href="https://api.whatsapp.com/send?phone=553491339002" target="_blank" class="sm-socials-link">WhatsApp</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </nav>
-    </header>
+    </div>
 
     <!-- Main Content -->
     <main>
         <!-- Hero Section -->
         <section id="home" class="section hero">
+            <div class="hero-bg-logo">
+                <img src="assets/biglogo.png" alt="" class="hero-bg-image">
+                <div class="hero-bg-glow"></div>
+            </div>
             <div class="hero-content">
                 <div class="hero-badge">Conexão de Alta Performance</div>
                 <h1 class="hero-title">
-                    <span class="title-line">AUDICOM</span>
-                    <span class="title-line accent">TELECOM</span>
+                    <span class="title-line title-audicom">Audicom</span>
+                    <span class="title-line title-telecom accent">Telecom</span>
                 </h1>
+            </div>
+            <div class="hero-bottom">
                 <p class="hero-subtitle">Internet de fibra óptica com qualidade e preços acessíveis</p>
                 <div class="hero-cta">
                     <a href="#planos" class="btn btn-primary">Ver Planos</a>
@@ -63,7 +152,7 @@
         </section>
 
         <!-- Planos Section -->
-        <section id="planos" class="section planos">
+        <section id="planos" class="section section-alt planos">
             <div class="container">
                 <div class="section-header">
                     <span class="section-tag">Nossos Planos</span>
@@ -137,8 +226,76 @@
             </div>
         </section>
 
+        <!-- Insights Section -->
+        <section id="insights" class="section insights">
+            <div class="container">
+                <div class="insights-wrapper">
+                    <div class="insights-content">
+                        <div class="section-header">
+                            <span class="section-tag">Insights</span>
+                            <h2 class="section-title">Dicas e Novidades</h2>
+                        </div>
+                        <p class="insights-text">
+                            Fique por dentro das últimas novidades em tecnologia, dicas de conexão 
+                            e informações importantes sobre nossos serviços.
+                        </p>
+                    </div>
+                    <div class="card-swap-container">
+                        <article class="swap-card">
+                            <div class="swap-card-content">
+                                <span class="swap-card-tag">Internet Rural</span>
+                                <h3 class="swap-card-title">Conectamos áreas remotas</h3>
+                                <p class="swap-card-text">Nossa internet chega em sua fazenda, sítio, chácara ou rancho. Utilizamos tecnologia de rádio digital para transmitir o sinal mesmo nas áreas mais distantes.</p>
+                            </div>
+                        </article>
+                        <article class="swap-card">
+                            <div class="swap-card-content">
+                                <span class="swap-card-tag">Link Dedicado</span>
+                                <h3 class="swap-card-title">Conexão exclusiva para empresas</h3>
+                                <p class="swap-card-text">Largura de banda garantida e conexão estável com dupla abordagem. Ideal para empresas que precisam de continuidade nos negócios.</p>
+                            </div>
+                        </article>
+                        <article class="swap-card">
+                            <div class="swap-card-content">
+                                <span class="swap-card-tag">Eventos</span>
+                                <h3 class="swap-card-title">Link temporário para eventos</h3>
+                                <p class="swap-card-text">Faça sua live com tranquilidade! Oferecemos planos personalizados para eventos de qualquer tamanho, desde pequenas reuniões até grandes festivais.</p>
+                            </div>
+                        </article>
+                        <article class="swap-card">
+                            <div class="swap-card-content">
+                                <span class="swap-card-tag">Fibra Óptica</span>
+                                <h3 class="swap-card-title">Alta velocidade residencial</h3>
+                                <p class="swap-card-text">Conexão de alta velocidade direto na sua casa. Instalação e modem Wi-Fi modernos sem custo adicional.</p>
+                            </div>
+                        </article>
+                        <article class="swap-card">
+                            <div class="swap-card-content">
+                                <span class="swap-card-tag">Suporte</span>
+                                <h3 class="swap-card-title">Apoio de alta qualidade</h3>
+                                <p class="swap-card-text">Garantimos um serviço de apoio ao cliente de alta qualidade. Qualquer eventualidade é resolvida com muita agilidade!</p>
+                            </div>
+                        </article>
+                        <article class="swap-card">
+                            <div class="swap-card-content">
+                                <span class="swap-card-tag">Depoimento</span>
+                                <h3 class="swap-card-title">"Equipe nota 10!"</h3>
+                                <p class="swap-card-text">"Ótimo atendimento! Internet de excelente qualidade e veloz. Qualquer eventualidade é resolvida com muita agilidade!" - Fabrício L. de Castilho</p>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- Botão de Navegação -->
+                    <button class="card-swap-nav" id="card-swap-next" aria-label="Próximo card">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
         <!-- Sobre Section -->
-        <section id="sobre" class="section sobre">
+        <section id="sobre" class="section section-alt sobre">
             <div class="container">
                 <div class="sobre-content">
                     <div class="section-header">
@@ -157,8 +314,10 @@
                                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                                 </svg>
                             </div>
-                            <h3>Infraestrutura Própria</h3>
-                            <p>Rede robusta com redundância inteligente</p>
+                            <div class="feature-item-text">
+                                <h3>Infraestrutura Própria</h3>
+                                <p>Rede robusta com redundância inteligente</p>
+                            </div>
                         </div>
                         <div class="feature-item">
                             <div class="feature-icon">
@@ -167,8 +326,10 @@
                                     <polyline points="12,6 12,12 16,14"/>
                                 </svg>
                             </div>
-                            <h3>Suporte 24h</h3>
-                            <p>Equipes sempre prontas para atender</p>
+                            <div class="feature-item-text">
+                                <h3>Suporte 24h</h3>
+                                <p>Equipes sempre prontas para atender</p>
+                            </div>
                         </div>
                         <div class="feature-item">
                             <div class="feature-icon">
@@ -176,8 +337,10 @@
                                     <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
                                 </svg>
                             </div>
-                            <h3>Alta Velocidade</h3>
-                            <p>Fibra óptica de última geração</p>
+                            <div class="feature-item-text">
+                                <h3>Alta Velocidade</h3>
+                                <p>Fibra óptica de última geração</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -191,13 +354,134 @@
                     <span class="section-tag">Cobertura</span>
                     <h2 class="section-title">Onde estamos</h2>
                 </div>
-                <div class="cities-grid">
-                    <div class="city-item">Uberlândia - MG</div>
-                    <div class="city-item">Araguari - MG</div>
-                    <div class="city-item">Uberaba - MG</div>
-                    <div class="city-item">Prata - MG</div>
-                    <div class="city-item">Monte Alegre - MG</div>
-                    <div class="city-item">Cachoeira Dourada - MG</div>
+                
+                <!-- Mapa de Cobertura -->
+                <div class="cobertura-content">
+                    <div class="mapa-container" id="mapa-cobertura">
+                        <!-- Mapa será renderizado aqui -->
+                    </div>
+                    
+                    <div class="cidades-lista">
+                        <h3>Cidades atendidas</h3>
+                        <div class="cities-grid">
+                            <div class="city-item" data-cidade="uberlandia">
+                                <span class="city-marker"></span>
+                                Uberlândia - MG
+                            </div>
+                            <div class="city-item" data-cidade="araguari">
+                                <span class="city-marker"></span>
+                                Araguari - MG
+                            </div>
+                            <div class="city-item" data-cidade="uberaba">
+                                <span class="city-marker"></span>
+                                Uberaba - MG
+                            </div>
+                            <div class="city-item" data-cidade="prata">
+                                <span class="city-marker"></span>
+                                Prata - MG
+                            </div>
+                            <div class="city-item" data-cidade="montealegre">
+                                <span class="city-marker"></span>
+                                Monte Alegre - MG
+                            </div>
+                            <div class="city-item" data-cidade="cachoeiradourada">
+                                <span class="city-marker"></span>
+                                Cachoeira Dourada - MG
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ferramentas de Rede Section -->
+        <section id="ferramentas" class="section section-alt ferramentas-rede">
+            <div class="container">
+                <div class="section-header centered">
+                    <span class="section-tag">Diagnóstico</span>
+                    <h2 class="section-title">Ferramentas de Rede</h2>
+                </div>
+                
+                <!-- Card Compacto (visível quando fechado) -->
+                <div class="ferramentas-toggle" id="ferramentas-toggle">
+                    <div class="ferramentas-toggle-content">
+                        <div class="ferramentas-toggle-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                            </svg>
+                        </div>
+                        <div class="ferramentas-toggle-info">
+                            <p>Speed Test • Looking Glass</p>
+                        </div>
+                        <div class="ferramentas-toggle-arrow">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Conteúdo Expandido (oculto por padrão) -->
+                <div class="ferramentas-expanded" id="ferramentas-expanded">
+                    <div class="ferramentas-header">
+                        <h2>Ferramentas de Rede</h2>
+                        <button class="ferramentas-close" id="ferramentas-close" aria-label="Fechar">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="18 15 12 9 6 15"></polyline>
+                            </svg>
+                            <span>Recolher</span>
+                        </button>
+                    </div>
+                    <div class="ferramentas-grid">
+                        <div class="ferramenta-card">
+                            <div class="ferramenta-header">
+                                <div class="ferramenta-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                                    </svg>
+                                </div>
+                                <div class="ferramenta-info">
+                                    <h3>Speed Test</h3>
+                                    <p>Teste a velocidade da sua conexão</p>
+                                </div>
+                                <a href="https://velocidade.audicomtelecom.com.br/" target="_blank" class="ferramenta-external" aria-label="Abrir em nova aba">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </div>
+                            <div class="ferramenta-iframe" id="speedtest-iframe">
+                                <iframe data-src="https://velocidade.audicomtelecom.com.br/" frameborder="0" loading="lazy" scrolling="no"></iframe>
+                            </div>
+                        </div>
+                        <div class="ferramenta-card">
+                            <div class="ferramenta-header">
+                                <div class="ferramenta-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                                    </svg>
+                                </div>
+                                <div class="ferramenta-info">
+                                    <h3>Looking Glass</h3>
+                                    <p>Diagnóstico de rede e rotas BGP</p>
+                                </div>
+                                <a href="https://lg.audicomtelecom.com.br/" target="_blank" class="ferramenta-external" aria-label="Abrir em nova aba">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </div>
+                            <div class="ferramenta-iframe" id="lookingglass-iframe">
+                                <iframe data-src="https://lg.audicomtelecom.com.br/" frameborder="0" loading="lazy" scrolling="no"></iframe>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -205,80 +489,75 @@
         <!-- Contato Section -->
         <section id="contato" class="section contato">
             <div class="container">
-                <div class="contato-grid">
-                    <div class="contato-info">
-                        <div class="section-header">
-                            <span class="section-tag">Contato</span>
-                            <h2 class="section-title">Fale conosco</h2>
-                        </div>
-                        <div class="contact-items">
-                            <a href="tel:+553432226800" class="contact-item">
-                                <div class="contact-icon">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                                    </svg>
-                                </div>
+                <div class="contato-wrapper">
+                    <div class="contato-header">
+                        <span class="section-tag">Contato</span>
+                        <h2 class="section-title">Fale conosco</h2>
+                    </div>
+                    
+                    <div class="contato-content">
+                        <!-- Linha de contatos principais -->
+                        <div class="contato-row">
+                            <a href="tel:+553432226800" class="contato-item">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                </svg>
                                 <span>(34) 3222-6800</span>
                             </a>
-                            <a href="https://api.whatsapp.com/send?phone=553491339002" target="_blank" class="contact-item">
-                                <div class="contact-icon">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                                    </svg>
-                                </div>
+                            <a href="https://api.whatsapp.com/send?phone=553491339002" target="_blank" class="contato-item whatsapp">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                                </svg>
                                 <span>(34) 9133-9002</span>
                             </a>
-                            <a href="mailto:contato@audicomtelecom.com.br" class="contact-item">
-                                <div class="contact-icon">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                                        <polyline points="22,6 12,13 2,6"/>
-                                    </svg>
-                                </div>
+                            <a href="mailto:contato@audicomtelecom.com.br" class="contato-item">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                    <polyline points="22,6 12,13 2,6"/>
+                                </svg>
                                 <span>contato@audicomtelecom.com.br</span>
                             </a>
-                            <div class="contact-item">
-                                <div class="contact-icon">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                                        <circle cx="12" cy="10" r="3"/>
+                        </div>
+                        
+                        <!-- Endereço -->
+                        <div class="contato-endereco">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            <span>Av. Anselmo Alves dos Santos, 1542 - Uberlândia/MG</span>
+                        </div>
+                        
+                        <!-- Links e Redes -->
+                        <div class="contato-links-row">
+                            <a href="https://central.audicom.hubsoft.com.br/" target="_blank" class="contato-link">
+                                Central do Assinante
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                    <polyline points="15 3 21 3 21 9"/>
+                                    <line x1="10" y1="14" x2="21" y2="3"/>
+                                </svg>
+                            </a>
+                            <a href="https://velocidade.audicomtelecom.com.br/" target="_blank" class="contato-link">
+                                Teste de Velocidade
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                    <polyline points="15 3 21 3 21 9"/>
+                                    <line x1="10" y1="14" x2="21" y2="3"/>
+                                </svg>
+                            </a>
+                            <div class="contato-social">
+                                <a href="https://www.facebook.com/audicomtelecom" target="_blank" aria-label="Facebook">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                                     </svg>
-                                </div>
-                                <span>Av. Anselmo Alves dos Santos, 1542 - Uberlândia</span>
+                                </a>
+                                <a href="https://www.instagram.com/audicomtelecom/" target="_blank" aria-label="Instagram">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                    </svg>
+                                </a>
                             </div>
-                        </div>
-                    </div>
-                    <div class="contato-links">
-                        <h3>Acesso Rápido</h3>
-                        <div class="quick-links">
-                            <a href="https://central.audicom.hubsoft.com.br/" target="_blank" class="quick-link">
-                                <span>Central do Assinante</span>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                                    <polyline points="15 3 21 3 21 9"/>
-                                    <line x1="10" y1="14" x2="21" y2="3"/>
-                                </svg>
-                            </a>
-                            <a href="https://velocidade.audicomtelecom.com.br/" target="_blank" class="quick-link">
-                                <span>Teste de Velocidade</span>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                                    <polyline points="15 3 21 3 21 9"/>
-                                    <line x1="10" y1="14" x2="21" y2="3"/>
-                                </svg>
-                            </a>
-                        </div>
-                        <div class="social-links">
-                            <a href="https://www.facebook.com/audicomtelecom" target="_blank" class="social-link" aria-label="Facebook">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                                </svg>
-                            </a>
-                            <a href="https://www.instagram.com/audicomtelecom/" target="_blank" class="social-link" aria-label="Instagram">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                                </svg>
-                            </a>
                         </div>
                     </div>
                 </div>
@@ -291,7 +570,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <span class="footer-logo">AUDICOM</span>
+                    <span class="footer-logo">audicom</span>
                     <span class="footer-asn">AS268289</span>
                 </div>
                 <div class="footer-links">
@@ -312,7 +591,21 @@
     </a>
 
     <!-- Scripts -->
-    <script src="js/animations.js"></script>
+    <!-- Leaflet.js para mapas (open source) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+    <script src="js/onoff.js"></script>
+    <script src="js/staggered-menu.js"></script>
+    <script src="js/card-swap.js"></script>
+    <!-- Background Effects -->
+    <script src="background/fiber-canvas.js"></script>
+    <script src="background/floating-lines.js"></script>
+    <script src="background/ripple-grid.js"></script>
+    <script src="background/orb.js"></script>
+    <script src="js/network-tools.js"></script>
+    <script src="js/mapa-cobertura.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
