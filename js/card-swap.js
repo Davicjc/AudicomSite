@@ -28,7 +28,9 @@
         delay: SC.cardSwapDelay || 5000,
         pauseOnHover: SC.cardSwapPauseOnHover || false,
         skewAmount: isMobile ? 4 : (SC.cardSwapSkewAmount || 6),
-        easing: SC.cardSwapEasing || 'elastic'
+        easing: SC.cardSwapEasing || 'elastic',
+        hitboxEnabled: SC.cardSwapHitboxEnabled !== undefined ? SC.cardSwapHitboxEnabled : true,
+        clickToAdvance: SC.cardSwapClickToAdvance !== undefined ? SC.cardSwapClickToAdvance : true
     };
 
     // Configuração de easing
@@ -50,7 +52,7 @@
             returnDelay: 0.2
         };
 
-    let container, cards, order, intervalId, currentTl;
+    let container, cards, order, intervalId, currentTl, hitbox;
 
     function makeSlot(i, distX, distY, total) {
         return {
@@ -59,6 +61,49 @@
             z: -i * distX * 1.5,
             zIndex: total - i
         };
+    }
+
+    /**
+     * Cria hitbox invisível para capturar eventos do mouse
+     * Resolve o bug de hover nos cantos dos cards
+     */
+    function createHitbox() {
+        if (!CONFIG.hitboxEnabled) return;
+        
+        hitbox = document.createElement('div');
+        hitbox.className = 'card-swap-hitbox';
+        
+        // Calcular tamanho total incluindo todos os cards empilhados
+        const totalWidth = CONFIG.width + (cards.length * CONFIG.cardDistance) + 60;
+        const totalHeight = CONFIG.height + (cards.length * CONFIG.verticalDistance) + 60;
+        
+        hitbox.style.width = totalWidth + 'px';
+        hitbox.style.height = totalHeight + 'px';
+        
+        // Inserir no container
+        container.insertBefore(hitbox, container.firstChild);
+        
+        // Eventos de hover na hitbox
+        if (CONFIG.pauseOnHover) {
+            hitbox.addEventListener('mouseenter', () => {
+                if (currentTl) currentTl.pause();
+                clearInterval(intervalId);
+            });
+            hitbox.addEventListener('mouseleave', () => {
+                if (currentTl) currentTl.play();
+                intervalId = setInterval(swap, CONFIG.delay);
+            });
+        }
+        
+        // Click na hitbox avança o card
+        if (CONFIG.clickToAdvance) {
+            hitbox.addEventListener('click', () => {
+                if (currentTl) currentTl.progress(1);
+                clearInterval(intervalId);
+                swap();
+                intervalId = setInterval(swap, CONFIG.delay);
+            });
+        }
     }
 
     function placeNow(el, slot, skew) {
@@ -151,21 +196,12 @@
         container.style.width = CONFIG.width + 'px';
         container.style.height = CONFIG.height + 'px';
 
+        // Criar hitbox invisível para capturar hover
+        createHitbox();
+
         // Iniciar animação
         swap();
         intervalId = setInterval(swap, CONFIG.delay);
-
-        // Pause on hover
-        if (CONFIG.pauseOnHover) {
-            container.addEventListener('mouseenter', () => {
-                if (currentTl) currentTl.pause();
-                clearInterval(intervalId);
-            });
-            container.addEventListener('mouseleave', () => {
-                if (currentTl) currentTl.play();
-                intervalId = setInterval(swap, CONFIG.delay);
-            });
-        }
 
         // Botão de navegação manual
         const nextBtn = document.getElementById('card-swap-next');
@@ -183,7 +219,7 @@
             });
         }
 
-        console.log('✅ CardSwap inicializado!');
+        console.log('✅ CardSwap inicializado com hitbox!');
     }
 
     // Inicializar quando DOM estiver pronto

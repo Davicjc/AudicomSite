@@ -22,98 +22,97 @@
     <!-- Mouse Blur Effect -->
     <div id="mouse-blur"></div>
 
-    <!-- Staggered Menu -->
-    <div class="staggered-menu-wrapper" data-position="right">
-        <!-- Header com Logo e Botão -->
-        <div class="staggered-menu-header">
-            <a href="#home" class="sm-logo">
-                <img src="assets/logo-audicom-branco.png" alt="Audicom Telecom" class="sm-logo-img">
+    <!-- Pill Nav -->
+    <div class="pill-nav-container">
+        <nav class="pill-nav" aria-label="Primary">
+            <a class="pill-logo" href="#home" aria-label="Home">
+                <img src="assets/biglogo.png" alt="Audicom Telecom">
             </a>
-            <button class="sm-toggle" aria-label="Abrir menu" aria-expanded="false">
-                <span class="sm-toggle-textWrap">
-                    <span class="sm-toggle-textInner">
-                        <span class="sm-toggle-line">Menu</span>
-                        <span class="sm-toggle-line">Fechar</span>
-                    </span>
-                </span>
-                <span class="sm-icon">
-                    <span class="sm-icon-line sm-icon-line-1"></span>
-                    <span class="sm-icon-line sm-icon-line-2"></span>
-                </span>
-            </button>
-        </div>
 
-        <!-- Camadas de fundo animadas -->
-        <div class="sm-prelayers">
-            <div class="sm-prelayer sm-prelayer-1"></div>
-            <div class="sm-prelayer sm-prelayer-2"></div>
-        </div>
-
-        <!-- Painel do Menu -->
-        <nav class="staggered-menu-panel" aria-hidden="true">
-            <div class="sm-panel-inner">
-                <ul class="sm-panel-list" data-numbering>
-                    <li>
-                        <a href="#home" class="sm-panel-item" aria-label="Ir para Home">
-                            <span class="sm-panel-itemWrap">
-                                <span class="sm-panel-itemLabel">Home</span>
-                            </span>
+            <div class="pill-nav-items desktop-only">
+                <ul class="pill-list" role="menubar">
+                    <li role="none">
+                        <a role="menuitem" href="#produtos" class="pill pill-icon" aria-label="Produtos">
+                            <span class="hover-circle" aria-hidden="true"></span>
+                            <svg class="pill-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                            </svg>
+                            <span class="pill-text">Produtos</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="#planos" class="sm-panel-item" aria-label="Ver nossos planos">
-                            <span class="sm-panel-itemWrap">
-                                <span class="sm-panel-itemLabel">Planos</span>
-                            </span>
+                    <li role="none">
+                        <a role="menuitem" href="#insights" class="pill pill-icon" aria-label="Insights">
+                            <span class="hover-circle" aria-hidden="true"></span>
+                            <svg class="pill-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 18h6"></path>
+                                <path d="M10 22h4"></path>
+                                <path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"></path>
+                            </svg>
+                            <span class="pill-text">Insights</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="#sobre" class="sm-panel-item" aria-label="Saiba mais sobre nós">
-                            <span class="sm-panel-itemWrap">
-                                <span class="sm-panel-itemLabel">Sobre</span>
-                            </span>
+                    <li role="none">
+                        <a role="menuitem" href="#sobre" class="pill pill-icon" aria-label="Sobre">
+                            <span class="hover-circle" aria-hidden="true"></span>
+                            <svg class="pill-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="16" x2="12" y2="12"></line>
+                                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                            </svg>
+                            <span class="pill-text">Sobre</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="#insights" class="sm-panel-item" aria-label="Ver insights">
-                            <span class="sm-panel-itemWrap">
-                                <span class="sm-panel-itemLabel">Insights</span>
-                            </span>
+                    <li role="none">
+                        <a role="menuitem" href="#cobertura" class="pill pill-icon" aria-label="Cobertura">
+                            <span class="hover-circle" aria-hidden="true"></span>
+                            <svg class="pill-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            <span class="pill-text">Cobertura</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="#cobertura" class="sm-panel-item" aria-label="Ver área de cobertura">
-                            <span class="sm-panel-itemWrap">
-                                <span class="sm-panel-itemLabel">Cobertura</span>
-                            </span>
+                    <li role="none">
+                        <a role="menuitem" href="#ferramentas" class="pill pill-icon" aria-label="Ferramentas">
+                            <span class="hover-circle" aria-hidden="true"></span>
+                            <svg class="pill-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="3"></circle>
+                                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                            </svg>
+                            <span class="pill-text">Ferramentas</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="#contato" class="sm-panel-item" aria-label="Entre em contato">
-                            <span class="sm-panel-itemWrap">
-                                <span class="sm-panel-itemLabel">Contato</span>
-                            </span>
+                    <li role="none">
+                        <a role="menuitem" href="#contato" class="pill pill-icon" aria-label="Contato">
+                            <span class="hover-circle" aria-hidden="true"></span>
+                            <svg class="pill-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            <span class="pill-text">Contato</span>
                         </a>
                     </li>
                 </ul>
-
-                <!-- Redes Sociais -->
-                <div class="sm-socials">
-                    <h3 class="sm-socials-title">Redes Sociais</h3>
-                    <ul class="sm-socials-list">
-                        <li>
-                            <a href="https://www.facebook.com/audicomtelecom" target="_blank" class="sm-socials-link">Facebook</a>
-                        </li>
-                        <li>
-                            <a href="https://www.instagram.com/audicomtelecom/" target="_blank" class="sm-socials-link">Instagram</a>
-                        </li>
-                        <li>
-                            <a href="https://api.whatsapp.com/send?phone=553491339002" target="_blank" class="sm-socials-link">WhatsApp</a>
-                        </li>
-                    </ul>
-                </div>
             </div>
+
+            <button class="mobile-menu-button mobile-only" aria-label="Toggle menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
         </nav>
+
+        <div class="mobile-menu-popover mobile-only">
+            <ul class="mobile-menu-list">
+                <li><a href="#produtos" class="mobile-menu-link">Produtos</a></li>
+                <li><a href="#insights" class="mobile-menu-link">Insights</a></li>
+                <li><a href="#sobre" class="mobile-menu-link">Sobre</a></li>
+                <li><a href="#cobertura" class="mobile-menu-link">Cobertura</a></li>
+                <li><a href="#ferramentas" class="mobile-menu-link">Ferramentas</a></li>
+                <li><a href="#contato" class="mobile-menu-link">Contato</a></li>
+            </ul>
+        </div>
     </div>
 
     <!-- Main Content -->
@@ -151,80 +150,173 @@
             </div>
         </section>
 
-        <!-- Planos Section -->
-        <section id="planos" class="section section-alt planos">
+        <!-- Institucional Section - Missão, Valores, Visão -->
+        <section class="section institucional-section">
+            <div class="container">
+                <div class="section-header centered">
+                    <span class="section-tag">Quem Somos</span>
+                    <h2 class="section-title">Nosso propósito</h2>
+                </div>
+                <p class="institucional-intro">
+                    A Audicom Telecom não apenas conecta; nós redefinimos os padrões de estabilidade digital. Com um legado de inovação iniciado em 2002, especializamo-nos em levar infraestrutura de alta performance para onde outros não chegam, garantindo conectividade absoluta até nos cenários mais desafiadores. Nossa operação é blindada por sistemas de energia ininterrupta e um monitoramento proativo de backbone, tudo gerido por uma equipe de elite focada em precisão. Transformamos tecnologia robusta em confiança inabalável, entregando uma experiência de navegação contínua, veloz e preparada para o futuro.
+                </p>
+                <div class="institucional-items">
+                    
+                    <!-- Missão -->
+                    <div class="institucional-item">
+                        <div class="institucional-number">01</div>
+                        <div class="institucional-content">
+                            <h3 class="institucional-title">Missão</h3>
+                            <p class="institucional-text">Impulsionar a inovação e fortalecer a conectividade em um mundo que não pode mais ficar desconectado, oferecendo soluções de telecomunicações com excelência técnica e atendimento personalizado.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Valores - BubbleMenu -->
+                    <div class="institucional-item institucional-item--destaque institucional-item--bubble">
+                        <div class="institucional-number">02</div>
+                        <div class="institucional-content">
+                            <h3 class="institucional-title">Valores</h3>
+                            <!-- Container dos pills animados -->
+                            <div class="valores-bubble-container"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Visão -->
+                    <div class="institucional-item">
+                        <div class="institucional-number">03</div>
+                        <div class="institucional-content">
+                            <h3 class="institucional-title">Visão</h3>
+                            <p class="institucional-text">Ser reconhecida como a operadora que impulsiona inovação e fortalece a conectividade, destacando-se pela excelência das soluções e competência técnica.</p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- Produtos Section -->
+        <section id="produtos" class="section section-alt produtos">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-tag">Nossos Planos</span>
-                    <h2 class="section-title">Escolha sua velocidade</h2>
+                    <span class="section-tag">Principais Produtos</span>
+                    <h2 class="section-title">Soluções Corporativas</h2>
                 </div>
-                <div class="plans-grid">
-                    <!-- Plano Rural -->
-                    <article class="plan-card">
-                        <div class="plan-header">
-                            <span class="plan-type">Rural</span>
-                            <div class="plan-speed">
-                                <span class="speed-value">60</span>
-                                <span class="speed-unit">Mb</span>
-                            </div>
+                <div class="products-grid">
+                    <!-- Link de Internet Corporativo -->
+                    <article class="product-card" data-product="corporativo">
+                        <div class="product-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                            </svg>
                         </div>
-                        <ul class="plan-features">
-                            <li>Suporte Técnico</li>
-                            <li>Acesso 24 Horas</li>
-                            <li>Download Ilimitado</li>
-                            <li>Sem uso da Linha Telefônica</li>
+                        <div class="product-header">
+                            <h3 class="product-type">Link de Internet Corporativo</h3>
+                            <p class="product-subtitle">Conexão dedicada para empresas</p>
+                        </div>
+                        <ul class="product-features">
+                            <li>Banda garantida 100%</li>
+                            <li>IP Fixo dedicado</li>
+                            <li>SLA de atendimento</li>
+                            <li>Monitoramento 24/7</li>
+                            <li>Suporte NOC especializado</li>
                         </ul>
-                        <div class="plan-footer">
-                            <span class="plan-note">*Consultar Disponibilidade</span>
-                            <a href="https://api.whatsapp.com/send?phone=553491339002&text=Olá! Tenho interesse no Plano Rural 60Mb" target="_blank" class="btn btn-outline">Contratar</a>
+                        <div class="product-footer">
+                            <button class="btn btn-outline btn-ver-mais">Ver mais</button>
                         </div>
                     </article>
 
-                    <!-- Plano Residencial -->
-                    <article class="plan-card featured">
-                        <div class="plan-badge">Mais Popular</div>
-                        <div class="plan-header">
-                            <span class="plan-type">Residencial</span>
-                            <div class="plan-speed">
-                                <span class="speed-value">300</span>
-                                <span class="speed-unit">Mb</span>
-                            </div>
+                    <!-- Link Lan to Lan | MPLS -->
+                    <article class="product-card featured" data-product="mpls">
+                        <div class="product-badge">Mais Solicitado</div>
+                        <div class="product-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="2" y="3" width="6" height="6" rx="1"/>
+                                <rect x="16" y="3" width="6" height="6" rx="1"/>
+                                <rect x="2" y="15" width="6" height="6" rx="1"/>
+                                <rect x="16" y="15" width="6" height="6" rx="1"/>
+                                <path d="M8 6h8M8 18h8M5 9v6M19 9v6"/>
+                            </svg>
                         </div>
-                        <ul class="plan-features">
-                            <li>Suporte Técnico</li>
-                            <li>Acesso 24 Horas</li>
-                            <li>Download Ilimitado</li>
-                            <li>Sem uso da Linha Telefônica</li>
+                        <div class="product-header">
+                            <h3 class="product-type">Link Lan to Lan | MPLS</h3>
+                            <p class="product-subtitle">Interconexão entre unidades</p>
+                        </div>
+                        <ul class="product-features">
+                            <li>Conexão privada entre filiais</li>
+                            <li>Baixa latência garantida</li>
+                            <li>Alta disponibilidade</li>
+                            <li>Segurança de ponta a ponta</li>
+                            <li>Escalabilidade sob demanda</li>
                         </ul>
-                        <div class="plan-footer">
-                            <span class="plan-note">*Consultar Disponibilidade</span>
-                            <a href="https://api.whatsapp.com/send?phone=553491339002&text=Olá! Tenho interesse no Plano Residencial 300Mb" target="_blank" class="btn btn-primary">Contratar</a>
+                        <div class="product-footer">
+                            <button class="btn btn-primary btn-ver-mais">Ver mais</button>
                         </div>
                     </article>
 
-                    <!-- Plano Empresarial -->
-                    <article class="plan-card">
-                        <div class="plan-header">
-                            <span class="plan-type">Empresarial</span>
-                            <div class="plan-speed">
-                                <span class="speed-value">900</span>
-                                <span class="speed-unit">Mb</span>
-                            </div>
+                    <!-- Link para Eventos -->
+                    <article class="product-card" data-product="eventos">
+                        <div class="product-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M8 2v4M16 2v4"/>
+                                <rect x="3" y="4" width="18" height="18" rx="2"/>
+                                <path d="M3 10h18"/>
+                                <path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/>
+                            </svg>
                         </div>
-                        <ul class="plan-features">
-                            <li>Suporte Técnico</li>
-                            <li>NOC Pró-Ativo</li>
-                            <li>Monitoramento do Link</li>
-                            <li>Garantia de Banda</li>
+                        <div class="product-header">
+                            <h3 class="product-type">Link para Eventos</h3>
+                            <p class="product-subtitle">Internet temporária de alta capacidade</p>
+                        </div>
+                        <ul class="product-features">
+                            <li>Instalação rápida</li>
+                            <li>Alta capacidade de banda</li>
+                            <li>Suporte técnico no local</li>
+                            <li>Conexão estável garantida</li>
+                            <li>Contratação flexível</li>
                         </ul>
-                        <div class="plan-footer">
-                            <span class="plan-note">*Consultar Disponibilidade</span>
-                            <a href="https://api.whatsapp.com/send?phone=553491339002&text=Olá! Tenho interesse no Plano Empresarial 900Mb" target="_blank" class="btn btn-outline">Contratar</a>
+                        <div class="product-footer">
+                            <button class="btn btn-outline btn-ver-mais">Ver mais</button>
                         </div>
                     </article>
                 </div>
             </div>
         </section>
+
+        <!-- Modal de Produtos -->
+        <div class="product-modal" id="productModal">
+            <div class="product-modal-overlay"></div>
+            <div class="product-modal-content">
+                <button class="product-modal-close" aria-label="Fechar">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 6L6 18M6 6l12 12"/>
+                    </svg>
+                </button>
+                <div class="product-modal-header">
+                    <div class="product-modal-icon"></div>
+                    <h3 class="product-modal-title"></h3>
+                </div>
+                <div class="product-modal-body">
+                    <p class="product-modal-description"></p>
+                    <div class="product-modal-details">
+                        <h4>Benefícios</h4>
+                        <ul class="product-modal-benefits"></ul>
+                    </div>
+                    <div class="product-modal-usecases">
+                        <h4>Ideal para</h4>
+                        <ul class="product-modal-cases"></ul>
+                    </div>
+                </div>
+                <div class="product-modal-footer">
+                    <a href="#" class="btn btn-primary btn-whatsapp" target="_blank">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                        </svg>
+                        Solicitar Proposta
+                    </a>
+                </div>
+            </div>
+        </div>
 
         <!-- Insights Section -->
         <section id="insights" class="section insights">
@@ -457,8 +549,8 @@
                         </button>
                     </div>
                     <div class="ferramentas-grid">
-                        <div class="ferramenta-card">
-                            <div class="ferramenta-header">
+                        <div class="ferramenta-card" data-tool="speedtest">
+                            <div class="ferramenta-header" data-toggle="speedtest">
                                 <div class="ferramenta-icon">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
@@ -468,20 +560,25 @@
                                     <h3>Speed Test</h3>
                                     <p>Teste a velocidade da sua conexão</p>
                                 </div>
-                                <a href="https://velocidade.audicomtelecom.com.br/" target="_blank" class="ferramenta-external" aria-label="Abrir em nova aba">
+                                <a href="https://velocidade.audicomtelecom.com.br/" target="_blank" class="ferramenta-external" aria-label="Abrir em nova aba" onclick="event.stopPropagation();">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                                         <polyline points="15 3 21 3 21 9"></polyline>
                                         <line x1="10" y1="14" x2="21" y2="3"></line>
                                     </svg>
                                 </a>
+                                <div class="ferramenta-toggle-arrow">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="6 9 12 15 18 9"></polyline>
+                                    </svg>
+                                </div>
                             </div>
                             <div class="ferramenta-iframe" id="speedtest-iframe">
                                 <iframe data-src="https://velocidade.audicomtelecom.com.br/" frameborder="0" loading="lazy" scrolling="no"></iframe>
                             </div>
                         </div>
-                        <div class="ferramenta-card">
-                            <div class="ferramenta-header">
+                        <div class="ferramenta-card" data-tool="lookingglass">
+                            <div class="ferramenta-header" data-toggle="lookingglass">
                                 <div class="ferramenta-icon">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <circle cx="12" cy="12" r="10"></circle>
@@ -493,13 +590,18 @@
                                     <h3>Looking Glass</h3>
                                     <p>Diagnóstico de rede e rotas BGP</p>
                                 </div>
-                                <a href="https://lg.audicomtelecom.com.br/" target="_blank" class="ferramenta-external" aria-label="Abrir em nova aba">
+                                <a href="https://lg.audicomtelecom.com.br/" target="_blank" class="ferramenta-external" aria-label="Abrir em nova aba" onclick="event.stopPropagation();">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                                         <polyline points="15 3 21 3 21 9"></polyline>
                                         <line x1="10" y1="14" x2="21" y2="3"></line>
                                     </svg>
                                 </a>
+                                <div class="ferramenta-toggle-arrow">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="6 9 12 15 18 9"></polyline>
+                                    </svg>
+                                </div>
                             </div>
                             <div class="ferramenta-iframe" id="lookingglass-iframe">
                                 <iframe data-src="https://lg.audicomtelecom.com.br/" frameborder="0" loading="lazy" scrolling="no"></iframe>
@@ -621,9 +723,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
     <script src="js/onoff.js"></script>
-    <script src="js/staggered-menu.js"></script>
+    <script src="js/pill-nav.js"></script>
     <script src="js/card-swap.js"></script>
     <script src="js/spotlight-card.js"></script>
+    <script src="js/magic-bento.js"></script>
+    <script src="js/product-modal.js"></script>
     <!-- Background Effects -->
     <script src="background/fiber-canvas.js"></script>
     <script src="background/floating-lines.js"></script>
@@ -631,6 +735,7 @@
     <script src="background/orb.js"></script>
     <script src="js/network-tools.js"></script>
     <script src="js/mapa-cobertura.js"></script>
+    <script src="js/bubble-menu.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

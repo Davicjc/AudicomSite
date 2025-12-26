@@ -11,6 +11,7 @@
  * - Lazy loading dos iframes (só carrega quando expande)
  * - Altura e zoom customizáveis via onoff.js
  * - Bloquear scroll nos iframes
+ * - Acordeão: apenas um card expande por vez
  * 
  * Configurações são lidas do arquivo js/onoff.js (SiteConfig)
  */
@@ -45,7 +46,8 @@
     // ELEMENTOS DO DOM
     // ============================================
     let section, toggleBtn, closeBtn, expandedContent;
-    let iframesLoaded = false;
+    let toolCards = [];
+    let loadedIframes = {}; // Track which iframes are loaded
 
     // ============================================
     // FUNÇÃO DE INICIALIZAÇÃO
@@ -58,28 +60,32 @@
         
         if (!toggleBtn || !section) return;
         
-        // Clique para expandir
+        // Clique para expandir seção principal
         toggleBtn.addEventListener('click', expand);
         
-        // Clique para recolher
+        // Clique para recolher seção principal
         if (closeBtn) {
             closeBtn.addEventListener('click', collapse);
         }
         
-        console.log('Network Tools: Pronto (modo compacto)');
+        // Configurar acordeão nos cards individuais
+        toolCards = document.querySelectorAll('.ferramenta-card');
+        toolCards.forEach(card => {
+            const header = card.querySelector('.ferramenta-header[data-toggle]');
+            if (header) {
+                header.style.cursor = 'pointer';
+                header.addEventListener('click', () => toggleCard(card));
+            }
+        });
+        
+        console.log('Network Tools: Pronto (modo acordeão - apenas um expande)');
     }
 
     // ============================================
-    // EXPANDIR SEÇÃO
+    // EXPANDIR SEÇÃO PRINCIPAL
     // ============================================
     function expand() {
         section.classList.add('expanded');
-        
-        // Lazy load: Carrega iframes apenas na primeira expansão
-        if (!iframesLoaded) {
-            loadIframes();
-            iframesLoaded = true;
-        }
         
         // Scroll suave para a seção
         setTimeout(() => {
@@ -88,36 +94,68 @@
     }
 
     // ============================================
-    // RECOLHER SEÇÃO
+    // RECOLHER SEÇÃO PRINCIPAL
     // ============================================
     function collapse() {
         section.classList.remove('expanded');
+        // Fechar todos os cards
+        toolCards.forEach(card => card.classList.remove('expanded'));
     }
 
     // ============================================
-    // CARREGAR IFRAMES (LAZY LOAD)
+    // TOGGLE CARD INDIVIDUAL (ACORDEÃO)
     // ============================================
-    function loadIframes() {
-        const iframes = expandedContent.querySelectorAll('iframe[data-src]');
+    function toggleCard(card) {
+        const toolId = card.getAttribute('data-tool');
+        const isExpanded = card.classList.contains('expanded');
         
-        iframes.forEach(iframe => {
+        // Fechar todos os outros cards (acordeão - só um aberto)
+        toolCards.forEach(c => {
+            if (c !== card) {
+                c.classList.remove('expanded');
+            }
+        });
+        
+        // Toggle do card clicado
+        if (isExpanded) {
+            card.classList.remove('expanded');
+        } else {
+            card.classList.add('expanded');
+            
+            // Lazy load do iframe apenas quando expandir pela primeira vez
+            if (!loadedIframes[toolId]) {
+                loadIframeForCard(card, toolId);
+                loadedIframes[toolId] = true;
+            }
+            
+            // Scroll suave para o card
+            setTimeout(() => {
+                card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+        }
+    }
+
+    // ============================================
+    // CARREGAR IFRAME DO CARD (LAZY LOAD)
+    // ============================================
+    function loadIframeForCard(card, toolId) {
+        const iframe = card.querySelector('iframe[data-src]');
+        if (iframe) {
             const src = iframe.getAttribute('data-src');
             if (src) {
                 iframe.setAttribute('src', src);
                 iframe.removeAttribute('data-src');
             }
-        });
+        }
         
-        // Aplicar configurações após carregar
-        setTimeout(applyConfig, 100);
-    }
-
-    // ============================================
-    // APLICAR CONFIGURAÇÕES NOS IFRAMES
-    // ============================================
-    function applyConfig() {
-        applyIframeConfig('#speedtest-iframe', CONFIG.speedTestHeight, CONFIG.speedTestZoom, CONFIG.speedTestBloquearScroll);
-        applyIframeConfig('#lookingglass-iframe', CONFIG.lookingGlassHeight, CONFIG.lookingGlassZoom, CONFIG.lookingGlassBloquearScroll);
+        // Aplicar configuração específica
+        setTimeout(() => {
+            if (toolId === 'speedtest') {
+                applyIframeConfig('#speedtest-iframe', CONFIG.speedTestHeight, CONFIG.speedTestZoom, CONFIG.speedTestBloquearScroll);
+            } else if (toolId === 'lookingglass') {
+                applyIframeConfig('#lookingglass-iframe', CONFIG.lookingGlassHeight, CONFIG.lookingGlassZoom, CONFIG.lookingGlassBloquearScroll);
+            }
+        }, 100);
     }
 
     // ============================================

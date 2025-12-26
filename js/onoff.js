@@ -22,7 +22,7 @@ const SiteConfig = {
         fiberCanvasGlowIntensity: 0.8,       // Intensidade do brilho
     
     // ---- FLOATING LINES (ondas animadas WebGL) ----
-    floatingLines: true,
+    floatingLines: false,
         // Subfunções do Floating Lines:
         floatingLinesTopWave: true,          // Onda superior
         floatingLinesMiddleWave: false,       // Onda do meio
@@ -35,7 +35,7 @@ const SiteConfig = {
         floatingLinesBendStrength: -0.1,     // Força de curvatura (mouse)
     
     // ---- MOUSE BLUR (blur que segue mouse) ----
-    mouseBlur: true,
+    mouseBlur: false,
         // Subfunções do Mouse Blur:
         mouseBlurSize: 300,                  // Tamanho do blur
         mouseBlurIntensity: 0.5,             // Intensidade
@@ -71,23 +71,13 @@ const SiteConfig = {
         orbBackgroundColor: '#081535',       // Cor de fundo (Azul Estrutura)
     
     // ============================================
-    // MENU STAGGERED (MENU ANIMADO)
+    // PILL NAV (MENU ANIMADO)
     // ============================================
     
-    // Menu animado com GSAP (substitui o header tradicional)
-    staggeredMenu: true,
-    
-    // Logo no menu staggered
-    staggeredMenuLogo: true,
-    
-    // Botão de toggle do menu
-    staggeredMenuToggle: true,
-    
-    // Redes sociais no menu
-    staggeredMenuSocials: true,
-    
-    // Efeito de crescer letra ao passar o mouse nos itens
-    staggeredMenuHoverGrow: false,
+    // ---- PILL NAV (menu estilo pílula) ----
+    pillNav: true,
+        // Subfunções do Pill Nav:
+        pillNavInitialAnimation: true,       // Animação ao carregar página
     
     // ============================================
     // HERO (TELA PRINCIPAL)
@@ -140,6 +130,20 @@ const SiteConfig = {
     planoBadgeMaisPopular: true,
     
     // ============================================
+    // SEÇÃO INSTITUCIONAL (Missão, Valores, Visão)
+    // ============================================
+    
+    // ---- CARDS INSTITUCIONAIS (efeito spotlight) ----
+    institucionalCards: true,
+    
+    // ---- BUBBLE MENU VALORES (pills animados no card Valores) ----
+    bubbleMenuValores: true,
+        // Subfunções do Bubble Menu:
+        bubbleMenuAnimationEase: 'back.out(1.5)',    // Tipo de easing da animação
+        bubbleMenuAnimationDuration: 0.5,            // Duração da animação (segundos)
+        bubbleMenuStaggerDelay: 0.08,                // Delay entre cada item
+    
+    // ============================================
     // SEÇÃO SOBRE
     // ============================================
     
@@ -166,6 +170,8 @@ const SiteConfig = {
         cardSwapPauseOnHover: false,          // Pausar ao passar mouse
         cardSwapSkewAmount: 6,               // Inclinação dos cards
         cardSwapEasing: 'elastic',           // Tipo de animação (elastic/smooth)
+        cardSwapHitboxEnabled: true,         // Hitbox invisível (resolve bug nos cantos)
+        cardSwapClickToAdvance: true,        // Clicar no card avança para próximo
     
     // ============================================
     // SEÇÃO COBERTURA
@@ -226,8 +232,10 @@ const SiteConfig = {
     // ---- FUNDO ALTERNADO (cinza entre seções) ----
     fundoAlternadoSecoes: false,          // Fundo cinza alternado em seções
     
-    // Seção de Planos
-    secaoPlanos: true,
+    // ---- SEÇÃO PRODUTOS (soluções corporativas) ----
+    secaoProdutos: true,
+        // Subfunções do Produtos:
+        produtosModalAtivo: true,            // Ativar popup de detalhes ao clicar "Ver mais"
     
     // Seção Insights
     secaoInsights: true,
@@ -492,10 +500,10 @@ document.addEventListener('DOMContentLoaded', function() {
         if (whatsappFloat) whatsappFloat.style.display = 'none';
     }
     
-    // Seção Planos
-    if (!SiteConfig.secaoPlanos) {
-        const secaoPlanos = document.getElementById('planos');
-        if (secaoPlanos) secaoPlanos.style.display = 'none';
+    // Seção Produtos
+    if (!SiteConfig.secaoProdutos) {
+        const secaoProdutos = document.getElementById('produtos');
+        if (secaoProdutos) secaoProdutos.style.display = 'none';
     }
     
     // Seção Insights
