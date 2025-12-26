@@ -17,12 +17,52 @@
     // ============================================
     const CIDADES = [
         {
+            nome: 'Uberaba',
+            id: 'uberaba',
+            lat: -19.7472,
+            lng: -47.9318,
+            principal: false,
+            descricao: 'Cobertura completa'
+        },
+        {
             nome: 'Uberlândia',
             id: 'uberlandia',
             lat: -18.9186,
             lng: -48.2772,
             principal: true,  // Sede da empresa
             descricao: 'Sede - Cobertura total'
+        },
+        {
+            nome: 'Tapuirama',
+            id: 'tapuirama',
+            lat: -19.3219,
+            lng: -49.3881,
+            principal: false,
+            descricao: 'Cobertura completa'
+        },
+        {
+            nome: 'Martinésia',
+            id: 'martineza',
+            lat: -18.8083,
+            lng: -48.7389,
+            principal: false,
+            descricao: 'Cobertura completa'
+        },
+        {
+            nome: 'Cruzeiro dos Peixotos',
+            id: 'cruzeirodospeixotos',
+            lat: -19.4306,
+            lng: -48.3711,
+            principal: false,
+            descricao: 'Cobertura completa'
+        },
+        {
+            nome: 'Tupaciguara',
+            id: 'tupaciguara',
+            lat: -18.5931,
+            lng: -48.7050,
+            principal: false,
+            descricao: 'Cobertura completa'
         },
         {
             nome: 'Araguari',
@@ -33,34 +73,26 @@
             descricao: 'Cobertura completa'
         },
         {
-            nome: 'Uberaba',
-            id: 'uberaba',
-            lat: -19.7472,
-            lng: -47.9318,
+            nome: 'Indianópolis',
+            id: 'indianopolis',
+            lat: -18.9822,
+            lng: -47.9186,
             principal: false,
             descricao: 'Cobertura completa'
         },
         {
-            nome: 'Prata',
-            id: 'prata',
-            lat: -19.3097,
-            lng: -48.9272,
+            nome: 'Delta',
+            id: 'delta',
+            lat: -19.9833,
+            lng: -47.7667,
             principal: false,
             descricao: 'Cobertura completa'
         },
         {
-            nome: 'Monte Alegre de Minas',
-            id: 'montealegre',
-            lat: -18.8697,
-            lng: -48.8808,
-            principal: false,
-            descricao: 'Cobertura completa'
-        },
-        {
-            nome: 'Cachoeira Dourada',
-            id: 'cachoeiradourada',
-            lat: -18.5147,
-            lng: -49.4833,
+            nome: 'Cristalina',
+            id: 'cristalina',
+            lat: -16.7694,
+            lng: -47.6133,
             principal: false,
             descricao: 'Cobertura completa'
         }
@@ -159,6 +191,21 @@
         
         itens.forEach(item => {
             const cidadeId = item.getAttribute('data-cidade');
+            
+            // Botão "Geral" - volta ao zoom original
+            if (cidadeId === 'geral') {
+                item.addEventListener('click', () => {
+                    mapa.invalidateSize();
+                    const bounds = L.latLngBounds(CIDADES.map(c => [c.lat, c.lng]));
+                    mapa.flyToBounds(bounds, { 
+                        padding: [50, 50],
+                        animate: true,
+                        duration: 0.8
+                    });
+                });
+                return;
+            }
+            
             const marker = markers.find(m => m.cidadeId === cidadeId);
             
             if (marker) {

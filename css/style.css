@@ -1183,16 +1183,53 @@ body:hover #mouse-blur {
 }
 
 .feature-item {
-    padding: var(--space-md);
-    background: rgba(8, 21, 53, 0.5);
-    border: 1px solid rgba(244, 246, 249, 0.05);
-    border-radius: var(--radius-md);
-    transition: all var(--transition-medium);
+    position: relative;
+    padding: 2rem;
+    background: rgba(10, 26, 58, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(143, 153, 168, 0.1);
+    border-radius: 1.5rem;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    /* Variáveis CSS para o spotlight */
+    --mouse-x: 50%;
+    --mouse-y: 50%;
+    --spotlight-color: rgba(0, 36, 156, 0.2);
+}
+
+/* Efeito Spotlight - Pseudo-elemento para o holofote */
+.feature-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+        circle 600px at var(--mouse-x) var(--mouse-y),
+        var(--spotlight-color),
+        transparent 80%
+    );
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.feature-item:hover::before,
+.feature-item:focus-within::before {
+    opacity: 0.6;
+}
+
+/* Garantir que o conteúdo fique acima do spotlight */
+.feature-item > * {
+    position: relative;
+    z-index: 1;
 }
 
 .feature-item:hover {
-    border-color: rgba(0, 36, 156, 0.3);
-    transform: translateY(-3px);
+    border-color: rgba(0, 36, 156, 0.4);
+    transform: translateY(-2px);
 }
 
 .feature-icon {
@@ -1227,15 +1264,17 @@ body:hover #mouse-blur {
 }
 
 .cobertura-content {
-    display: grid;
-    grid-template-columns: 1fr 300px;
+    display: flex;
+    flex-direction: column;
     gap: var(--space-lg);
-    align-items: start;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 /* Container do Mapa */
 .mapa-container {
-    height: 450px;
+    height: 500px;
+    width: 100%;
     border-radius: var(--radius-lg);
     overflow: hidden;
     border: 1px solid rgba(244, 246, 249, 0.1);
@@ -1308,41 +1347,41 @@ body:hover #mouse-blur {
     background: rgba(8, 21, 53, 0.6);
     border: 1px solid rgba(244, 246, 249, 0.1);
     border-radius: var(--radius-lg);
-    padding: var(--space-md);
+    padding: var(--space-lg);
     backdrop-filter: blur(10px);
+    width: 100%;
 }
 
 .cidades-lista h3 {
     font-family: var(--font-display);
-    font-size: 0.875rem;
+    font-size: 1.125rem;
     font-weight: 600;
-    color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    color: var(--text-primary);
     margin-bottom: var(--space-md);
-    padding-bottom: var(--space-xs);
-    border-bottom: 1px solid rgba(0, 36, 156, 0.3);
+    padding-bottom: var(--space-sm);
+    border-bottom: 2px solid rgba(0, 36, 156, 0.3);
 }
 
 .cities-grid {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-xs);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-sm);
 }
 
 .city-item {
     display: flex;
     align-items: center;
     gap: var(--space-sm);
-    font-family: var(--font-body);
-    font-size: 0.9rem;
-    font-weight: 500;
-    padding: var(--space-sm);
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 0.875rem var(--space-md);
     background: rgba(10, 26, 58, 0.4);
     border: 1px solid rgba(244, 246, 249, 0.05);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-md);
     cursor: pointer;
     transition: all var(--transition-fast);
+    color: var(--text-primary);
 }
 
 .city-item:hover,
@@ -1365,6 +1404,26 @@ body:hover #mouse-blur {
 .city-item.active .city-marker {
     background: #00D4FF;
     box-shadow: 0 0 12px rgba(0, 212, 255, 0.8);
+}
+
+/* Botão Geral */
+.city-geral {
+    background: rgba(0, 36, 156, 0.3);
+    border: 2px solid var(--accent);
+    color: var(--text-primary);
+    font-weight: 600;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.city-geral svg {
+    flex-shrink: 0;
+}
+
+.city-geral:hover {
+    background: rgba(0, 36, 156, 0.5);
+    border-color: #00D4FF;
+    transform: scale(1.02);
 }
 
 /* Responsivo */
@@ -2147,17 +2206,12 @@ body:hover #mouse-blur {
     }
     
     /* Mapa Cobertura */
-    .cobertura-content {
-        grid-template-columns: 1fr;
-    }
-    
     .mapa-container {
         height: 350px;
-        order: 2;
     }
     
-    .cidades-lista {
-        order: 1;
+    .cities-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 

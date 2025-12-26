@@ -13,7 +13,7 @@ const SiteConfig = {
     // ============================================
     
     // ---- FIBER CANVAS (teia de conexões) ----
-    fiberCanvas: false,
+    fiberCanvas: true,
         // Subfunções do Fiber Canvas:
         fiberCanvasParticleCount: 80,        // Quantidade de partículas
         fiberCanvasConnectionDistance: 150,  // Distância de conexão
@@ -22,12 +22,12 @@ const SiteConfig = {
         fiberCanvasGlowIntensity: 0.8,       // Intensidade do brilho
     
     // ---- FLOATING LINES (ondas animadas WebGL) ----
-    floatingLines: false,
+    floatingLines: true,
         // Subfunções do Floating Lines:
-        floatingLinesTopWave: false,          // Onda superior
-        floatingLinesMiddleWave: true,       // Onda do meio
-        floatingLinesBottomWave: false,       // Onda inferior
-        floatingLinesLineCount: 6,           // Quantidade de linhas por onda
+        floatingLinesTopWave: true,          // Onda superior
+        floatingLinesMiddleWave: false,       // Onda do meio
+        floatingLinesBottomWave: true,       // Onda inferior
+        floatingLinesLineCount: 10,           // Quantidade de linhas por onda
         floatingLinesLineDistance: 5,        // Distância entre linhas
         floatingLinesAnimationSpeed: 1.5,    // Velocidade da animação
         floatingLinesInteractive: false,     // Reação ao mouse
@@ -35,7 +35,7 @@ const SiteConfig = {
         floatingLinesBendStrength: -0.1,     // Força de curvatura (mouse)
     
     // ---- MOUSE BLUR (blur que segue mouse) ----
-    mouseBlur: false,
+    mouseBlur: true,
         // Subfunções do Mouse Blur:
         mouseBlurSize: 300,                  // Tamanho do blur
         mouseBlurIntensity: 0.5,             // Intensidade
@@ -145,6 +145,11 @@ const SiteConfig = {
     
     // Grid de features (Infraestrutura, Suporte 24h, Alta Velocidade)
     sobreFeaturesGrid: true,
+    
+    // ---- SPOTLIGHT CARD (efeito holofote nos cards) ----
+    spotlightCard: true,
+        // Subfunções do Spotlight Card:
+        spotlightCardColor: 'rgba(0, 36, 156, 0.2)',    // Cor do holofote (Azul Conexão)
     
     // ============================================
     // SEÇÃO INSIGHTS
