@@ -75,9 +75,15 @@ const SiteConfig = {
     // ============================================
     
     // ---- PILL NAV (menu estilo pílula) ----
-    pillNav: true,
+    pillNav: false,
         // Subfunções do Pill Nav:
         pillNavInitialAnimation: true,       // Animação ao carregar página
+    
+    // ---- HAMBURGER NAV (menu hambúrguer 3 barras) ----
+    hamburgerNav: true,
+        // Subfunções do Hamburger Nav:
+        hamburgerNavAnimation: true,         // Animação ao abrir/fechar
+        hamburgerNavPosition: 'left',       // Posição: 'left' ou 'right'
     
     // ============================================
     // HERO (TELA PRINCIPAL)

@@ -9,7 +9,14 @@
 
     // Verifica configuração
     const SC = typeof SiteConfig !== 'undefined' ? SiteConfig : {};
-    if (SC.pillNav === false) return;
+    if (SC.pillNav === false) {
+        // Esconder o container do pill-nav se estiver desativado
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.querySelector('.pill-nav-container');
+            if (container) container.style.display = 'none';
+        });
+        return;
+    }
 
     // Configurações
     const CONFIG = {

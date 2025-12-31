@@ -24,27 +24,27 @@
     const VALORES_ITEMS = [
         {
             label: 'Foco no cliente',
-            rotation: -4,
+            rotation: 0,
             hoverStyles: { bgColor: '#00249C', textColor: '#ffffff' }
         },
         {
             label: 'Transparência',
-            rotation: 3,
+            rotation: 0,
             hoverStyles: { bgColor: '#10b981', textColor: '#ffffff' }
         },
         {
             label: 'Inovação',
-            rotation: -2,
+            rotation: 0,
             hoverStyles: { bgColor: '#f59e0b', textColor: '#ffffff' }
         },
         {
             label: 'Colaboração',
-            rotation: 4,
+            rotation: 0,
             hoverStyles: { bgColor: '#ef4444', textColor: '#ffffff' }
         },
         {
             label: 'Impacto positivo',
-            rotation: -3,
+            rotation: 0,
             hoverStyles: { bgColor: '#8b5cf6', textColor: '#ffffff' }
         }
     ];

@@ -144,6 +144,184 @@ body:hover #mouse-blur {
 }
 
 /* ============================================
+   HAMBURGER NAV (Menu 3 barras)
+   ============================================ */
+.hamburger-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    z-index: 9999;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hamburger-nav--hidden {
+    transform: translateY(-100%);
+}
+
+.hamburger-nav--left {
+    flex-direction: row-reverse;
+}
+
+/* Logo */
+.hamburger-logo {
+    display: flex;
+    align-items: center;
+}
+
+.hamburger-logo img {
+    height: 40px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    transition: opacity var(--transition-fast);
+}
+
+.hamburger-logo:hover img {
+    opacity: 0.8;
+}
+
+/* Toggle Button */
+.hamburger-toggle {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 10001;
+}
+
+.hamburger-bar {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--branco-tecnico);
+    border-radius: 2px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+}
+
+/* Animação do X */
+.hamburger-toggle.active .hamburger-bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger-toggle.active .hamburger-bar:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.hamburger-toggle.active .hamburger-bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Hover effect */
+.hamburger-toggle:hover .hamburger-bar {
+    background: var(--azul-conexao);
+}
+
+/* Overlay */
+.hamburger-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(8, 21, 53, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 9998;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hamburger-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Menu Content */
+.hamburger-menu-content {
+    text-align: center;
+}
+
+.hamburger-menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.hamburger-menu-list li {
+    margin: 0.5rem 0;
+}
+
+.hamburger-menu-link {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    font-weight: 600;
+    color: var(--branco-tecnico);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.hamburger-menu-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: var(--azul-conexao);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(-50%);
+}
+
+.hamburger-menu-link:hover {
+    color: var(--azul-conexao);
+}
+
+.hamburger-menu-link:hover::before {
+    width: 100%;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .hamburger-nav {
+        padding: 0.75rem 1rem;
+    }
+    
+    .hamburger-logo img {
+        height: 32px;
+    }
+    
+    .hamburger-toggle {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .hamburger-bar {
+        width: 20px;
+    }
+}
+
+/* ============================================
    PILL NAV
    ============================================ */
 .pill-nav-container {
@@ -3919,14 +4097,16 @@ body:hover #mouse-blur {
 @media (max-width: 768px) {
     .insights {
         padding: var(--space-lg) 0;
-        overflow: visible;
+        padding-bottom: calc(var(--space-xl) + 40px);
+        overflow: hidden;
+        position: relative;
     }
     
     .insights-wrapper {
         grid-template-columns: 1fr;
         gap: 2rem;
         min-height: auto;
-        padding-bottom: 0;
+        padding-bottom: 100px;
     }
     
     .insights-content {
@@ -3944,17 +4124,17 @@ body:hover #mouse-blur {
         order: 2;
         width: 100%;
         max-width: 100%;
-        height: 280px;
+        height: 340px;
         margin: 0 auto;
         margin-top: 1rem;
+        position: relative;
     }
     
     .swap-card {
         width: calc(100% - 2rem) !important;
         max-width: 320px !important;
-        height: 240px !important;
+        height: 220px !important;
         left: 50% !important;
-        transform: translateX(-50%) !important;
     }
     
     .swap-card:nth-child(2) {
@@ -3985,9 +4165,10 @@ body:hover #mouse-blur {
     }
     
     .card-swap-nav {
-        bottom: -50px;
+        bottom: -60px;
         right: 50%;
         transform: translateX(50%);
+        z-index: 5;
     }
 }
 
@@ -3997,6 +4178,8 @@ body:hover #mouse-blur {
 @media (max-width: 768px) {
     .sobre {
         padding: var(--space-lg) 0;
+        position: relative;
+        z-index: 10;
     }
     
     .sobre-content {
