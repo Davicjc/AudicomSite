@@ -42,9 +42,10 @@
                 <li><a href="#produtos" class="hamburger-menu-link" data-index="1">Produtos</a></li>
                 <li><a href="#insights" class="hamburger-menu-link" data-index="2">Insights</a></li>
                 <li><a href="#sobre" class="hamburger-menu-link" data-index="3">Sobre</a></li>
-                <li><a href="#cobertura" class="hamburger-menu-link" data-index="4">Cobertura</a></li>
-                <li><a href="#ferramentas" class="hamburger-menu-link" data-index="5">Ferramentas</a></li>
-                <li><a href="#contato" class="hamburger-menu-link" data-index="6">Contato</a></li>
+                <li><a href="#quem-atendemos" class="hamburger-menu-link" data-index="4">Quem Atendemos</a></li>
+                <li><a href="#cobertura" class="hamburger-menu-link" data-index="5">Cobertura</a></li>
+                <li><a href="#ferramentas" class="hamburger-menu-link" data-index="6">Ferramentas</a></li>
+                <li><a href="#contato" class="hamburger-menu-link" data-index="7">Contato</a></li>
             </ul>
         </div>
     </div>
@@ -135,6 +136,7 @@
                 <li><a href="#produtos" class="mobile-menu-link">Produtos</a></li>
                 <li><a href="#insights" class="mobile-menu-link">Insights</a></li>
                 <li><a href="#sobre" class="mobile-menu-link">Sobre</a></li>
+                <li><a href="#quem-atendemos" class="mobile-menu-link">Quem Atendemos</a></li>
                 <li><a href="#cobertura" class="mobile-menu-link">Cobertura</a></li>
                 <li><a href="#ferramentas" class="mobile-menu-link">Ferramentas</a></li>
                 <li><a href="#contato" class="mobile-menu-link">Contato</a></li>
@@ -497,6 +499,22 @@
             </div>
         </section>
 
+        <!-- Quem Atendemos Section -->
+        <section id="quem-atendemos" class="section quem-atendemos">
+            <div class="container">
+                <div class="section-header centered">
+                    <span class="section-tag">Parceiros</span>
+                    <h2 class="section-title">Quem Atendemos</h2>
+                </div>
+                <div class="dome-gallery-wrapper">
+                    <p class="dome-gallery-hint">Clique em algum para ver mais!</p>
+                    <div class="dome-gallery-neon-border">
+                        <div id="dome-gallery-container"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Cobertura Section -->
         <section id="cobertura" class="section cobertura">
             <div class="container">
@@ -513,6 +531,7 @@
                     
                     <div class="cidades-lista">
                         <h3>Cidades atendidas</h3>
+                        <p class="cidades-hint">Clique em alguma para ver no mapa!</p>
                         <div class="cities-grid">
                             <button class="city-item city-geral" data-cidade="geral">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -768,6 +787,7 @@
                     <a href="https://www.radb.net/query?advanced_query=&keywords=AS268289" target="_blank">RADb</a>
                 </div>
                 <p class="footer-copyright">© <span id="current-year"></span> | audıcom telecom - direitos reservados</p>
+                <a href="https://davicjc.github.io/PortfolioPessoal" target="_blank" class="footer-copyright footer-author">By Davicjc</a>
                 <script>document.getElementById('current-year').textContent = new Date().getFullYear();</script>
             </div>
         </div>
@@ -802,6 +822,8 @@
     <script src="background/orb.js"></script>
     <script src="js/network-tools.js"></script>
     <script src="js/mapa-cobertura.js"></script>
+    <script src="js/dome-gallery-titulos.js"></script>
+    <script src="js/dome-gallery.js"></script>
     <script src="js/bubble-menu.js"></script>
     <script src="js/main.js"></script>
 </body>

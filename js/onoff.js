@@ -16,8 +16,8 @@ const SiteConfig = {
     electricBorder: true,
         // Subfunções do Electric Border:
         electricBorderColor: '#00249C',      // Cor da borda (Azul Conexão)
-        electricBorderSpeed: 0.3,              // Velocidade da animação
-        electricBorderChaos: 0.03,           // Intensidade do caos/ruído
+        electricBorderSpeed: 0.1,              // Velocidade da animação
+        electricBorderChaos: 0.001,           // Intensidade do caos/ruído
         electricBorderRadius: 0.1,            // Raio das bordas arredondadas
         // Onde aplicar:
         electricBorderTitulo: true,          // Título "Principais Produtos"
@@ -287,6 +287,30 @@ const SiteConfig = {
     // Seção Sobre
     secaoSobre: true,
     
+    // ---- SEÇÃO QUEM ATENDEMOS (galeria 3D de logos) ----
+    secaoQuemAtendemos: true,
+        // Subfunções do Quem Atendemos:
+        domeGallery: true,                   // Ativar galeria 3D esférica
+        domeGallerySegments: 34,             // Número de segmentos da esfera
+        domeGalleryFit: 0.8,                 // Ajuste de tamanho
+        domeGalleryMinRadius: 600,           // Raio mínimo (px)
+        domeGalleryMaxRadius: 800,           // Raio máximo (px)
+        domeGalleryBlurColor: '#081535',     // Cor de blur das bordas (Azul Estrutura)
+        domeGalleryMaxVerticalRotation: 0,   // Rotação vertical máxima (graus)
+        domeGalleryDragSensitivity: 20,      // Sensibilidade do arraste
+        domeGalleryDragEnabled: false,       // Arraste com mouse desativado
+        domeGalleryEnlargeTransition: 300,   // Duração da transição ao abrir (ms)
+        domeGalleryDragDampening: 2,         // Amortecimento do arraste
+        domeGalleryImageBorderRadius: '12px', // Borda dos tiles
+        domeGalleryOpenedBorderRadius: '20px', // Borda da imagem aberta
+        domeGalleryOpenedWidth: '300px',     // Largura da imagem aberta
+        domeGalleryOpenedHeight: '300px',    // Altura da imagem aberta
+        domeGalleryGrayscale: true,          // Imagens em escala de cinza
+        domeGalleryAutoRotate: true,         // Rotação automática
+        domeGalleryAutoRotateSpeed: 0.05,    // Velocidade da rotação automática (menor = mais lento)
+        domeGalleryNeonBorder: true,         // Efeito neon na borda do container
+        domeGalleryMostrarTitulo: true,      // Mostrar título ao expandir imagem
+    
     // ---- SEÇÃO COBERTURA / ONDE ESTAMOS ----
     secaoCobertura: true,
         // Subfunções do Mapa de Cobertura:
@@ -548,6 +572,22 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!SiteConfig.secaoSobre) {
         const secaoSobre = document.getElementById('sobre');
         if (secaoSobre) secaoSobre.style.display = 'none';
+    }
+    
+    // Seção Quem Atendemos
+    if (!SiteConfig.secaoQuemAtendemos) {
+        const secaoQuemAtendemos = document.getElementById('quem-atendemos');
+        if (secaoQuemAtendemos) secaoQuemAtendemos.style.display = 'none';
+    }
+    
+    // Efeito Neon na borda do Dome Gallery
+    if (SiteConfig.domeGalleryNeonBorder === false) {
+        const neonBorder = document.querySelector('.dome-gallery-neon-border');
+        if (neonBorder) {
+            neonBorder.style.background = 'transparent';
+            neonBorder.style.boxShadow = 'none';
+            neonBorder.style.animation = 'none';
+        }
     }
     
     // Seção Cobertura
