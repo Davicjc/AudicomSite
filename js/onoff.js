@@ -22,7 +22,7 @@ const SiteConfig = {
         fiberCanvasGlowIntensity: 0.8,       // Intensidade do brilho
     
     // ---- FLOATING LINES (ondas animadas WebGL) ----
-    floatingLines: false,
+    floatingLines: true,
         // Subfunções do Floating Lines:
         floatingLinesTopWave: true,          // Onda superior
         floatingLinesMiddleWave: false,       // Onda do meio
@@ -57,7 +57,7 @@ const SiteConfig = {
         rippleGridMouseRadius: 1.2,          // Raio de interação do mouse
     
     // ---- ORB (esfera fluida animada WebGL) ----
-    orb: false,
+    orb: true,
         // Subfunções do Orb:
         orbSize: 1300,                        // Tamanho da esfera (px)
         orbColor1: '#9C43FE',                // Cor primária (roxo)
