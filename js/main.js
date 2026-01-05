@@ -254,6 +254,30 @@
     }
 
     /**
+     * Apply hero element offsets from SiteConfig
+     */
+    function applyHeroOffsets() {
+        const SC = typeof SiteConfig !== 'undefined' ? SiteConfig : {};
+        const root = document.documentElement;
+        const heroContent = document.querySelector('.hero-content');
+        
+        // Offset do título "audicom telecom" (move todo o bloco hero-content)
+        if (heroContent && typeof SC.heroTitleOffset === 'number') {
+            heroContent.style.marginTop = `${SC.heroTitleOffset}px`;
+        }
+        
+        // Offset do subtítulo "Compromisso inabalável..."
+        if (typeof SC.heroSubtitleOffset === 'number') {
+            root.style.setProperty('--hero-subtitle-offset', `${SC.heroSubtitleOffset}px`);
+        }
+        
+        // Offset dos botões
+        if (typeof SC.heroButtonsOffset === 'number') {
+            root.style.setProperty('--hero-buttons-offset', `${SC.heroButtonsOffset}px`);
+        }
+    }
+
+    /**
      * Initialize all functionality
      */
     function init() {
@@ -264,6 +288,7 @@
         animateSpeedValues();
         initMagneticButtons();
         initParallax();
+        applyHeroOffsets();
 
         // Scroll events with throttling
         const throttledScroll = throttle(() => {

@@ -90,6 +90,11 @@ const SiteConfig = {
     // HERO (TELA PRINCIPAL)
     // ============================================
     
+    // ---- POSICIONAMENTO DOS ELEMENTOS ----
+    heroTitleOffset: 0,                      // Offset do título "audicom telecom" (px). 0 = centro da logo
+    heroSubtitleOffset: 120,                 // Offset do subtítulo "Compromisso inabalável..." (px)
+    heroButtonsOffset: 30,                   // Offset dos botões "Ver Planos" e "WhatsApp" (px)
+    
     // Logo grande de fundo atrás do título
     heroBackgroundLogo: true,
     

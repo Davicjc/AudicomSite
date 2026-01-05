@@ -43,7 +43,7 @@
                 <rect x="16" y="15" width="6" height="6" rx="1"/>
                 <path d="M8 6h8M8 18h8M5 9v6M19 9v6"/>
             </svg>`,
-            description: 'O Link Lan to Lan (também conhecido como MPLS - Multiprotocol Label Switching) é uma solução de rede privada que interconecta múltiplas unidades da sua empresa de forma segura e eficiente. Ideal para empresas com filiais, escritórios remotos ou que precisam integrar diferentes localidades em uma única rede corporativa.',
+            description: 'O Link Lan to Lan é uma solução de rede privada que interconecta múltiplas unidades da sua empresa de forma segura e eficiente. Ideal para empresas com filiais, escritórios remotos ou que precisam integrar diferentes localidades em uma única rede corporativa.',
             benefits: [
                 'Rede privada exclusiva entre suas unidades',
                 'Comunicação segura sem exposição à internet pública',

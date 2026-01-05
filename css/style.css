@@ -835,13 +835,19 @@ body:hover #mouse-blur {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding-top: 100px;
+    padding-top: 0;
 }
 
 .hero-content {
     max-width: 800px;
-    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .hero-badge {
@@ -869,12 +875,14 @@ body:hover #mouse-blur {
     line-height: 0.95;
     letter-spacing: -0.02em;
     margin-bottom: var(--space-md);
-    text-align: left;
-    display: inline-block;
+    text-align: center !important;
+    display: block;
+    width: 100%;
 }
 
 .title-line {
     display: block;
+    text-align: center !important;
     opacity: 0;
     animation: fadeInUp 0.8s ease forwards;
 }
@@ -902,8 +910,9 @@ body:hover #mouse-blur {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     font-size: 0.55em;
-    margin-left: 50%;
+    margin-left: 0 !important;
     margin-top: -0.1em;
+    text-align: center !important;
 }
 
 /* Hero Background Logo */
@@ -915,6 +924,35 @@ body:hover #mouse-blur {
     z-index: 2;
     pointer-events: none;
     animation: floatLogo 6s ease-in-out infinite;
+}
+
+/* Título centralizado exatamente na logo */
+.hero-title-centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 12vw, 8rem);
+    font-weight: 700;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* Subtítulo e botões fixos abaixo do título */
+.hero-bottom-fixed {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 120px);
+    text-align: center;
+    z-index: 10;
+    width: 100%;
+    max-width: 600px;
 }
 
 @keyframes floatLogo {
@@ -954,6 +992,7 @@ body:hover #mouse-blur {
     font-size: 1.125rem;
     color: var(--text-secondary);
     margin-bottom: var(--space-md);
+    margin-top: var(--hero-subtitle-offset, 0px);
     opacity: 0;
     animation: fadeInUp 0.8s ease forwards;
     animation-delay: 0.8s;
@@ -963,18 +1002,20 @@ body:hover #mouse-blur {
     display: flex;
     justify-content: center;
     gap: var(--space-sm);
+    margin-top: var(--hero-buttons-offset, 0px);
     opacity: 0;
     animation: fadeInUp 0.8s ease forwards;
     animation-delay: 1s;
 }
 
 .hero-bottom {
-    position: absolute;
-    bottom: 120px;
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
     text-align: center;
     z-index: 5;
+    margin-top: 0;
 }
 
 /* Scroll Indicator */
@@ -2460,7 +2501,7 @@ body:hover #mouse-blur {
     }
     
     .title-telecom {
-        margin-left: 30%;
+        margin-left: 0;
         font-size: 0.5em;
     }
     
@@ -2508,7 +2549,7 @@ body:hover #mouse-blur {
     }
     
     .title-telecom {
-        margin-left: 25%;
+        margin-left: 0;
         font-size: 0.45em;
     }
     
@@ -2955,12 +2996,17 @@ body:hover #mouse-blur {
     /* Hero */
     .hero {
         min-height: 100vh;
-        padding-top: 100px;
+        padding-top: 0;
     }
     
     .hero-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         text-align: center;
         padding: 0 var(--space-sm);
+        width: 100%;
     }
     
     .hero-title {
@@ -2969,7 +3015,7 @@ body:hover #mouse-blur {
     }
     
     .title-telecom {
-        margin-left: 20%;
+        margin-left: 0;
         font-size: 0.5em;
     }
     
@@ -2988,11 +3034,6 @@ body:hover #mouse-blur {
         top: 30%;
     }
     
-    .hero-content {
-        position: relative;
-        z-index: 10;
-    }
-    
     .hero-bottom {
         position: relative;
         bottom: auto;
@@ -3002,6 +3043,34 @@ body:hover #mouse-blur {
         padding: 0 var(--space-sm);
     }
     
+    /* Mobile: título e bottom fixos */
+    .hero-title-centered {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: clamp(2.5rem, 14vw, 4rem);
+        width: 90%;
+    }
+    
+    .hero-bottom-fixed {
+        position: absolute;
+        top: auto;
+        bottom: 100px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        padding: 0 var(--space-sm);
+    }
+    
+    .hero-bottom-fixed .hero-cta {
+        flex-direction: column;
+        gap: var(--space-sm);
+    }
+    
+    .hero-bottom-fixed .hero-cta .btn {
+        width: 100%;
+    }
     .hero-cta {
         flex-direction: column;
         width: 100%;
@@ -3147,8 +3216,25 @@ body:hover #mouse-blur {
     }
     
     .title-telecom {
-        margin-left: 15%;
+        margin-left: 0;
         font-size: 0.45em;
+    }
+    
+    /* Mobile pequeno: hero-title-centered e hero-bottom-fixed */
+    .hero-title-centered {
+        top: 30%;
+        font-size: clamp(2rem, 14vw, 3.5rem);
+        width: 95%;
+    }
+    
+    .hero-bottom-fixed {
+        bottom: 60px;
+        width: 95%;
+    }
+    
+    .hero-bottom-fixed .hero-cta .btn {
+        padding: 0.75rem 1rem;
+        font-size: 0.8rem;
     }
     
     .hero-badge {
@@ -3773,14 +3859,19 @@ body:hover #mouse-blur {
     .hero {
         min-height: 100vh;
         min-height: 100dvh;
-        padding-top: 80px;
+        padding-top: 0;
         padding-bottom: 30px;
         justify-content: center;
     }
     
     .hero-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         padding: 0 1rem;
         text-align: center;
+        width: 100%;
     }
     
     .hero-badge {
@@ -3802,7 +3893,7 @@ body:hover #mouse-blur {
     
     .title-telecom {
         font-size: 0.4em;
-        margin-left: 25%;
+        margin-left: 0;
         margin-top: 0;
     }
     
@@ -3828,6 +3919,37 @@ body:hover #mouse-blur {
         width: 100%;
     }
     
+    /* Mobile: ajustes para hero-title-centered e hero-bottom-fixed */
+    .hero-title-centered {
+        position: absolute;
+        top: 35%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: clamp(2.5rem, 13vw, 4rem);
+        width: 90%;
+    }
+    
+    .hero-bottom-fixed {
+        position: absolute;
+        top: auto;
+        bottom: 80px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        padding: 0 1rem;
+    }
+    
+    .hero-bottom-fixed .hero-cta {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .hero-bottom-fixed .hero-cta .btn {
+        width: 100%;
+        padding: 0.875rem 1.5rem;
+        font-size: 0.85rem;
+    }
+
     .hero-subtitle {
         font-size: 0.95rem;
         margin-bottom: 1.5rem;
@@ -4515,7 +4637,29 @@ body:hover #mouse-blur {
     
     .title-telecom {
         font-size: 0.38em;
-        margin-left: 20%;
+        margin-left: 0;
+    }
+    
+    /* Mobile pequeno: hero-title-centered e hero-bottom-fixed */
+    .hero-title-centered {
+        top: 28%;
+        font-size: clamp(1.8rem, 14vw, 3rem);
+        width: 95%;
+    }
+    
+    .hero-bottom-fixed {
+        bottom: 50px;
+        width: 95%;
+    }
+    
+    .hero-bottom-fixed .hero-subtitle {
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+    }
+    
+    .hero-bottom-fixed .hero-cta .btn {
+        padding: 0.7rem 0.9rem;
+        font-size: 0.75rem;
     }
     
     .hero-badge {
