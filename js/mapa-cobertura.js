@@ -114,7 +114,7 @@
         centerLat: -18.9,
         centerLng: -48.5,
         zoom: 8,
-        minZoom: 7,
+        minZoom: 5,
         maxZoom: 15
     };
 
@@ -138,11 +138,15 @@
             zoomControl: true
         });
 
-        // Tiles escuros com rotas (CartoDB Dark Matter)
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
-            subdomains: 'abcd',
-            maxZoom: 20
+        // Esri WorldGrayCanvas (cinza claro, gratuito)
+        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+            attribution: '&copy; Esri, HERE, Garmin, FAO, NOAA, USGS',
+            maxZoom: 16
+        }).addTo(mapa);
+
+        // Labels do Esri por cima
+        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}', {
+            maxZoom: 16
         }).addTo(mapa);
 
         // Adicionar marcadores das cidades
@@ -172,15 +176,9 @@
                 popupAnchor: [0, -32]
             });
 
-            // Criar marcador
+            // Criar marcador (sem popup)
             const marker = L.marker([cidade.lat, cidade.lng], { icon: icone })
-                .addTo(mapa)
-                .bindPopup(`
-                    <div class="popup-cidade">
-                        <strong>${cidade.nome}</strong>
-                        <span>${cidade.descricao}</span>
-                    </div>
-                `);
+                .addTo(mapa);
 
             // Guardar referência
             marker.cidadeId = cidade.id;
@@ -236,10 +234,6 @@
                         animate: true,
                         duration: 0.5
                     });
-                    // Abre popup após animação
-                    setTimeout(() => {
-                        marker.openPopup();
-                    }, 500);
                 });
             }
         });
