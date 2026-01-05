@@ -59,7 +59,7 @@ const SiteConfig = {
     // ---- ORB (esfera fluida animada WebGL) ----
     orb: true,
         // Subfunções do Orb:
-        orbSize: 1300,                        // Tamanho da esfera (px)
+        orbSize: 1000,                        // Tamanho da esfera (px)
         orbColor1: '#9C43FE',                // Cor primária (roxo)
         orbColor2: '#4CC2E9',                // Cor secundária (ciano)
         orbColor3: '#101499',                // Cor de profundidade (azul escuro)
