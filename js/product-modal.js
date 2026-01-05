@@ -91,6 +91,41 @@
                 'Eventos esportivos'
             ],
             whatsapp: 'https://api.whatsapp.com/send?phone=553491339002&text=Olá! Tenho interesse no Link para Eventos e gostaria de mais informações.'
+        },
+        rural: {
+            title: 'Internet Rural | Rádio',
+            icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 20V10"/>
+                <path d="M18 20v-4"/>
+                <path d="M6 20v-6"/>
+                <circle cx="12" cy="6" r="2"/>
+                <path d="M8.5 3.5a5 5 0 0 1 7 0"/>
+                <path d="M5.5 1a9 9 0 0 1 13 0"/>
+                <path d="M2 12c0-3 1.5-5.5 4-7"/>
+                <path d="M22 12c0-3-1.5-5.5-4-7"/>
+            </svg>`,
+            description: 'A Internet Rural via Rádio é a solução ideal para quem está em áreas onde a fibra óptica ainda não chegou. Utilizamos tecnologia de rádio de alta performance que leva conectividade de qualidade para fazendas, sítios, chácaras e regiões remotas. Nossa rede de rádio é robusta e cobre grande parte da nossa área de atuação, inclusive dentro das cidades, garantindo uma alternativa confiável à fibra.',
+            benefits: [
+                'Cobertura em áreas rurais, fazendas, sítios e chácaras',
+                'Tecnologia de rádio de alta frequência e baixa latência',
+                'Instalação rápida sem necessidade de infraestrutura de cabos',
+                'Conexão estável mesmo em terrenos acidentados',
+                'Equipamentos resistentes a intempéries',
+                'Suporte técnico especializado em soluções via rádio',
+                'Planos flexíveis e personalizáveis',
+                'Alternativa viável onde a fibra não é possível'
+            ],
+            useCases: [
+                'Fazendas e propriedades rurais',
+                'Sítios e chácaras',
+                'Agroindústrias e cooperativas',
+                'Áreas urbanas sem cobertura de fibra',
+                'Comunidades e distritos afastados',
+                'Empresas em regiões remotas',
+                'Monitoramento agrícola e IoT rural',
+                'Redundância para link de fibra óptica'
+            ],
+            whatsapp: 'https://api.whatsapp.com/send?phone=553491339002&text=Olá! Tenho interesse na Internet Rural via Rádio e gostaria de mais informações.'
         }
     };
     

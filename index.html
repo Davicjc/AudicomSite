@@ -223,12 +223,12 @@
         <!-- Produtos Section -->
         <section id="produtos" class="section section-alt produtos">
             <div class="container">
-                <div class="section-header">
-                    <span class="section-tag">Principais Produtos</span>
-                    <h2 class="section-title">Soluções Corporativas</h2>
+                <div class="section-header centered">
+                    <span class="section-tag section-tag-large">Principais Produtos</span>
                 </div>
-                <div class="products-grid">
-                    <!-- Link Lan to Lan | MPLS -->
+                <div class="products-carousel">
+                    <div class="products-track">
+                        <!-- Link Lan to Lan | MPLS -->
                     <article class="product-card" data-product="mpls">
                         <div class="product-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -306,6 +306,37 @@
                             <button class="btn btn-outline btn-ver-mais">Ver mais</button>
                         </div>
                     </article>
+
+                    <!-- Internet Rural / Rádio -->
+                    <article class="product-card" data-product="rural">
+                        <div class="product-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 20V10"/>
+                                <path d="M18 20v-4"/>
+                                <path d="M6 20v-6"/>
+                                <circle cx="12" cy="6" r="2"/>
+                                <path d="M8.5 3.5a5 5 0 0 1 7 0"/>
+                                <path d="M5.5 1a9 9 0 0 1 13 0"/>
+                                <path d="M2 12c0-3 1.5-5.5 4-7"/>
+                                <path d="M22 12c0-3-1.5-5.5-4-7"/>
+                            </svg>
+                        </div>
+                        <div class="product-header">
+                            <h3 class="product-type">Internet Rural | Rádio</h3>
+                            <p class="product-subtitle">Conexão onde a fibra não chega</p>
+                        </div>
+                        <ul class="product-features">
+                            <li>Cobertura em áreas rurais e remotas</li>
+                            <li>Tecnologia de rádio de alta performance</li>
+                            <li>Instalação sem necessidade de cabos</li>
+                            <li>Conexão estável em qualquer terreno</li>
+                            <li>Suporte técnico especializado</li>
+                        </ul>
+                        <div class="product-footer">
+                            <button class="btn btn-outline btn-ver-mais">Ver mais</button>
+                        </div>
+                    </article>
+                    </div>
                 </div>
             </div>
         </section>
@@ -761,6 +792,7 @@
     <script src="js/spotlight-card.js"></script>
     <script src="js/magic-bento.js"></script>
     <script src="js/product-modal.js"></script>
+    <script src="js/product-carousel.js"></script>
     <!-- Background Effects -->
     <script src="background/fiber-canvas.js"></script>
     <script src="background/floating-lines.js"></script>
