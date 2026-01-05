@@ -930,7 +930,7 @@ body:hover #mouse-blur {
     width: 1200px;
     height: auto;
     opacity: 0.25;
-    filter: blur(2px);
+    filter: blur(0px);
 }
 
 .hero-bg-glow {
