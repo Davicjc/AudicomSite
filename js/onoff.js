@@ -9,6 +9,24 @@
 const SiteConfig = {
     
     // ============================================
+    // EFEITOS VISUAIS
+    // ============================================
+    
+    // ---- ELECTRIC BORDER (borda elétrica animada) ----
+    electricBorder: true,
+        // Subfunções do Electric Border:
+        electricBorderColor: '#00249C',      // Cor da borda (Azul Conexão)
+        electricBorderSpeed: 0.3,              // Velocidade da animação
+        electricBorderChaos: 0.03,           // Intensidade do caos/ruído
+        electricBorderRadius: 0.1,            // Raio das bordas arredondadas
+        // Onde aplicar:
+        electricBorderTitulo: true,          // Título "Principais Produtos"
+        electricBorderProductCards: false,    // Cards do carrossel de produtos
+        electricBorderProductIcons: false,    // Ícones dos cards de produtos
+        electricBorderInstitucional: true,   // Cards Missão, Valores, Visão
+        electricBorderContato: false,         // Cards de Contato
+    
+    // ============================================
     // ANIMAÇÕES DE FUNDO (pasta /background)
     // ============================================
     

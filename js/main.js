@@ -13,6 +13,35 @@
     const mouseBlur = document.getElementById('mouse-blur');
 
     /**
+     * Smooth scroll customizado com controle de duração
+     */
+    function smoothScrollTo(targetY, duration = 1200) {
+        const startY = window.scrollY;
+        const difference = targetY - startY;
+        const startTime = performance.now();
+        
+        function easeInOutCubic(t) {
+            return t < 0.5 
+                ? 4 * t * t * t 
+                : 1 - Math.pow(-2 * t + 2, 3) / 2;
+        }
+        
+        function step(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const easeProgress = easeInOutCubic(progress);
+            
+            window.scrollTo(0, startY + difference * easeProgress);
+            
+            if (progress < 1) {
+                requestAnimationFrame(step);
+            }
+        }
+        
+        requestAnimationFrame(step);
+    }
+
+    /**
      * Smooth scroll to section when clicking nav links
      */
     function initSmoothScroll() {
@@ -24,10 +53,24 @@
                 
                 if (targetSection) {
                     const offsetTop = targetSection.offsetTop - 80;
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
+                    smoothScrollTo(offsetTop, 1200);
+                }
+            });
+        });
+        
+        // Interceptar todos os links âncora da página
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', (e) => {
+                const href = anchor.getAttribute('href');
+                if (href === '#') return;
+                
+                const targetId = href.substring(1);
+                const targetSection = document.getElementById(targetId);
+                
+                if (targetSection) {
+                    e.preventDefault();
+                    const offsetTop = targetSection.offsetTop - 80;
+                    smoothScrollTo(offsetTop, 1200);
                 }
             });
         });

@@ -4,6 +4,86 @@
    ============================================ */
 
 /* ============================================
+   ELECTRIC BORDER - Borda animada elétrica
+   ============================================ */
+.electric-border-wrapper {
+    --electric-light-color: var(--electric-border-color, #00249C);
+    position: relative;
+    border-radius: inherit;
+    overflow: visible;
+    isolation: isolate;
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+}
+
+.eb-canvas-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.eb-canvas {
+    display: block;
+}
+
+.eb-content {
+    position: relative;
+    border-radius: inherit;
+    z-index: 1;
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+    width: 100%;
+    height: 100%;
+}
+
+.eb-content > * {
+    width: 100%;
+    height: 100%;
+}
+
+.eb-layers {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.eb-glow-1,
+.eb-glow-2,
+.eb-background-glow {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    box-sizing: border-box;
+}
+
+.eb-glow-1 {
+    border: 2px solid var(--electric-border-color);
+    opacity: 0.6;
+    filter: blur(1px);
+}
+
+.eb-glow-2 {
+    border: 2px solid var(--electric-border-color);
+    filter: blur(4px);
+}
+
+.eb-background-glow {
+    z-index: -1;
+    transform: scale(1.1);
+    filter: blur(32px);
+    opacity: 0.3;
+    background: linear-gradient(-30deg, var(--electric-border-color), transparent, var(--electric-border-color));
+}
+
+/* ============================================
    CSS VARIABLES - BRAND COLORS
    ============================================ */
 :root {
@@ -12,7 +92,7 @@
     --azul-estrutura: #081535;    /* Fundo principal */
     --cinza-operacional: #8F99A8; /* Animações, blur */
     --grafite-infra: #2A2F36;     /* Animações, blur */
-    --branco-tecnico: #F4F6F9;    /* Textos, linhas */
+    --branco-tecnico: #FFFFFF;    /* Textos, linhas - Branco puro */
     
     /* Derived Colors */
     --bg-primary: var(--azul-estrutura);
@@ -62,7 +142,7 @@ html {
 
 body {
     font-family: var(--font-body);
-    font-weight: 400;
+    font-weight: 700;
     line-height: 1.6;
     color: var(--text-primary);
     background-color: var(--bg-primary);
@@ -818,11 +898,20 @@ body:hover #mouse-blur {
     box-shadow: 0 0 20px rgba(0, 36, 156, 0.4), 0 0 40px rgba(0, 36, 156, 0.2);
 }
 
-/* Tag grande - tamanho de título */
+/* Tag grande - tamanho de título (sem borda própria, usa Electric Border) */
 .section-tag.section-tag-large {
     font-size: clamp(1.25rem, 4vw, 2rem);
     padding: 0.75rem 2rem;
     letter-spacing: 0.1em;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    margin: 0;
+}
+
+/* Ajuste quando dentro do Electric Border */
+.electric-border-wrapper .section-tag {
+    margin: 0;
 }
 
 .section-title {
@@ -1297,7 +1386,7 @@ body:hover #mouse-blur {
     max-width: 1400px;
     margin: 0 auto;
     margin-top: var(--space-xl);
-    padding: 2rem 0;
+    padding: 0.5rem 0;
     overflow: visible;
 }
 
@@ -1308,7 +1397,7 @@ body:hover #mouse-blur {
     position: relative;
     height: 500px;
     perspective: 1000px;
-    margin-top: 1rem;
+    margin-top: 0;
 }
 
 .products-track .product-card {
@@ -1521,15 +1610,15 @@ body:hover #mouse-blur {
     align-items: center;
     justify-content: center;
     margin-bottom: var(--space-md);
-    background: linear-gradient(135deg, rgba(0, 36, 156, 0.2), rgba(0, 36, 156, 0.05));
+    background: linear-gradient(135deg, rgba(0, 36, 156, 0.3), rgba(0, 36, 156, 0.1));
     border-radius: var(--radius-md);
-    border: 1px solid rgba(0, 36, 156, 0.3);
+    border: 1px solid rgba(0, 36, 156, 0.5);
 }
 
 .product-icon svg {
     width: 32px;
     height: 32px;
-    stroke: var(--accent);
+    stroke: var(--text-primary);
 }
 
 .product-card:hover .product-icon {
@@ -2109,10 +2198,10 @@ body:hover #mouse-blur {
     justify-content: center;
     width: 48px;
     height: 48px;
-    background: rgba(0, 36, 156, 0.2);
+    background: rgba(0, 36, 156, 0.3);
     border-radius: var(--radius-sm);
     margin-bottom: var(--space-sm);
-    color: var(--accent);
+    color: var(--text-primary);
 }
 
 .feature-item h3 {
@@ -3178,12 +3267,16 @@ body:hover #mouse-blur {
     }
     
     .hero-bg-image {
-        width: 350px;
-        opacity: 0.15;
+        width: 80vw;
+        max-width: 350px;
+        opacity: 0.2;
     }
     
     .hero-bg-logo {
-        display: none;
+        display: block;
+        width: 80vw;
+        max-width: 350px;
+        opacity: 0.15;
     }
     
     .hero-bg-glow {
@@ -3192,23 +3285,15 @@ body:hover #mouse-blur {
         top: 30%;
     }
     
-    .hero-bottom {
-        position: relative;
-        bottom: auto;
-        left: auto;
-        transform: none;
-        margin-top: var(--space-md);
-        padding: 0 var(--space-sm);
-    }
-    
     /* Mobile: título e bottom fixos */
     .hero-title-centered {
         position: absolute;
-        top: 40%;
+        top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         font-size: clamp(2.5rem, 14vw, 4rem);
         width: 90%;
+        text-align: center;
     }
     
     .hero-bottom-fixed {
@@ -3742,21 +3827,28 @@ body:hover #mouse-blur {
     gap: var(--space-sm);
     padding: var(--space-md) var(--space-md);
     background: rgba(8, 21, 53, 0.4);
-    border: 1px solid rgba(0, 36, 156, 0.2);
+    border: none;
     border-radius: var(--radius-lg);
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
 }
 
-.institucional-item:hover {
-    border-color: var(--accent);
+/* Hover quando NÃO está dentro do Electric Border */
+.institucional-item:not(.eb-content .institucional-item):hover {
     background: rgba(0, 36, 156, 0.15);
     transform: translateY(-4px);
-    box-shadow: 0 10px 40px rgba(0, 36, 156, 0.2);
+}
+
+/* Hover quando está dentro do Electric Border - aplica no wrapper */
+.electric-border-wrapper:has(.institucional-item):hover {
+    transform: translateY(-4px);
+}
+
+.electric-border-wrapper:has(.institucional-item):hover .institucional-item {
+    background: rgba(0, 36, 156, 0.15);
 }
 
 .institucional-item--destaque {
-    border-color: var(--accent);
     background: rgba(0, 36, 156, 0.2);
 }
 

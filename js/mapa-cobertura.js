@@ -202,6 +202,9 @@
             // Botão "Geral" - volta ao zoom original
             if (cidadeId === 'geral') {
                 item.addEventListener('click', () => {
+                    // Scroll suave até o mapa
+                    scrollToMapa();
+                    
                     mapa.invalidateSize();
                     const bounds = L.latLngBounds(CIDADES.map(c => [c.lat, c.lng]));
                     mapa.flyToBounds(bounds, { 
@@ -227,6 +230,9 @@
                 
                 // Click - centraliza cidade no mapa
                 item.addEventListener('click', () => {
+                    // Scroll suave até o mapa
+                    scrollToMapa();
+                    
                     // Recalcula tamanho do mapa para garantir centralização correta
                     mapa.invalidateSize();
                     // Usa flyTo para centralizar suavemente
@@ -237,6 +243,42 @@
                 });
             }
         });
+    }
+    
+    // ============================================
+    // SCROLL SUAVE ATÉ O MAPA
+    // ============================================
+    function scrollToMapa() {
+        const mapaElement = document.getElementById('mapa-cobertura');
+        if (!mapaElement) return;
+        
+        // Usar getBoundingClientRect para posição precisa
+        const rect = mapaElement.getBoundingClientRect();
+        const targetY = window.scrollY + rect.top - 100;
+        const startY = window.scrollY;
+        const difference = targetY - startY;
+        const duration = 800;
+        const startTime = performance.now();
+        
+        function easeInOutCubic(t) {
+            return t < 0.5 
+                ? 4 * t * t * t 
+                : 1 - Math.pow(-2 * t + 2, 3) / 2;
+        }
+        
+        function step(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const easeProgress = easeInOutCubic(progress);
+            
+            window.scrollTo(0, startY + difference * easeProgress);
+            
+            if (progress < 1) {
+                requestAnimationFrame(step);
+            }
+        }
+        
+        requestAnimationFrame(step);
     }
 
     // ============================================
