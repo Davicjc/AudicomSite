@@ -60,15 +60,15 @@ const SiteConfig = {
     orb: true,
         // Subfunções do Orb:
         orbSize: 1100,                        // Tamanho da esfera (px)
-        orbColor1: '#8F99A8',                // Cor primária (roxo)
-        orbColor2: '#081535',                // Cor secundária (ciano)
-        orbColor3: '#00249C',                // Cor de profundidade (azul escuro)
+        orbColor1: '#0032D6',                // Cor primária 
+        orbColor2: '#00165E',                // Cor secundária 
+        orbColor3: '#001D7D',                // Cor de profundidade 
         orbHue: 0,                           // Ajuste de matiz (0-360)
         orbMouseEffect: false,               // Efeito de distorção ao passar mouse
-        orbHoverIntensity: 0.5,              // Intensidade do efeito hover
+        orbHoverIntensity: 0.1,              // Intensidade do efeito hover
         orbRotateOnHover: false,              // Rotacionar ao passar mouse
         orbForceHoverState: false,           // Forçar estado de hover
-        orbBackgroundColor: '#081535',       // Cor de fundo (Azul Estrutura)
+        orbBackgroundColor: '#000000',       // Cor de fundo (Azul Estrutura)
     
     // ============================================
     // PILL NAV (MENU ANIMADO)
@@ -83,7 +83,8 @@ const SiteConfig = {
     hamburgerNav: true,
         // Subfunções do Hamburger Nav:
         hamburgerNavAnimation: true,         // Animação ao abrir/fechar
-        hamburgerNavPosition: 'left',       // Posição: 'left' ou 'right'
+        hamburgerNavPosition: 'left',        // Posição: 'left' ou 'right'
+        hamburgerNavHideOnScroll: false,     // Esconder ao rolar para baixo (true = esconde, false = sempre visível)
     
     // ============================================
     // HERO (TELA PRINCIPAL)

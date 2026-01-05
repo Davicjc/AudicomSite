@@ -16,7 +16,8 @@
     // Configurações
     const CONFIG = {
         animation: SC.hamburgerNavAnimation !== false,
-        position: SC.hamburgerNavPosition || 'right'
+        position: SC.hamburgerNavPosition || 'right',
+        hideOnScroll: SC.hamburgerNavHideOnScroll === true
     };
 
     document.addEventListener('DOMContentLoaded', function() {
@@ -121,27 +122,29 @@
             }
         });
         
-        // Esconder/mostrar nav no scroll
-        let lastScroll = 0;
-        let scrollThreshold = 100;
-        
-        window.addEventListener('scroll', function() {
-            const currentScroll = window.pageYOffset;
+        // Esconder/mostrar nav no scroll (somente se habilitado)
+        if (CONFIG.hideOnScroll) {
+            let lastScroll = 0;
+            let scrollThreshold = 100;
             
-            if (currentScroll <= 0) {
-                nav.classList.remove('hamburger-nav--hidden');
-                return;
-            }
-            
-            if (currentScroll > lastScroll && currentScroll > scrollThreshold && !isOpen) {
-                // Scrolling down
-                nav.classList.add('hamburger-nav--hidden');
-            } else {
-                // Scrolling up
-                nav.classList.remove('hamburger-nav--hidden');
-            }
-            
-            lastScroll = currentScroll;
-        });
+            window.addEventListener('scroll', function() {
+                const currentScroll = window.pageYOffset;
+                
+                if (currentScroll <= 0) {
+                    nav.classList.remove('hamburger-nav--hidden');
+                    return;
+                }
+                
+                if (currentScroll > lastScroll && currentScroll > scrollThreshold && !isOpen) {
+                    // Scrolling down
+                    nav.classList.add('hamburger-nav--hidden');
+                } else {
+                    // Scrolling up
+                    nav.classList.remove('hamburger-nav--hidden');
+                }
+                
+                lastScroll = currentScroll;
+            });
+        }
     });
 })();
