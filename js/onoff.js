@@ -99,7 +99,7 @@ const SiteConfig = {
     heroLogoFloat: true,
     
     // Badge "Conexão de Alta Performance"
-    heroBadge: true,
+    heroBadge: false,
     
     // Título "Audicom" na hero
     heroTitleAudicom: true,
