@@ -95,6 +95,14 @@
             lng: -47.6133,
             principal: false,
             descricao: 'Cobertura completa'
+        },
+        {
+            nome: 'São Paulo',
+            id: 'saopaulo',
+            lat: -23.571931261574285,
+            lng: -46.66651968465904,
+            principal: false,
+            descricao: 'Cobertura completa'
         }
     ];
 
