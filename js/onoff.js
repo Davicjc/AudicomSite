@@ -22,7 +22,7 @@ const SiteConfig = {
         fiberCanvasGlowIntensity: 0.8,       // Intensidade do brilho
     
     // ---- FLOATING LINES (ondas animadas WebGL) ----
-    floatingLines: true,
+    floatingLines: false,
         // Subfunções do Floating Lines:
         floatingLinesTopWave: true,          // Onda superior
         floatingLinesMiddleWave: false,       // Onda do meio
