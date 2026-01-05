@@ -33,7 +33,8 @@ const SiteConfig = {
     // ---- FIBER CANVAS (teia de conexões) ----
     fiberCanvas: true,
         // Subfunções do Fiber Canvas:
-        fiberCanvasParticleCount: 80,        // Quantidade de partículas
+        fiberCanvasParticleCount: 80,        // Quantidade de partículas (Desktop)
+        fiberCanvasParticleCountMobile: 30,  // Quantidade de partículas (Mobile)
         fiberCanvasConnectionDistance: 150,  // Distância de conexão
         fiberCanvasParticleSpeed: 0.3,       // Velocidade das partículas
         fiberCanvasFlowSpeed: 0.002,         // Velocidade do fluxo de dados
@@ -77,7 +78,8 @@ const SiteConfig = {
     // ---- ORB (esfera fluida animada WebGL) ----
     orb: true,
         // Subfunções do Orb:
-        orbSize: 1100,                        // Tamanho da esfera (px)
+        orbSize: 1100,                        // Tamanho da esfera (px) - Desktop
+        orbSizeMobile: 600,                   // Tamanho da esfera (px) - Mobile/Celular
         orbColor1: '#0032D6',                // Cor primária 
         orbColor2: '#00165E',                // Cor secundária 
         orbColor3: '#001D7D',                // Cor de profundidade 

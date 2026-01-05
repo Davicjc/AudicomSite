@@ -34,8 +34,11 @@
     
     // Lê configurações do SiteConfig ou usa valores padrão
     const SC = typeof SiteConfig !== 'undefined' ? SiteConfig : {};
+    const isMobile = window.innerWidth <= 768;
     const SETTINGS = {
-        particleCount: SC.fiberCanvasParticleCount || 80,
+        particleCount: isMobile 
+            ? (SC.fiberCanvasParticleCountMobile || 30) 
+            : (SC.fiberCanvasParticleCount || 80),
         connectionDistance: SC.fiberCanvasConnectionDistance || 150,
         particleSpeed: SC.fiberCanvasParticleSpeed || 0.3,
         flowSpeed: SC.fiberCanvasFlowSpeed || 0.002,

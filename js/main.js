@@ -6,6 +6,12 @@
 (function() {
     'use strict';
 
+    // Força scroll para o topo ao carregar a página (evita restauração automática)
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+
     // DOM Elements
     const header = document.querySelector('.header');
     const navLinks = document.querySelectorAll('.nav-link');

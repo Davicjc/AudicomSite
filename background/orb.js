@@ -14,8 +14,12 @@
 
     // Lê configurações do SiteConfig ou usa valores padrão
     const SC = typeof SiteConfig !== 'undefined' ? SiteConfig : {};
+    
+    // Detectar se é mobile
+    const isMobile = window.innerWidth <= 768;
+    
     const CONFIG = {
-        size: SC.orbSize || 400,
+        size: isMobile ? (SC.orbSizeMobile || 300) : (SC.orbSize || 400),
         color1: SC.orbColor1 || '#9C43FE',
         color2: SC.orbColor2 || '#4CC2E9',
         color3: SC.orbColor3 || '#101499',
