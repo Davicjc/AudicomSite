@@ -60,9 +60,9 @@ const SiteConfig = {
     orb: true,
         // Subfunções do Orb:
         orbSize: 1100,                        // Tamanho da esfera (px)
-        orbColor1: '#9C43FE',                // Cor primária (roxo)
-        orbColor2: '#4CC2E9',                // Cor secundária (ciano)
-        orbColor3: '#101499',                // Cor de profundidade (azul escuro)
+        orbColor1: '#8F99A8',                // Cor primária (roxo)
+        orbColor2: '#081535',                // Cor secundária (ciano)
+        orbColor3: '#00249C',                // Cor de profundidade (azul escuro)
         orbHue: 0,                           // Ajuste de matiz (0-360)
         orbMouseEffect: false,               // Efeito de distorção ao passar mouse
         orbHoverIntensity: 0.5,              // Intensidade do efeito hover
