@@ -941,7 +941,18 @@
             { src: 'assets/logos/7.png', alt: 'Cliente 7' },
             { src: 'assets/logos/8.webp', alt: 'Cliente 8' },
             { src: 'assets/logos/9.png', alt: 'Cliente 9' },
-            { src: 'assets/logos/10.jpg', alt: 'Cliente 10' }
+            { src: 'assets/logos/10.jpg', alt: 'Cliente 10' },
+            { src: 'assets/logos/11.jpg', alt: 'Cliente 11' },
+            { src: 'assets/logos/12.png', alt: 'Cliente 12' },
+            { src: 'assets/logos/13.jpg', alt: 'Cliente 13' },
+            { src: 'assets/logos/14.jpg', alt: 'Cliente 14' },
+            { src: 'assets/logos/15.jpg', alt: 'Cliente 15' },
+            { src: 'assets/logos/16.jpg', alt: 'Cliente 16' },
+            { src: 'assets/logos/17.png', alt: 'Cliente 17' },
+            { src: 'assets/logos/18.png', alt: 'Cliente 18' },
+            { src: 'assets/logos/19.jpg', alt: 'Cliente 19' },
+            { src: 'assets/logos/20.png', alt: 'Cliente 20' },
+            { src: 'assets/logos/21.png', alt: 'Cliente 21' }
         ];
         
         const gallery = new DomeGallery(container, images);

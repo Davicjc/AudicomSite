@@ -26,14 +26,26 @@ const DomeGalleryTitulos = {
     '8.webp': 'BR.DIGITAL',
     '9.png': 'ECOVIAS',
     '10.jpg': 'BESTWAY',
+    '11.jpg': 'POLITIZ',
+    '12.png': 'STARS',
+    '13.jpg': 'GLOBAL TRANSPORTES',
+    '14.jpg': 'BAND',
+    '15.jpg': 'VITORIOSA',
+    '16.jpg': 'BOM JESUS',
+    '17.png': 'MERCADO LIVRE',
+    '18.png': 'OBRAMAX',
+    '19.jpg': 'ITV URBANISMO',
+    '20.png': 'GIGA+',
+    '21.png': 'EPS',
+
     
     // ============================================
     // ADICIONE NOVOS CLIENTES ABAIXO
     // ============================================
     
     // Exemplo:
-    // '11.png': 'Nome da Empresa',
-    // '12.jpg': 'Outro Cliente',
+    // '22.png': 'Nome da Empresa',
+    // '23.jpg': 'Outro Cliente',
 };
 
 /**
