@@ -34,8 +34,152 @@
         openedImageHeight: SC.domeGalleryOpenedHeight || '300px',
         grayscale: SC.domeGalleryGrayscale !== false,
         autoRotate: SC.domeGalleryAutoRotate !== false,
-        autoRotateSpeed: SC.domeGalleryAutoRotateSpeed || 0.15
+        autoRotateSpeed: SC.domeGalleryAutoRotateSpeed || 0.15,
+        // Container/Wrapper:
+        background: SC.domeGalleryBackground || 'rgba(8, 21, 53, 0.8)',
+        borderRadius: SC.domeGalleryBorderRadius || 18,
+        // Contorno Neon:
+        neonBorder: SC.domeGalleryNeonBorder || false,
+        neonColor: SC.domeGalleryNeonColor || '#00249C',
+        neonIntensity: SC.domeGalleryNeonIntensity || 0.5,
+        neonPulse: SC.domeGalleryNeonPulse !== false,
+        neonPulseSpeed: SC.domeGalleryNeonPulseSpeed || 3,
+        // Tiles:
+        tileBorder: SC.domeGalleryTileBorder !== false,
+        tileBorderColor: SC.domeGalleryTileBorderColor || 'rgba(0, 36, 156, 0.4)',
+        tileBackground: SC.domeGalleryTileBackground || 'rgba(8, 21, 53, 0.8)',
+        tileHoverGlow: SC.domeGalleryTileHoverGlow !== false,
+        tileHoverGlowColor: SC.domeGalleryTileHoverGlowColor || 'rgba(0, 36, 156, 0.4)',
+        // Neon nas imagens:
+        tileNeon: SC.domeGalleryTileNeon || false,
+        tileNeonColor: SC.domeGalleryTileNeonColor || '#00249C',
+        tileNeonIntensity: SC.domeGalleryTileNeonIntensity || 0.3,
+        tileNeonPulse: SC.domeGalleryTileNeonPulse || false
     };
+    
+    /**
+     * Injeta estilos dinâmicos da Dome Gallery
+     */
+    function injectDynamicStyles() {
+        const existingStyle = document.getElementById('dome-gallery-dynamic-styles');
+        if (existingStyle) existingStyle.remove();
+        
+        const style = document.createElement('style');
+        style.id = 'dome-gallery-dynamic-styles';
+        
+        // Converter cor hex para rgba
+        const hexToRgba = (hex, alpha) => {
+            const r = parseInt(hex.slice(1, 3), 16);
+            const g = parseInt(hex.slice(3, 5), 16);
+            const b = parseInt(hex.slice(5, 7), 16);
+            return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+        };
+        
+        // Neon keyframes
+        const neonKeyframes = CONFIG.neonPulse ? `
+            @keyframes domeNeonPulse {
+                0%, 100% {
+                    box-shadow: 
+                        0 0 20px ${hexToRgba(CONFIG.neonColor, CONFIG.neonIntensity)},
+                        0 0 40px ${hexToRgba(CONFIG.neonColor, CONFIG.neonIntensity * 0.6)},
+                        0 0 60px ${hexToRgba(CONFIG.neonColor, CONFIG.neonIntensity * 0.4)};
+                }
+                50% {
+                    box-shadow: 
+                        0 0 30px ${hexToRgba(CONFIG.neonColor, CONFIG.neonIntensity * 1.4)},
+                        0 0 60px ${hexToRgba(CONFIG.neonColor, CONFIG.neonIntensity)},
+                        0 0 90px ${hexToRgba(CONFIG.neonColor, CONFIG.neonIntensity * 0.6)};
+                }
+            }
+        ` : '';
+        
+        // Keyframes para neon das imagens
+        const tileNeonKeyframes = CONFIG.tileNeonPulse ? `
+            @keyframes domeTileNeonPulse {
+                0%, 100% {
+                    box-shadow: 
+                        0 0 8px ${hexToRgba(CONFIG.tileNeonColor, CONFIG.tileNeonIntensity)},
+                        0 0 16px ${hexToRgba(CONFIG.tileNeonColor, CONFIG.tileNeonIntensity * 0.5)};
+                }
+                50% {
+                    box-shadow: 
+                        0 0 12px ${hexToRgba(CONFIG.tileNeonColor, CONFIG.tileNeonIntensity * 1.5)},
+                        0 0 24px ${hexToRgba(CONFIG.tileNeonColor, CONFIG.tileNeonIntensity)};
+                }
+            }
+        ` : '';
+        
+        // Estilo do neon border
+        const neonStyle = CONFIG.neonBorder ? `
+            .dome-gallery-neon-border {
+                background: linear-gradient(135deg, 
+                    ${CONFIG.neonColor} 0%, 
+                    transparent 25%, 
+                    transparent 75%, 
+                    ${CONFIG.neonColor} 100%);
+                box-shadow: 
+                    0 0 20px ${hexToRgba(CONFIG.neonColor, CONFIG.neonIntensity)},
+                    0 0 40px ${hexToRgba(CONFIG.neonColor, CONFIG.neonIntensity * 0.6)},
+                    0 0 60px ${hexToRgba(CONFIG.neonColor, CONFIG.neonIntensity * 0.4)},
+                    inset 0 0 20px ${hexToRgba(CONFIG.neonColor, CONFIG.neonIntensity * 0.2)};
+                ${CONFIG.neonPulse ? `animation: domeNeonPulse ${CONFIG.neonPulseSpeed}s ease-in-out infinite;` : ''}
+            }
+            .dome-gallery-neon-border::before {
+                background: linear-gradient(45deg, 
+                    ${CONFIG.neonColor}, 
+                    transparent, 
+                    ${CONFIG.neonColor});
+            }
+        ` : `
+            .dome-gallery-neon-border {
+                background: transparent !important;
+                box-shadow: none !important;
+                animation: none !important;
+            }
+            .dome-gallery-neon-border::before {
+                display: none !important;
+            }
+        `;
+        
+        // Estilo do container
+        const containerStyle = `
+            #dome-gallery-container {
+                background: ${CONFIG.background};
+                border-radius: ${CONFIG.borderRadius}px;
+            }
+        `;
+        
+        // Estilo dos tiles
+        const tileNeonStyle = CONFIG.tileNeon ? `
+            box-shadow: 
+                0 0 8px ${hexToRgba(CONFIG.tileNeonColor, CONFIG.tileNeonIntensity)},
+                0 0 16px ${hexToRgba(CONFIG.tileNeonColor, CONFIG.tileNeonIntensity * 0.5)};
+            border-color: ${CONFIG.tileNeonColor};
+            ${CONFIG.tileNeonPulse ? `animation: domeTileNeonPulse 2s ease-in-out infinite;` : ''}
+        ` : '';
+        
+        const tileStyle = `
+            .dome-gallery-item-image {
+                background: ${CONFIG.tileBackground};
+                border: ${CONFIG.tileBorder ? `1px solid ${CONFIG.tileBorderColor}` : 'none'};
+                border-radius: ${CONFIG.imageBorderRadius};
+                ${tileNeonStyle}
+            }
+            ${CONFIG.tileHoverGlow ? `
+                .dome-gallery-item-image:hover {
+                    box-shadow: 0 0 20px ${CONFIG.tileHoverGlowColor};
+                    border-color: ${CONFIG.tileNeonColor || CONFIG.neonColor};
+                }
+            ` : `
+                .dome-gallery-item-image:hover {
+                    box-shadow: none;
+                }
+            `}
+        `;
+        
+        style.textContent = neonKeyframes + tileNeonKeyframes + neonStyle + containerStyle + tileStyle;
+        document.head.appendChild(style);
+    }
     
     // Utilitários
     const clamp = (v, min, max) => Math.min(Math.max(v, min), max);
@@ -782,6 +926,9 @@
         }
         
         console.log('[DomeGallery] Inicializando galeria...');
+        
+        // Injetar estilos dinâmicos
+        injectDynamicStyles();
         
         // Coletar imagens da pasta assets/logos
         const images = [

@@ -30,7 +30,19 @@
         skewAmount: isMobile ? 4 : (SC.cardSwapSkewAmount || 6),
         easing: SC.cardSwapEasing || 'elastic',
         hitboxEnabled: SC.cardSwapHitboxEnabled !== undefined ? SC.cardSwapHitboxEnabled : true,
-        clickToAdvance: SC.cardSwapClickToAdvance !== undefined ? SC.cardSwapClickToAdvance : true
+        clickToAdvance: SC.cardSwapClickToAdvance !== undefined ? SC.cardSwapClickToAdvance : true,
+        // Laser/Borda superior:
+        laser: SC.cardSwapLaser !== undefined ? SC.cardSwapLaser : true,
+        laserColor: SC.cardSwapLaserColor || '#00249C',
+        laserColorSecondary: SC.cardSwapLaserColorSecondary || '#8F99A8',
+        laserHeight: SC.cardSwapLaserHeight || 4,
+        laserAnimated: SC.cardSwapLaserAnimated !== undefined ? SC.cardSwapLaserAnimated : true,
+        laserAnimationSpeed: SC.cardSwapLaserAnimationSpeed || 2,
+        // Visual do card:
+        background: SC.cardSwapBackground || 'linear-gradient(135deg, #0a1a3a 0%, #081535 100%)',
+        border: SC.cardSwapBorder !== undefined ? SC.cardSwapBorder : true,
+        borderColor: SC.cardSwapBorderColor || 'rgba(255, 255, 255, 0.1)',
+        borderRadius: SC.cardSwapBorderRadius || 16
     };
 
     // Configuração de easing
@@ -53,6 +65,61 @@
         };
 
     let container, cards, order, intervalId, currentTl, hitbox;
+
+    /**
+     * Injeta estilos dinâmicos do laser e visual dos cards
+     */
+    function injectDynamicStyles() {
+        // Remove estilo anterior se existir
+        const existingStyle = document.getElementById('card-swap-dynamic-styles');
+        if (existingStyle) existingStyle.remove();
+
+        const style = document.createElement('style');
+        style.id = 'card-swap-dynamic-styles';
+        
+        // Keyframe para animação do laser
+        const laserAnimation = CONFIG.laserAnimated ? `
+            @keyframes cardSwapLaserShimmer {
+                0% { background-position: -200% 0; }
+                100% { background-position: 200% 0; }
+            }
+        ` : '';
+        
+        // Estilo do laser (::before)
+        const laserStyle = CONFIG.laser ? `
+            .swap-card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: ${CONFIG.laserHeight}px;
+                background: linear-gradient(90deg, 
+                    ${CONFIG.laserColor}, 
+                    ${CONFIG.laserColorSecondary}, 
+                    ${CONFIG.laserColor});
+                background-size: 200% 100%;
+                ${CONFIG.laserAnimated ? `animation: cardSwapLaserShimmer ${CONFIG.laserAnimationSpeed}s linear infinite;` : ''}
+                z-index: 1;
+            }
+        ` : `
+            .swap-card::before {
+                display: none;
+            }
+        `;
+        
+        // Estilo do card
+        const cardStyle = `
+            .swap-card {
+                background: ${CONFIG.background};
+                border: ${CONFIG.border ? `1px solid ${CONFIG.borderColor}` : 'none'};
+                border-radius: ${CONFIG.borderRadius}px;
+            }
+        `;
+        
+        style.textContent = laserAnimation + laserStyle + cardStyle;
+        document.head.appendChild(style);
+    }
 
     function makeSlot(i, distX, distY, total) {
         return {
@@ -179,6 +246,9 @@
             console.warn('CardSwap: GSAP não encontrado');
             return;
         }
+
+        // Injetar estilos dinâmicos do laser e visual
+        injectDynamicStyles();
 
         cards = Array.from(container.querySelectorAll('.swap-card'));
         if (cards.length === 0) return;

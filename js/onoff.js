@@ -204,6 +204,18 @@ const SiteConfig = {
         cardSwapEasing: 'elastic',           // Tipo de animação (elastic/smooth)
         cardSwapHitboxEnabled: true,         // Hitbox invisível (resolve bug nos cantos)
         cardSwapClickToAdvance: true,        // Clicar no card avança para próximo
+        // Laser/Borda superior:
+        cardSwapLaser: true,                 // Ativar laser (borda superior animada)
+        cardSwapLaserColor: '#00249c',       // Cor principal do laser (Azul Conexão)
+        cardSwapLaserColorSecondary: '#8F99A8', // Cor secundária do laser (Cinza Operacional)
+        cardSwapLaserHeight: 4,              // Altura do laser (px)
+        cardSwapLaserAnimated: true,         // Animar laser (shimmer effect)
+        cardSwapLaserAnimationSpeed: 2,      // Velocidade da animação (segundos)
+        // Visual do card:
+        cardSwapBackground: 'linear-gradient(135deg, #2A2F36 0%, #081535 100%)', // Fundo do card (Grafite Infra → Azul Estrutura)
+        cardSwapBorder: true,                // Mostrar borda do card
+        cardSwapBorderColor: 'rgba(255, 255, 255, 0.1)', // Cor da borda
+        cardSwapBorderRadius: 16,            // Raio da borda (px)
     
     // ============================================
     // SEÇÃO COBERTURA
@@ -295,21 +307,41 @@ const SiteConfig = {
         domeGalleryFit: 0.8,                 // Ajuste de tamanho
         domeGalleryMinRadius: 600,           // Raio mínimo (px)
         domeGalleryMaxRadius: 800,           // Raio máximo (px)
-        domeGalleryBlurColor: '#081535',     // Cor de blur das bordas (Azul Estrutura)
+        domeGalleryBlurColor: '#08153501',   // Cor de blur das bordas (Azul Estrutura)
         domeGalleryMaxVerticalRotation: 0,   // Rotação vertical máxima (graus)
         domeGalleryDragSensitivity: 20,      // Sensibilidade do arraste
         domeGalleryDragEnabled: false,       // Arraste com mouse desativado
         domeGalleryEnlargeTransition: 300,   // Duração da transição ao abrir (ms)
         domeGalleryDragDampening: 2,         // Amortecimento do arraste
-        domeGalleryImageBorderRadius: '12px', // Borda dos tiles
-        domeGalleryOpenedBorderRadius: '20px', // Borda da imagem aberta
-        domeGalleryOpenedWidth: '300px',     // Largura da imagem aberta
-        domeGalleryOpenedHeight: '300px',    // Altura da imagem aberta
         domeGalleryGrayscale: true,          // Imagens em escala de cinza
         domeGalleryAutoRotate: true,         // Rotação automática
         domeGalleryAutoRotateSpeed: 0.05,    // Velocidade da rotação automática (menor = mais lento)
-        domeGalleryNeonBorder: true,         // Efeito neon na borda do container
         domeGalleryMostrarTitulo: true,      // Mostrar título ao expandir imagem
+        // Container/Wrapper:
+        domeGalleryBackground: 'rgba(8, 21, 53, 0.00)', // Cor de fundo do container
+        domeGalleryBorderRadius: 18,         // Raio da borda do container (px)
+        // Contorno Neon (borda animada):
+        domeGalleryNeonBorder: false,        // Ativar contorno neon animado
+        domeGalleryNeonColor: '#00249C',     // Cor do neon (Azul Conexão)
+        domeGalleryNeonIntensity: 0.5,       // Intensidade do brilho (0.1 a 1.0)
+        domeGalleryNeonPulse: true,          // Animação pulsante do neon
+        domeGalleryNeonPulseSpeed: 3,        // Velocidade do pulso (segundos)
+        // Tiles/Imagens individuais:
+        domeGalleryImageBorderRadius: '12px', // Borda dos tiles
+        domeGalleryTileBorder: true,         // Mostrar borda nos tiles
+        domeGalleryTileBorderColor: 'rgba(0, 36, 156, 0.4)', // Cor da borda dos tiles
+        domeGalleryTileBackground: 'rgba(8, 21, 53, 0.8)', // Fundo dos tiles
+        domeGalleryTileHoverGlow: true,      // Brilho ao passar mouse no tile
+        domeGalleryTileHoverGlowColor: 'rgba(0, 36, 156, 0.4)', // Cor do brilho hover
+        // Contorno Neon nas imagens:
+        domeGalleryTileNeon: true,           // Ativar contorno neon nas imagens
+        domeGalleryTileNeonColor: '#00249C', // Cor do neon das imagens (Azul Conexão)
+        domeGalleryTileNeonIntensity: 0.3,   // Intensidade do neon (0.1 a 1.0)
+        domeGalleryTileNeonPulse: false,     // Animação pulsante nas imagens
+        // Imagem expandida:
+        domeGalleryOpenedBorderRadius: '20px', // Borda da imagem aberta
+        domeGalleryOpenedWidth: '300px',     // Largura da imagem aberta
+        domeGalleryOpenedHeight: '300px',    // Altura da imagem aberta
     
     // ---- SEÇÃO COBERTURA / ONDE ESTAMOS ----
     secaoCobertura: true,
