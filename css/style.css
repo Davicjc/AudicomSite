@@ -1022,6 +1022,8 @@ body:hover #mouse-blur {
     z-index: 2;
     pointer-events: none;
     animation: floatLogo 6s ease-in-out infinite;
+    animation-fill-mode: both;
+    will-change: transform;
 }
 
 /* Título centralizado exatamente na logo */
@@ -1046,7 +1048,7 @@ body:hover #mouse-blur {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, 120px);
+    transform: translate(-50%, 150px);
     text-align: center;
     z-index: 10;
     width: 100%;
@@ -3385,7 +3387,7 @@ body:hover #mouse-blur {
         top: 50%;
         bottom: auto;
         left: 50%;
-        transform: translate(-50%, 120px) !important;
+        transform: translate(-50%, 160px) !important;
         width: 90%;
         padding: 0 var(--space-sm);
     }
@@ -3556,7 +3558,7 @@ body:hover #mouse-blur {
     }
     
     .hero-bottom-fixed {
-        transform: translate(-50%, 100px) !important;
+        transform: translate(-50%, 140px) !important;
         width: 95%;
     }
     
@@ -4290,7 +4292,7 @@ body:hover #mouse-blur {
         top: 50%;
         bottom: auto;
         left: 50%;
-        transform: translate(-50%, 120px) !important;
+        transform: translate(-50%, 160px) !important;
         width: 90%;
         padding: 0 1rem;
     }
@@ -5069,7 +5071,7 @@ body:hover #mouse-blur {
     }
     
     .hero-bottom-fixed {
-        transform: translate(-50%, 100px) !important;
+        transform: translate(-50%, 140px) !important;
         width: 95%;
     }
     
