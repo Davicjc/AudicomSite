@@ -198,7 +198,7 @@ const SiteConfig = {
         cardSwapHeight: 300,                 // Altura dos cards (px)
         cardSwapCardDistance: 50,            // Distância horizontal entre cards
         cardSwapVerticalDistance: 60,        // Distância vertical entre cards
-        cardSwapDelay: 5000,                 // Intervalo de troca (ms)
+        cardSwapDelay: 8000,                 // Intervalo de troca (ms)
         cardSwapPauseOnHover: false,          // Pausar ao passar mouse
         cardSwapSkewAmount: 6,               // Inclinação dos cards
         cardSwapEasing: 'elastic',           // Tipo de animação (elastic/smooth)
