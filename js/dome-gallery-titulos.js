@@ -20,7 +20,7 @@ const DomeGalleryTitulos = {
     '2.png': 'CALLINK',
     '3.png': 'KIBON',
     '4.png': 'BRASMIX',
-    '5.jpg': 'MERCURE HOTEL',
+    '5.png': 'MERCURE HOTEL',
     '6.jpg': 'EDGEUNO',
     '7.png': 'DECIO',
     '8.webp': 'BR.DIGITAL',

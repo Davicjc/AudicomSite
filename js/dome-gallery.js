@@ -241,16 +241,44 @@
         // Pegar apenas os necessários
         const usedImages = imagePool.slice(0, totalSlots);
         
-        // Evitar imagens iguais lado a lado (verificar vizinhos)
-        for (let i = 0; i < usedImages.length; i++) {
-            // Verificar vizinho anterior
-            if (i > 0 && usedImages[i].src === usedImages[i - 1].src) {
-                // Procurar uma imagem diferente para trocar
-                for (let j = i + 2; j < usedImages.length; j++) {
-                    if (usedImages[j].src !== usedImages[i].src && 
-                        usedImages[j].src !== usedImages[i - 1].src) {
-                        [usedImages[i], usedImages[j]] = [usedImages[j], usedImages[i]];
-                        break;
+        // Função para verificar se uma imagem é vizinha de outra igual
+        const isNearDuplicate = (arr, index, range = 3) => {
+            const current = arr[index].src;
+            for (let offset = 1; offset <= range; offset++) {
+                if (index - offset >= 0 && arr[index - offset].src === current) return true;
+                if (index + offset < arr.length && arr[index + offset].src === current) return true;
+            }
+            return false;
+        };
+        
+        // Múltiplas passadas para minimizar repetições próximas
+        for (let pass = 0; pass < 3; pass++) {
+            for (let i = 0; i < usedImages.length; i++) {
+                if (isNearDuplicate(usedImages, i, 2)) {
+                    // Procurar uma imagem diferente para trocar
+                    for (let j = i + 3; j < usedImages.length; j++) {
+                        // Verificar se a troca melhora a situação
+                        const currentSrc = usedImages[i].src;
+                        const candidateSrc = usedImages[j].src;
+                        
+                        // Verificar se o candidato não causará problema na posição i
+                        let candidateOk = true;
+                        for (let k = 1; k <= 2; k++) {
+                            if (i - k >= 0 && usedImages[i - k].src === candidateSrc) candidateOk = false;
+                            if (i + k < usedImages.length && i + k !== j && usedImages[i + k].src === candidateSrc) candidateOk = false;
+                        }
+                        
+                        // Verificar se mover o atual para j não causa problema
+                        let currentOk = true;
+                        for (let k = 1; k <= 2; k++) {
+                            if (j - k >= 0 && j - k !== i && usedImages[j - k].src === currentSrc) currentOk = false;
+                            if (j + k < usedImages.length && usedImages[j + k].src === currentSrc) currentOk = false;
+                        }
+                        
+                        if (candidateOk && currentOk) {
+                            [usedImages[i], usedImages[j]] = [usedImages[j], usedImages[i]];
+                            break;
+                        }
                     }
                 }
             }
@@ -936,7 +964,7 @@
             { src: 'assets/logos/2.png', alt: 'Cliente 2' },
             { src: 'assets/logos/3.png', alt: 'Cliente 3' },
             { src: 'assets/logos/4.png', alt: 'Cliente 4' },
-            { src: 'assets/logos/5.jpg', alt: 'Cliente 5' },
+            { src: 'assets/logos/5.png', alt: 'Cliente 5' },
             { src: 'assets/logos/6.jpg', alt: 'Cliente 6' },
             { src: 'assets/logos/7.png', alt: 'Cliente 7' },
             { src: 'assets/logos/8.webp', alt: 'Cliente 8' },
