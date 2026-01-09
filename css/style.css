@@ -928,12 +928,14 @@ body:hover #mouse-blur {
    HERO SECTION
    ============================================ */
 .hero {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     padding-top: 0;
+    overflow: hidden;
 }
 
 .hero-content {
@@ -1038,7 +1040,6 @@ body:hover #mouse-blur {
     z-index: 2;
     pointer-events: none;
     animation: floatLogo 6s ease-in-out infinite;
-    animation-fill-mode: both;
     will-change: transform;
 }
 
