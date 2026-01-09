@@ -108,6 +108,8 @@
      * Header scroll effect - add background when scrolled
      */
     function handleHeaderScroll() {
+        if (!header) return;
+        
         if (window.scrollY > 50) {
             header.classList.add('scrolled');
         } else {

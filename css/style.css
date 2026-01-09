@@ -1972,6 +1972,10 @@ body:hover #mouse-blur {
     max-width: 500px;
 }
 
+.insights-content .section-title {
+    white-space: nowrap;
+}
+
 .insights-text {
     font-size: 1.125rem;
     color: var(--text-secondary);
@@ -2851,6 +2855,7 @@ body:hover #mouse-blur {
     .title-telecom {
         margin-left: 0;
         font-size: 0.5em;
+        align-self: flex-end;
     }
     
     .hero-bg-image {
@@ -2899,6 +2904,7 @@ body:hover #mouse-blur {
     .title-telecom {
         margin-left: 0;
         font-size: 0.45em;
+        align-self: flex-end;
     }
     
     .hero-bg-image {
@@ -3365,6 +3371,7 @@ body:hover #mouse-blur {
     .title-telecom {
         margin-left: 0;
         font-size: 0.5em;
+        align-self: flex-end;
     }
     
     .hero-bg-image {
@@ -3567,13 +3574,14 @@ body:hover #mouse-blur {
     .title-telecom {
         margin-left: 0;
         font-size: 0.45em;
+        align-self: flex-end;
     }
     
     /* Mobile pequeno: hero-title-centered e hero-bottom-fixed */
     .hero-title-centered {
         top: 50%;
         font-size: clamp(2rem, 14vw, 3.5rem);
-        width: 95%;
+        width: auto;
     }
     
     .hero-bottom-fixed {
@@ -4264,6 +4272,7 @@ body:hover #mouse-blur {
         font-size: 0.4em;
         margin-left: 0;
         margin-top: 0;
+        align-self: flex-end;
     }
     
     /* Manter logo de fundo no mobile igual ao desktop */
@@ -5080,13 +5089,14 @@ body:hover #mouse-blur {
     .title-telecom {
         font-size: 0.38em;
         margin-left: 0;
+        align-self: flex-end;
     }
     
     /* Mobile pequeno: hero-title-centered e hero-bottom-fixed */
     .hero-title-centered {
         top: 50%;
         font-size: clamp(1.8rem, 14vw, 3rem);
-        width: 95%;
+        width: auto;
     }
     
     .hero-bottom-fixed {
