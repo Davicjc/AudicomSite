@@ -267,7 +267,7 @@ const SiteConfig = {
     // ============================================
     
     // Botão flutuante do WhatsApp
-    whatsappFloat: false,
+    whatsappFloat: true,
     
     // ============================================
     // SEÇÕES DA PÁGINA

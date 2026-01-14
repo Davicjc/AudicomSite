@@ -1232,6 +1232,32 @@ body:hover #mouse-blur {
     background-color: rgba(244, 246, 249, 0.05);
 }
 
+/* Botão Central do Cliente */
+.btn-central {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 1.2rem;
+}
+
+.btn-central-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.2;
+}
+
+.btn-central-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.btn-central-subtitle {
+    font-size: 0.7rem;
+    opacity: 0.7;
+    font-weight: 400;
+}
+
 .btn-outline {
     background-color: transparent;
     color: var(--text-primary);
