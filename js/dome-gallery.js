@@ -15,12 +15,16 @@
     // Verificar se a galeria está ativada
     if (SC.domeGallery === false) return;
     
-    // Configurações padrão
+    // Detectar se é mobile
+    const isMobile = window.innerWidth <= 768;
+    const isTablet = window.innerWidth > 768 && window.innerWidth <= 1024;
+    
+    // Configurações padrão - ajustadas para mobile
     const CONFIG = {
-        segments: SC.domeGallerySegments || 34,
-        fit: SC.domeGalleryFit || 0.8,
-        minRadius: SC.domeGalleryMinRadius || 600,
-        maxRadius: SC.domeGalleryMaxRadius || 800,
+        segments: isMobile ? 20 : (SC.domeGallerySegments || 34),
+        fit: isMobile ? 0.9 : (SC.domeGalleryFit || 0.8),
+        minRadius: isMobile ? 200 : (isTablet ? 350 : (SC.domeGalleryMinRadius || 600)),
+        maxRadius: isMobile ? 300 : (isTablet ? 500 : (SC.domeGalleryMaxRadius || 800)),
         padFactor: SC.domeGalleryPadFactor || 0.25,
         overlayBlurColor: SC.domeGalleryBlurColor || '#081535',
         maxVerticalRotationDeg: SC.domeGalleryMaxVerticalRotation || 5,

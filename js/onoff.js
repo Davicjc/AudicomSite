@@ -78,7 +78,7 @@ const SiteConfig = {
     // ---- ORB (esfera fluida animada WebGL) ----
     orb: true,
         // Subfunções do Orb:
-        orbSize: 1100,                        // Tamanho da esfera (px) - Desktop
+        orbSize: 1000,                        // Tamanho da esfera (px) - Desktop
         orbSizeMobile: 600,                   // Tamanho da esfera (px) - Mobile/Celular
         orbColor1: '#0032D6',                // Cor primária 
         orbColor2: '#00165E',                // Cor secundária 
@@ -88,7 +88,7 @@ const SiteConfig = {
         orbHoverIntensity: 0.1,              // Intensidade do efeito hover
         orbRotateOnHover: false,              // Rotacionar ao passar mouse
         orbForceHoverState: false,           // Forçar estado de hover
-        orbBackgroundColor: '#000000',       // Cor de fundo (Azul Estrutura)
+        orbBackgroundColor: '#00000000',       // Cor de fundo (Azul Estrutura)
     
     // ============================================
     // PILL NAV (MENU ANIMADO)
@@ -102,9 +102,12 @@ const SiteConfig = {
     // ---- HAMBURGER NAV (menu hambúrguer 3 barras) ----
     hamburgerNav: true,
         // Subfunções do Hamburger Nav:
-        hamburgerNavAnimation: true,         // Animação ao abrir/fechar
+        hamburgerNavAnimation: true,         // Animação GSAP ao abrir/fechar
         hamburgerNavPosition: 'left',        // Posição: 'left' ou 'right'
-        hamburgerNavHideOnScroll: false,     // Esconder ao rolar para baixo (true = esconde, false = sempre visível)
+        hamburgerNavHideOnScroll: false,     // Esconder ao rolar para baixo
+        hamburgerNavGlassmorphism: true,     // Efeito glassmorphism no overlay
+        hamburgerNavBlurIntensity: 40,       // Intensidade do blur (px)
+        hamburgerNavGlowEffect: true,        // Efeito de brilho animado no fundo
     
     // ============================================
     // HERO (TELA PRINCIPAL)
