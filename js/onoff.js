@@ -12,6 +12,15 @@ const SiteConfig = {
     // EFEITOS VISUAIS
     // ============================================
     
+    // ---- FIBER TRAIL (rastro de fibra no mouse) ----
+    fiberTrail: false,
+        // Subfunções do Fiber Trail:
+        fiberTrailMaxPoints: 20,             // Quantidade máxima de pontos no rastro
+        fiberTrailLineWidth: 2,              // Espessura da linha
+        fiberTrailColor: '#00249C',          // Cor principal (Azul Conexão)
+        fiberTrailGlowColor: 'rgba(0, 36, 156, 0.6)', // Cor do brilho
+        fiberTrailFadeSpeed: 0.15,           // Velocidade de desvanecimento
+    
     // ---- ELECTRIC BORDER (borda elétrica animada) ----
     electricBorder: true,
         // Subfunções do Electric Border:
