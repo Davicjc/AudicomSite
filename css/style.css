@@ -4130,6 +4130,8 @@ body:hover #mouse-blur {
     .hero-title-image {
         width: 70vw;
         max-width: 320px;
+        filter: none !important;
+        will-change: auto !important;
     }
     
     .hero-bottom-fixed {
@@ -4162,11 +4164,13 @@ body:hover #mouse-blur {
     }
     
     .hero-bg-image {
-        width: 85vw;
-        max-width: 700px;
+        width: 70vw;
+        max-width: 500px;
         display: block;
         margin: 0 auto;
-        opacity: 0;
+        opacity: 0.3;
+        filter: none;
+        animation: none;
     }
     
     .hero-bg-glow {
