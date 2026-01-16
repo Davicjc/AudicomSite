@@ -64,10 +64,9 @@
     box-sizing: border-box;
 }
 
+/* Todas as versões - apenas uma borda neon (simplificado) */
 .eb-glow-1 {
-    border: 2px solid var(--electric-border-color);
-    opacity: 0.6;
-    filter: blur(1px);
+    display: none !important; /* Esconde primeira borda */
 }
 
 .eb-glow-2 {
@@ -76,11 +75,11 @@
 }
 
 .eb-background-glow {
-    z-index: -1;
-    transform: scale(1.1);
-    filter: blur(32px);
-    opacity: 0.3;
-    background: linear-gradient(-30deg, var(--electric-border-color), transparent, var(--electric-border-color));
+    display: none !important; /* Remove glow de fundo */
+}
+
+.eb-canvas-container {
+    display: none !important; /* Remove canvas animado */
 }
 
 /* Mobile - apenas uma borda neon para evitar linhas duplas */
@@ -6000,7 +5999,7 @@ body:hover #mouse-blur {
     height: 100%;
     border-radius: 18px;
     overflow: visible;
-    --radius: 350px;
+    --radius: 400px;
     --viewer-pad: 40px;
     --circ: calc(var(--radius) * 3.14);
     --rot-y: calc((360deg / var(--segments-x)) / 2);
@@ -6291,6 +6290,52 @@ body:hover #mouse-blur {
 }
 
 /* ============================================
+   DOME GALLERY - CONFIGURAÇÕES PARA NÃO-MOBILE
+   (Tablets, laptops, PCs - tudo acima de 480px)
+   ============================================ */
+@media (min-width: 481px) {
+    .dome-gallery-wrapper {
+        height: 500px;
+        max-width: 900px;
+        overflow: visible;
+    }
+    
+    .dome-gallery-root {
+        overflow: visible;
+        --radius: 400px;
+    }
+    
+    .dome-gallery-item {
+        min-width: 100px;
+        min-height: 100px;
+    }
+    
+    .dome-gallery-item-image {
+        inset: 5px;
+    }
+    
+    .dome-gallery-item-image img {
+        padding: 8px;
+    }
+    
+    #dome-gallery-container {
+        overflow: visible;
+    }
+}
+
+/* Tablets (481px - 1023px) */
+@media (min-width: 481px) and (max-width: 1023px) {
+    .dome-gallery-wrapper {
+        height: clamp(400px, 50vw, 500px);
+        max-width: 95%;
+    }
+    
+    .dome-gallery-root {
+        --radius: clamp(300px, 40vw, 400px);
+    }
+}
+
+/* ============================================
    TELAS MÃ‰DIAS / PC PEQUENO (1024px - 1366px)
    ============================================ */
 @media (min-width: 1024px) and (max-width: 1366px) {
@@ -6361,9 +6406,19 @@ body:hover #mouse-blur {
         grid-template-columns: repeat(3, 1fr);
     }
 
-    /* Dome Gallery */
+    /* Dome Gallery - configurações completas para PC médio */
     .dome-gallery-wrapper {
         max-width: 95%;
+        height: 480px;
+    }
+    
+    .dome-gallery-root {
+        --radius: 380px;
+    }
+    
+    .dome-gallery-item {
+        min-width: 90px;
+        min-height: 90px;
     }
 }
 
@@ -6461,6 +6516,22 @@ body:hover #mouse-blur {
 
     .section-title {
         font-size: clamp(2.25rem, 4.8vw, 3.2rem);
+    }
+    
+    /* Dome Gallery */
+    .dome-gallery-wrapper {
+        height: 500px;
+        max-width: 850px;
+    }
+    
+    .dome-gallery-root {
+        --radius: 400px;
+        overflow: visible;
+    }
+    
+    .dome-gallery-item {
+        min-width: 100px;
+        min-height: 100px;
     }
 }
 
@@ -6618,8 +6689,17 @@ body:hover #mouse-blur {
     
     /* ---- DOME GALLERY ---- */
     .dome-gallery-wrapper {
-        height: clamp(350px, 50vw, 450px);
+        height: clamp(400px, 50vw, 480px);
         max-width: 100%;
+    }
+    
+    .dome-gallery-root {
+        --radius: clamp(300px, 40vw, 380px);
+        overflow: visible;
+    }
+    
+    #dome-gallery-container {
+        overflow: visible;
     }
     
     /* ---- EVITAR OVERFLOW HORIZONTAL ---- */
@@ -6690,18 +6770,18 @@ body:hover #mouse-blur {
         display: none !important;
     }
     
-    /* ---- DOME GALLERY CLIENTES - corrigir exibiÃ§Ã£o das logos ---- */
+    /* ---- DOME GALLERY CLIENTES - corrigir exibição das logos ---- */
     .dome-gallery-item {
-        min-width: 80px !important;
-        min-height: 80px !important;
+        min-width: 90px !important;
+        min-height: 90px !important;
     }
     
     .dome-gallery-item-image {
-        inset: 3px !important;
+        inset: 4px !important;
     }
     
     .dome-gallery-item-image img {
-        padding: 4px !important;
+        padding: 6px !important;
     }
 }
 
@@ -6752,9 +6832,20 @@ body:hover #mouse-blur {
         font-size: 1rem;
     }
     
-    /* Dome Gallery otimizado */
-    .dome-gallery {
-        height: 350px;
+    /* Dome Gallery otimizado para Surface Duo */
+    .dome-gallery-wrapper {
+        height: 400px;
+        max-width: 90%;
+    }
+    
+    .dome-gallery-root {
+        --radius: 320px;
+        overflow: visible;
+    }
+    
+    .dome-gallery-item {
+        min-width: 85px;
+        min-height: 85px;
     }
 }
 

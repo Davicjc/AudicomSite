@@ -317,8 +317,8 @@ const SiteConfig = {
         domeGallery: true,                   // Ativar galeria 3D esférica
         domeGallerySegments: 34,             // Número de segmentos da esfera
         domeGalleryFit: 0.8,                 // Ajuste de tamanho
-        domeGalleryMinRadius: 600,           // Raio mínimo (px)
-        domeGalleryMaxRadius: 800,           // Raio máximo (px)
+        domeGalleryMinRadius: 350,           // Raio mínimo (px) - para tablets/PC
+        domeGalleryMaxRadius: 600,           // Raio máximo (px) - para desktops grandes
         domeGalleryBlurColor: '#08153501',   // Cor de blur das bordas (Azul Estrutura)
         domeGalleryMaxVerticalRotation: 0,   // Rotação vertical máxima (graus)
         domeGalleryDragSensitivity: 20,      // Sensibilidade do arraste

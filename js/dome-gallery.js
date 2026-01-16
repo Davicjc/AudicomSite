@@ -15,16 +15,41 @@
     // Verificar se a galeria está ativada
     if (SC.domeGallery === false) return;
     
-    // Detectar se é mobile
-    const isMobile = window.innerWidth <= 768;
-    const isTablet = window.innerWidth > 768 && window.innerWidth <= 1024;
+    // Detectar dispositivo
+    const screenWidth = window.innerWidth;
+    const isMobile = screenWidth <= 480;
     
-    // Configurações padrão - ajustadas para mobile
+    // Função para obter configurações baseadas no tamanho de tela
+    // Mobile (<=480px): Configurações específicas para telefone
+    // Demais tamanhos (>480px): Mesmas configurações do PC
+    function getResponsiveConfig() {
+        if (isMobile) {
+            // Configurações específicas para telefone - NÃO ALTERAR
+            return {
+                segments: 20,
+                fit: 0.9,
+                minRadius: 200,
+                maxRadius: 300
+            };
+        } else {
+            // Configurações PC para TODOS os outros tamanhos (tablet, laptop, desktop)
+            return {
+                segments: SC.domeGallerySegments || 34,
+                fit: SC.domeGalleryFit || 0.8,
+                minRadius: SC.domeGalleryMinRadius || 350,
+                maxRadius: SC.domeGalleryMaxRadius || 600
+            };
+        }
+    }
+    
+    const responsiveConfig = getResponsiveConfig();
+    
+    // Configurações padrão - ajustadas dinamicamente
     const CONFIG = {
-        segments: isMobile ? 20 : (SC.domeGallerySegments || 34),
-        fit: isMobile ? 0.9 : (SC.domeGalleryFit || 0.8),
-        minRadius: isMobile ? 200 : (isTablet ? 350 : (SC.domeGalleryMinRadius || 600)),
-        maxRadius: isMobile ? 300 : (isTablet ? 500 : (SC.domeGalleryMaxRadius || 800)),
+        segments: responsiveConfig.segments,
+        fit: responsiveConfig.fit,
+        minRadius: responsiveConfig.minRadius,
+        maxRadius: responsiveConfig.maxRadius,
         padFactor: SC.domeGalleryPadFactor || 0.25,
         overlayBlurColor: SC.domeGalleryBlurColor || '#081535',
         maxVerticalRotationDeg: SC.domeGalleryMaxVerticalRotation || 5,
