@@ -4,7 +4,7 @@
    ============================================ */
 
 /* ============================================
-   ELECTRIC BORDER - Borda animada elétrica
+   ELECTRIC BORDER - Borda animada elÃ©trica
    ============================================ */
 .electric-border-wrapper {
     --electric-light-color: var(--electric-border-color, #00249C);
@@ -84,7 +84,7 @@
 }
 
 /* Mobile - apenas uma borda neon para evitar linhas duplas */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .eb-glow-1 {
         display: none !important; /* Esconde primeira borda no mobile */
     }
@@ -111,9 +111,9 @@
     /* Primary Colors */
     --azul-conexao: #00249C;      /* Destaque, hover */
     --azul-estrutura: #081535;    /* Fundo principal */
-    --cinza-operacional: #8F99A8; /* Animações, blur */
-    --grafite-infra: #2A2F36;     /* Animações, blur */
-    --branco-tecnico: #F4F6F9;    /* Textos, linhas - Branco Técnico */
+    --cinza-operacional: #8F99A8; /* AnimaÃ§Ãµes, blur */
+    --grafite-infra: #2A2F36;     /* AnimaÃ§Ãµes, blur */
+    --branco-tecnico: #F4F6F9;    /* Textos, linhas - Branco TÃ©cnico */
     
     /* Derived Colors */
     --bg-primary: var(--azul-estrutura);
@@ -337,7 +337,7 @@ body:hover #mouse-blur {
     color: var(--accent);
 }
 
-/* Texto curto/longo nos botões */
+/* Texto curto/longo nos botÃµes */
 .btn-text-short {
     display: none;
 }
@@ -346,17 +346,17 @@ body:hover #mouse-blur {
     display: inline;
 }
 
-/* Tablet - esconder botões de texto do header */
+/* Tablet - esconder botÃµes de texto do header */
 @media (max-width: 1024px) {
     .header-buttons {
-        display: none; /* Botões aparecem no menu overlay */
+        display: none; /* BotÃµes aparecem no menu overlay */
     }
 }
 
 /* Mobile - ajustes finais */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .header-buttons {
-        display: none; /* Botões aparecem no menu overlay */
+        display: none; /* BotÃµes aparecem no menu overlay */
     }
     
     .btn-text-short {
@@ -460,7 +460,7 @@ body:hover #mouse-blur {
     width: 20px;
 }
 
-/* Animação do X - Suave */
+/* AnimaÃ§Ã£o do X - Suave */
 .hamburger-toggle.active {
     background: rgba(0, 36, 156, 0.3);
     border-color: var(--azul-conexao);
@@ -572,12 +572,13 @@ body:hover #mouse-blur {
     padding: 0;
     margin: 0;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    /* Grid automÃ¡tico: adapta colunas conforme espaÃ§o disponÃ­vel */
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: 1rem;
 }
 
 /* Desktop: 4 colunas */
-@media (min-width: 1025px) {
+@media (min-width: 1024px) {
     .hamburger-menu-list {
         grid-template-columns: repeat(4, 1fr);
         gap: 1.25rem;
@@ -643,7 +644,7 @@ body:hover #mouse-blur {
 }
 
 /* ============================================
-   BOTÕES DO MENU - Glassmorphism
+   BOTÃ•ES DO MENU - Glassmorphism
    ============================================ */
 .hamburger-menu-buttons {
     display: flex;
@@ -721,34 +722,9 @@ body:hover #mouse-blur {
 }
 
 /* ============================================
-   RESPONSIVO - Tablet (769-1024px)
-   ============================================ */
-@media (min-width: 769px) and (max-width: 1024px) {
-    .hamburger-menu-content {
-        max-width: 500px;
-        padding: 3rem 2rem;
-    }
-    
-    .hamburger-menu-list {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-    }
-    
-    .hamburger-menu-link {
-        font-size: 1rem;
-        padding: 1rem;
-    }
-    
-    .hamburger-menu-buttons {
-        flex-direction: row;
-        gap: 1rem;
-    }
-}
-
-/* ============================================
    RESPONSIVO - Mobile Otimizado
    ============================================ */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .hamburger-nav {
         display: flex;
         padding: 0.5rem 0.75rem;
@@ -864,7 +840,7 @@ body:hover #mouse-blur {
     z-index: 9999;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .pill-nav-container {
         top: 0.75em;
         left: 50%;
@@ -889,7 +865,7 @@ body:hover #mouse-blur {
     box-sizing: border-box;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .pill-nav {
         flex-direction: row;
         width: 100%;
@@ -971,7 +947,7 @@ body:hover #mouse-blur {
     overflow: visible;
 }
 
-/* Pill com ícone */
+/* Pill com Ã­cone */
 .pill.pill-icon {
     width: 32px;
     height: 32px;
@@ -979,7 +955,7 @@ body:hover #mouse-blur {
     border-radius: 9999px;
     transition: width 0.3s ease 0.1s, padding 0.3s ease 0.1s, background 0.3s ease;
     gap: 0;
-    margin: 0 2px; /* Espaço para evitar flickering */
+    margin: 0 2px; /* EspaÃ§o para evitar flickering */
     overflow: visible; /* Permite texto aparecer fora */
     position: relative;
 }
@@ -989,7 +965,7 @@ body:hover #mouse-blur {
 }
 
 .pill-nav-items:hover .pill.pill-icon {
-    /* Removido: não expande todos automaticamente */
+    /* Removido: nÃ£o expande todos automaticamente */
 }
 
 .pill.pill-icon:hover {
@@ -1111,7 +1087,7 @@ body:hover #mouse-blur {
     display: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .desktop-only {
         display: none !important;
     }
@@ -1137,7 +1113,7 @@ body:hover #mouse-blur {
     position: relative;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .mobile-menu-button {
         display: flex;
     }
@@ -1206,7 +1182,7 @@ body:hover #mouse-blur {
 }
 
 /* Responsivo */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .staggered-menu-panel {
         width: 100%;
         left: 0;
@@ -1314,7 +1290,7 @@ body:hover #mouse-blur {
     padding: var(--space-xl) 0;
 }
 
-/* Fundo alternado para seções (Grafite Infra #2A2F36 com degradê suave nas bordas) */
+/* Fundo alternado para seÃ§Ãµes (Grafite Infra #2A2F36 com degradÃª suave nas bordas) */
 .section.section-alt {
     background: linear-gradient(
         180deg,
@@ -1350,7 +1326,7 @@ body:hover #mouse-blur {
     box-shadow: 0 0 20px rgba(0, 36, 156, 0.4), 0 0 40px rgba(0, 36, 156, 0.2);
 }
 
-/* Tag grande - tamanho de título (sem borda própria, usa Electric Border) */
+/* Tag grande - tamanho de tÃ­tulo (sem borda prÃ³pria, usa Electric Border) */
 .section-tag.section-tag-large {
     font-size: clamp(1.25rem, 4vw, 2rem);
     padding: 0.75rem 2rem;
@@ -1445,7 +1421,7 @@ body:hover #mouse-blur {
     animation-delay: 0.6s;
 }
 
-/* Backdrop blur atrás do título (copiado do AudicomSiteReuniao) */
+/* Backdrop blur atrÃ¡s do tÃ­tulo (copiado do AudicomSiteReuniao) */
 .titulo-backdrop {
     position: absolute;
     top: 50%;
@@ -1494,7 +1470,7 @@ body:hover #mouse-blur {
     will-change: transform;
 }
 
-/* Título centralizado exatamente na logo */
+/* TÃ­tulo centralizado exatamente na logo */
 .hero-title-centered {
     position: absolute;
     top: 50%;
@@ -1514,7 +1490,7 @@ body:hover #mouse-blur {
     align-items: center;
 }
 
-/* Subtítulo e botões fixos abaixo do título */
+/* SubtÃ­tulo e botÃµes fixos abaixo do tÃ­tulo */
 .hero-bottom-fixed {
     position: absolute;
     top: 50%;
@@ -1535,7 +1511,7 @@ body:hover #mouse-blur {
     }
 }
 
-/* Animação mais suave para tablet */
+/* AnimaÃ§Ã£o mais suave para tablet */
 @keyframes floatLogoTablet {
     0%, 100% {
         transform: translate(-50%, -50%);
@@ -1698,7 +1674,7 @@ body:hover #mouse-blur {
     background-color: rgba(244, 246, 249, 0.05);
 }
 
-/* Botão Central do Cliente */
+/* BotÃ£o Central do Cliente */
 .btn-central {
     flex-direction: row;
     align-items: center;
@@ -1940,7 +1916,7 @@ body:hover #mouse-blur {
     pointer-events: all;
 }
 
-/* Card Próximo (direita) */
+/* Card PrÃ³ximo (direita) */
 .products-track .product-card.next {
     transform: translateX(110%) scale(0.85);
     opacity: 0.5;
@@ -1974,7 +1950,7 @@ body:hover #mouse-blur {
     transform: translateX(110%) scale(0.9);
 }
 
-/* Navegação do Carrossel */
+/* NavegaÃ§Ã£o do Carrossel */
 .carousel-nav {
     position: absolute;
     top: 50%;
@@ -2342,12 +2318,12 @@ body:hover #mouse-blur {
 }
 
 .product-modal-details h4::before {
-    content: '✓';
+    content: 'âœ“';
     color: var(--accent);
 }
 
 .product-modal-usecases h4::before {
-    content: '→';
+    content: 'â†’';
     color: var(--accent);
 }
 
@@ -2368,14 +2344,14 @@ body:hover #mouse-blur {
 }
 
 .product-modal-benefits li::before {
-    content: '•';
+    content: 'â€¢';
     color: var(--accent);
     font-weight: bold;
     flex-shrink: 0;
 }
 
 .product-modal-cases li::before {
-    content: '–';
+    content: 'â€“';
     color: var(--cinza-operacional);
     flex-shrink: 0;
 }
@@ -2475,6 +2451,38 @@ body:hover #mouse-blur {
     line-height: 1.8;
 }
 
+/* Tablet - subir texto insights */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .insights-content .section-title {
+        margin-top: -14rem;
+    }
+    
+    .insights-text {
+        margin-top: 0;
+    }
+    
+    /* EspaÃ§o maior antes da seÃ§Ã£o Nossos Diferenciais */
+    .insights {
+        margin-top: 6rem;
+    }
+    
+    /* Logo maior no tablet */
+    .hamburger-logo img {
+        height: 50px;
+    }
+    
+    /* WhatsApp flutuante maior no tablet */
+    .whatsapp-float {
+        width: 64px;
+        height: 64px;
+    }
+    
+    .whatsapp-float svg {
+        width: 32px;
+        height: 32px;
+    }
+}
+
 /* Card Swap Container */
 .card-swap-container {
     position: relative;
@@ -2483,7 +2491,7 @@ body:hover #mouse-blur {
     margin-left: auto;
 }
 
-/* Hitbox Area - caixa invisível para capturar hover dos cards */
+/* Hitbox Area - caixa invisÃ­vel para capturar hover dos cards */
 .card-swap-hitbox {
     position: absolute;
     top: 50%;
@@ -2492,7 +2500,7 @@ body:hover #mouse-blur {
     pointer-events: auto;
     z-index: 50;
     cursor: pointer;
-    /* Tamanho será definido pelo JS */
+    /* Tamanho serÃ¡ definido pelo JS */
 }
 
 .swap-card {
@@ -2519,7 +2527,7 @@ body:hover #mouse-blur {
     background: linear-gradient(90deg, var(--accent), var(--cinza-operacional));
 }
 
-/* Hitbox invisível para capturar eventos do mouse nos cantos */
+/* Hitbox invisÃ­vel para capturar eventos do mouse nos cantos */
 .swap-card::after {
     content: '';
     position: absolute;
@@ -2567,7 +2575,7 @@ body:hover #mouse-blur {
     flex: 1;
 }
 
-/* Botão de navegação dos cards */
+/* BotÃ£o de navegaÃ§Ã£o dos cards */
 .card-swap-nav {
     position: absolute;
     right: -60px;
@@ -2671,7 +2679,7 @@ body:hover #mouse-blur {
     border-radius: 1.5rem;
     transition: all 0.3s ease;
     overflow: visible;
-    /* Variáveis CSS para o spotlight */
+    /* VariÃ¡veis CSS para o spotlight */
     --mouse-x: 50%;
     --mouse-y: 50%;
     --spotlight-color: rgba(0, 36, 156, 0.2);
@@ -2701,7 +2709,7 @@ body:hover #mouse-blur {
     opacity: 0.6;
 }
 
-/* Garantir que o conteúdo fique acima do spotlight */
+/* Garantir que o conteÃºdo fique acima do spotlight */
 .feature-item > * {
     position: relative;
     z-index: 1;
@@ -2895,7 +2903,7 @@ body:hover #mouse-blur {
     box-shadow: 0 0 12px rgba(0, 212, 255, 0.8);
 }
 
-/* Botão Geral */
+/* BotÃ£o Geral */
 .city-geral {
     background: rgba(0, 36, 156, 0.3);
     border: 2px solid var(--accent);
@@ -2916,7 +2924,7 @@ body:hover #mouse-blur {
 }
 
 /* Responsivo */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .cobertura-content {
         grid-template-columns: 1fr;
     }
@@ -2995,7 +3003,7 @@ body:hover #mouse-blur {
     color: #25D366;
 }
 
-/* Endereço */
+/* EndereÃ§o */
 .contato-endereco {
     display: inline-flex;
     align-items: center;
@@ -3143,7 +3151,7 @@ body:hover #mouse-blur {
     opacity: 1;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .footer-content {
         flex-direction: column;
         gap: 0.5rem;
@@ -3242,7 +3250,7 @@ body:hover #mouse-blur {
 /* ============================================
    RESPONSIVE DESIGN
    ============================================ */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     /* Contato Section - Mobile Compacto */
     .contato {
         padding: var(--space-md) 0;
@@ -3323,7 +3331,7 @@ body:hover #mouse-blur {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     :root {
         --space-lg: 3rem;
         --space-xl: 5rem;
@@ -3447,7 +3455,7 @@ body:hover #mouse-blur {
 }
 
 /* ============================================
-   FERRAMENTAS DE REDE (CARD EXPANSÍVEL)
+   FERRAMENTAS DE REDE (CARD EXPANSÃVEL)
    ============================================ */
 
 .ferramentas-rede {
@@ -3535,7 +3543,7 @@ body:hover #mouse-blur {
     display: none;
 }
 
-/* Conteúdo Expandido */
+/* ConteÃºdo Expandido */
 .ferramentas-expanded {
     display: none;
     animation: fadeInUp 0.4s ease;
@@ -3683,7 +3691,7 @@ body:hover #mouse-blur {
     color: var(--text-primary);
 }
 
-/* Header clicável */
+/* Header clicÃ¡vel */
 .ferramenta-header[data-toggle] {
     cursor: pointer;
     transition: background 0.3s ease;
@@ -3693,7 +3701,7 @@ body:hover #mouse-blur {
     background: rgba(0, 36, 156, 0.25);
 }
 
-/* Iframe oculto por padrão, só aparece quando card expande */
+/* Iframe oculto por padrÃ£o, sÃ³ aparece quando card expande */
 .ferramenta-iframe {
     position: relative;
     width: 100%;
@@ -3715,7 +3723,7 @@ body:hover #mouse-blur {
     border: none;
 }
 
-/* Classe para quando scroll está permitido (adicionada via JS) */
+/* Classe para quando scroll estÃ¡ permitido (adicionada via JS) */
 .ferramenta-iframe.scroll-enabled iframe {
     pointer-events: auto;
 }
@@ -3726,7 +3734,7 @@ body:hover #mouse-blur {
 
 /* Tablet e abaixo */
 @media (max-width: 968px) {
-    /* Seções */
+    /* SeÃ§Ãµes */
     .section {
         min-height: auto;
         padding: var(--space-lg) 0;
@@ -3737,7 +3745,7 @@ body:hover #mouse-blur {
         padding: 0 var(--space-sm);
     }
     
-    /* Títulos menores */
+    /* TÃ­tulos menores */
     .section-title {
         font-size: clamp(1.5rem, 5vw, 2.5rem);
     }
@@ -3833,7 +3841,7 @@ body:hover #mouse-blur {
 }
 
 /* Mobile */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     :root {
         --space-md: 1.5rem;
         --space-lg: 2.5rem;
@@ -3883,7 +3891,7 @@ body:hover #mouse-blur {
         transform: translate(-50%, -50%);
         margin: 0;
         padding: 0;
-        /* Reduzir animação em tablet */
+        /* Reduzir animaÃ§Ã£o em tablet */
         animation: floatLogoTablet 6s ease-in-out infinite;
     }
     
@@ -3900,7 +3908,7 @@ body:hover #mouse-blur {
         transform: translate(-50%, -50%);
     }
     
-    /* Mobile: título centralizado igual desktop */
+    /* Mobile: tÃ­tulo centralizado igual desktop */
     .hero-title-centered {
         position: absolute;
         top: 50%;
@@ -3982,7 +3990,7 @@ body:hover #mouse-blur {
         font-size: 0.85rem;
     }
     
-    /* Botão de navegação cards */
+    /* BotÃ£o de navegaÃ§Ã£o cards */
     .card-swap-nav {
         right: 50%;
         top: auto;
@@ -4278,7 +4286,8 @@ body:hover #mouse-blur {
 
 .bento-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    /* Grid automÃ¡tico: colunas de min 280px, adapta sozinho */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1rem;
     max-width: 1000px;
     margin: 0 auto;
@@ -4299,7 +4308,7 @@ body:hover #mouse-blur {
     transition: all 0.3s ease;
     cursor: default;
     
-    /* Variáveis para o glow */
+    /* VariÃ¡veis para o glow */
     --glow-x: 50%;
     --glow-y: 50%;
     --glow-intensity: 0;
@@ -4428,7 +4437,7 @@ body:hover #mouse-blur {
 }
 
 /* ============================================
-   INSTITUCIONAL SECTION - Missão, Valores, Visão
+   INSTITUCIONAL SECTION - MissÃ£o, Valores, VisÃ£o
    ============================================ */
 .institucional-section {
     background: transparent;
@@ -4447,7 +4456,8 @@ body:hover #mouse-blur {
 /* Layout centralizado em grid */
 .institucional-items {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    /* Grid automÃ¡tico: colunas de min 280px, adapta sozinho */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--space-lg);
     max-width: 1100px;
     margin: 0 auto;
@@ -4467,13 +4477,13 @@ body:hover #mouse-blur {
     backdrop-filter: blur(10px);
 }
 
-/* Hover quando NÃO está dentro do Electric Border */
+/* Hover quando NÃƒO estÃ¡ dentro do Electric Border */
 .institucional-item:not(.eb-content .institucional-item):hover {
     background: rgba(0, 36, 156, 0.15);
     transform: translateY(-4px);
 }
 
-/* Hover quando está dentro do Electric Border - aplica no wrapper */
+/* Hover quando estÃ¡ dentro do Electric Border - aplica no wrapper */
 .electric-border-wrapper:has(.institucional-item):hover {
     transform: translateY(-4px);
 }
@@ -4510,7 +4520,7 @@ body:hover #mouse-blur {
     gap: var(--space-sm);
 }
 
-/* Título */
+/* TÃ­tulo */
 .institucional-title {
     font-family: var(--font-display);
     font-size: 1.2rem;
@@ -4563,7 +4573,7 @@ body:hover #mouse-blur {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .institucional-item {
         padding: var(--space-lg);
         backdrop-filter: none; /* Remove blur que pode causar borda visual */
@@ -4633,7 +4643,7 @@ body:hover #mouse-blur {
     transition: all 0.3s ease;
 }
 
-/* Rotação aplicada após animação */
+/* RotaÃ§Ã£o aplicada apÃ³s animaÃ§Ã£o */
 .valor-pill.animated {
     transform: rotate(var(--item-rot));
 }
@@ -4648,7 +4658,7 @@ body:hover #mouse-blur {
 }
 
 /* Responsivo */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .valores-pills-inline {
         gap: 6px;
     }
@@ -4662,15 +4672,15 @@ body:hover #mouse-blur {
 /* ============================================
    MOBILE COMPLETE REDESIGN
    ============================================
-   Esta seção contém TODAS as melhorias mobile
-   Não modifica nada do desktop
+   Esta seÃ§Ã£o contÃ©m TODAS as melhorias mobile
+   NÃ£o modifica nada do desktop
    ============================================ */
 
 /* ============================================
    MOBILE: Reset Geral
    ============================================ */
-@media (max-width: 768px) {
-    /* Variáveis Mobile */
+@media (max-width: 767px) {
+    /* VariÃ¡veis Mobile */
     :root {
         --space-xs: 0.375rem;
         --space-sm: 0.75rem;
@@ -4684,7 +4694,7 @@ body:hover #mouse-blur {
         padding: 0 1rem;
     }
     
-    /* Seções com menos padding */
+    /* SeÃ§Ãµes com menos padding */
     .section {
         min-height: auto;
         padding: var(--space-lg) 0;
@@ -4695,7 +4705,7 @@ body:hover #mouse-blur {
 /* ============================================
    MOBILE: Navigation / Menu
    ============================================ */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .pill-nav-container {
         top: 0.5rem;
         width: calc(100% - 1.5rem);
@@ -4742,7 +4752,7 @@ body:hover #mouse-blur {
 /* ============================================
    MOBILE: Hero Section
    ============================================ */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .hero {
         min-height: 100vh;
         min-height: 100dvh;
@@ -4792,10 +4802,10 @@ body:hover #mouse-blur {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        /* Ajuste para garantir centralização perfeita */
+        /* Ajuste para garantir centralizaÃ§Ã£o perfeita */
         margin: 0;
         padding: 0;
-        /* Desabilitar animação em mobile para manter centralizado */
+        /* Desabilitar animaÃ§Ã£o em mobile para manter centralizado */
         animation: none !important;
     }
     
@@ -4835,7 +4845,7 @@ body:hover #mouse-blur {
         width: 100%;
     }
     
-    /* Mobile: título centralizado igual desktop */
+    /* Mobile: tÃ­tulo centralizado igual desktop */
     .hero-title-centered {
         position: absolute;
         top: 50%;
@@ -4895,7 +4905,7 @@ body:hover #mouse-blur {
 /* ============================================
    MOBILE: Section Headers
    ============================================ */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .section-header {
         margin-bottom: 1.5rem;
     }
@@ -4916,7 +4926,7 @@ body:hover #mouse-blur {
 /* ============================================
    MOBILE: Institucional Section
    ============================================ */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .institucional-section {
         padding: var(--space-lg) 0;
         margin-top: 150px;
@@ -4965,7 +4975,7 @@ body:hover #mouse-blur {
 /* ============================================
    MOBILE: Planos Section
    ============================================ */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .planos {
         padding: var(--space-lg) 0;
     }
@@ -5057,7 +5067,7 @@ body:hover #mouse-blur {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .produtos {
         padding: var(--space-lg) 0;
     }
@@ -5150,7 +5160,7 @@ body:hover #mouse-blur {
 /* ============================================
    MOBILE: Modal de Produtos
    ============================================ */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .product-modal {
         padding: 0.75rem;
     }
@@ -5165,8 +5175,8 @@ body:hover #mouse-blur {
     .product-modal-close {
         width: 32px;
         height: 32px;
-        top: -8px;
-        right: -8px;
+        top: 8px;
+        right: 8px;
     }
     
     .product-modal-header {
@@ -5204,7 +5214,7 @@ body:hover #mouse-blur {
 /* ============================================
    MOBILE: Insights / Card Swap
    ============================================ */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .insights {
         padding: var(--space-lg) 0;
         overflow: visible;
@@ -5232,16 +5242,16 @@ body:hover #mouse-blur {
     .card-swap-container {
         order: 2;
         width: 100%;
-        height: 280px;
+        height: 220px;
         margin: 0 auto;
-        margin-top: 2rem;
+        margin-top: 1rem;
         position: relative;
         perspective: 900px;
     }
     
     .swap-card {
         width: 280px !important;
-        height: 200px !important;
+        height: 180px !important;
         left: 50% !important;
         top: 50% !important;
     }
@@ -5276,7 +5286,7 @@ body:hover #mouse-blur {
 /* ============================================
    MOBILE: Sobre Section
    ============================================ */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .sobre {
         padding: var(--space-lg) 0;
         position: relative;
@@ -5332,7 +5342,7 @@ body:hover #mouse-blur {
 /* ============================================
    MOBILE: Cobertura / Mapa
    ============================================ */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .cobertura {
         padding: var(--space-lg) 0;
     }
@@ -5379,7 +5389,7 @@ body:hover #mouse-blur {
 /* ============================================
    MOBILE: Ferramentas Section
    ============================================ */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .ferramentas {
         padding: var(--space-lg) 0;
     }
@@ -5438,7 +5448,7 @@ body:hover #mouse-blur {
 /* ============================================
    MOBILE: Contato Section
    ============================================ */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .contato {
         padding: var(--space-lg) 0;
     }
@@ -5505,7 +5515,7 @@ body:hover #mouse-blur {
 /* ============================================
    MOBILE: Footer
    ============================================ */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .footer {
         padding: 0.5rem 0;
     }
@@ -5552,7 +5562,7 @@ body:hover #mouse-blur {
 /* ============================================
    MOBILE: WhatsApp Float Button
    ============================================ */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .whatsapp-float {
         bottom: 1rem;
         right: 1rem;
@@ -5569,7 +5579,7 @@ body:hover #mouse-blur {
 /* ============================================
    MOBILE: Bento Grid / Magic Cards
    ============================================ */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .bento-section {
         padding: var(--space-lg) 0;
     }
@@ -5663,7 +5673,7 @@ body:hover #mouse-blur {
         font-size: 0.85rem;
     }
     
-    /* Títulos menores */
+    /* TÃ­tulos menores */
     .section-title {
         font-size: clamp(1.25rem, 6vw, 1.75rem);
     }
@@ -5761,7 +5771,7 @@ body:hover #mouse-blur {
    MOBILE: Safe Area (iPhone Notch)
    ============================================ */
 @supports (padding-top: env(safe-area-inset-top)) {
-    @media (max-width: 768px) {
+    @media (max-width: 767px) {
         .pill-nav-container {
             top: calc(0.5rem + env(safe-area-inset-top));
         }
@@ -5783,13 +5793,13 @@ body:hover #mouse-blur {
 /* ============================================
    MOBILE: Smooth Scrolling & Touch
    ============================================ */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     html {
         scroll-behavior: smooth;
         -webkit-overflow-scrolling: touch;
     }
     
-    /* Remover animações pesadas no mobile para performance */
+    /* Remover animaÃ§Ãµes pesadas no mobile para performance */
     .fiber-canvas,
     #fiber-canvas {
         opacity: 0.4;
@@ -5810,7 +5820,7 @@ body:hover #mouse-blur {
     }
 }
 /* ============================================
-   SEÇÃO QUEM ATENDEMOS - Dome Gallery
+   SEÃ‡ÃƒO QUEM ATENDEMOS - Dome Gallery
    ============================================ */
 .quem-atendemos {
     position: relative;
@@ -5849,7 +5859,7 @@ body:hover #mouse-blur {
     font-size: 0.9rem;
     color: var(--cinza-operacional, #8F99A8);
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 35px;
     opacity: 0.8;
     letter-spacing: 0.5px;
 }
@@ -6179,7 +6189,7 @@ body:hover #mouse-blur {
 }
 
 /* Mobile Responsivo para Dome Gallery */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .dome-gallery-wrapper {
         height: 350px;
         max-width: 100%;
@@ -6207,6 +6217,12 @@ body:hover #mouse-blur {
     
     .dome-gallery-root {
         overflow: visible;
+        --radius: 250px;
+    }
+    
+    .dome-gallery-item {
+        min-width: 80px;
+        min-height: 80px;
     }
     
     .dome-gallery-item-image {
@@ -6231,278 +6247,9 @@ body:hover #mouse-blur {
 }
 
 /* ============================================
-   PRÉ-RESET PARA TABLET - CRITICAL FIX
+   TELAS MÃ‰DIAS / PC PEQUENO (1024px - 1366px)
    ============================================ */
-@media (min-width: 769px) and (max-width: 1024px) {
-    /* Reset crítico antes de qualquer outro estilo */
-    * {
-        box-sizing: border-box !important;
-    }
-    
-    html {
-        overflow-x: hidden;
-        font-size: 14px;
-    }
-    
-    body {
-        overflow-x: hidden;
-        width: 100vw;
-        max-width: 100vw;
-        position: relative;
-    }
-}
-
-/* ============================================
-   TABLET RESPONSIVO (769px - 1024px)
-   ============================================ */
-@media (min-width: 769px) and (max-width: 1024px) {
-    /* RESET GERAL - Prevenir overflow */
-    body {
-        overflow-x: hidden;
-    }
-    
-    /* Container ajustado para tablet */
-    .container {
-        max-width: 92%;
-        padding: 0 1rem;
-        margin: 0 auto;
-    }
-    
-    /* Seções com padding adequado */
-    .section {
-        padding: 3rem 0;
-        min-height: auto;
-    }
-
-    /* Hero - reduzir tamanhos */
-    .hero {
-        min-height: 90vh;
-        padding: 4rem 0;
-    }
-    
-    .hero-title {
-        font-size: clamp(2rem, 7vw, 3.5rem) !important;
-        line-height: 1;
-    }
-
-    .hero-title-centered {
-        font-size: clamp(2rem, 7vw, 3.5rem) !important;
-        width: 85%;
-    }
-
-    .hero-subtitle {
-        font-size: 0.95rem;
-    }
-
-    .hero-bg-image {
-        width: 700px;
-    }
-    
-    .hero-bg-glow {
-        width: 700px;
-        height: 700px;
-    }
-    
-    .hero-bottom-fixed {
-        width: 85%;
-        max-width: 500px;
-    }
-
-    /* Section titles menores */
-    .section-title {
-        font-size: clamp(1.5rem, 4vw, 2.2rem) !important;
-    }
-    
-    .section-header {
-        margin-bottom: 2rem;
-    }
-
-    .section-tag.section-tag-large {
-        font-size: clamp(1rem, 3.5vw, 1.4rem);
-        padding: 0.5rem 1.2rem;
-    }
-
-    /* Planos - permitir adaptação natural */
-    .plans-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 1.5rem;
-        max-width: 100%;
-        margin: 0 auto;
-    }
-
-    .plan-card {
-        padding: 1.5rem;
-    }
-    
-    .plan-speed {
-        font-size: 3rem;
-    }
-    
-    .plan-type {
-        font-size: 1.1rem;
-    }
-
-    /* Produtos - FORÇAR 1 coluna ou carrossel ajustado */
-    .products-carousel {
-        max-width: 100%;
-        padding: 0 1rem;
-    }
-
-    .products-track {
-        height: 420px;
-    }
-
-    .products-track .product-card {
-        width: 80%;
-        max-width: 400px;
-    }
-
-    /* Cards produtos em grid - adaptação natural */
-    .products-grid {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 1.5rem;
-        padding: 0 1rem;
-        max-width: 100%;
-        margin: 0 auto;
-    }
-
-    .product-card {
-        padding: 1.5rem;
-    }
-    
-    .product-type {
-        font-size: 1.2rem;
-    }
-
-    /* Botões menores */
-    .btn {
-        font-size: 0.85rem;
-        padding: 0.8rem 1.4rem;
-    }
-
-    /* Navegação */
-    .hamburger-nav {
-        padding: 0.8rem 1.2rem;
-    }
-
-    .hamburger-logo img {
-        height: 34px;
-    }
-    
-    .header-btn {
-        font-size: 0.85rem;
-    }
-
-    /* Insights - adaptação natural */
-    .insights-wrapper {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .insights-content {
-        max-width: 100%;
-        text-align: left;
-    }
-    
-    .card-swap-container {
-        margin: 0 auto;
-        max-width: 100%;
-    }
-
-    /* Magic Bento - adaptação natural */
-    .magic-bento-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 1rem;
-        max-width: 100%;
-        margin: 0 auto;
-    }
-    
-    .magic-bento-item {
-        min-height: 200px;
-    }
-
-    /* Cobertura */
-    .cobertura-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .mapa-container {
-        height: 400px;
-    }
-    
-    .cities-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    /* Network Tools - adaptação natural */
-    .network-cards {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 1.5rem;
-        max-width: 100%;
-        margin: 0 auto;
-    }
-
-    /* Dome Gallery */
-    .dome-gallery-wrapper {
-        height: 420px;
-        max-width: 100%;
-    }
-    
-    .dome-gallery-neon-border {
-        padding: 2px;
-    }
-    
-    .dome-gallery-neon-border::before {
-        display: none; /* Uma única linha neon no tablet */
-    }
-    
-    /* Sobre */
-    .sobre-content {
-        max-width: 100%;
-    }
-    
-    .features-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 1.5rem;
-    }
-    
-    .feature-item {
-        overflow: visible;
-    }
-    
-    /* Contato */
-    .contato-wrapper {
-        max-width: 90%;
-    }
-    
-    /* Card Swap */
-    .swap-card {
-        width: 85% !important;
-        max-width: 450px !important;
-    }
-    
-    /* Spotlight Cards */
-    .spotlight-card {
-        padding: 1.5rem;
-    }
-    
-    /* Prevenir elementos grandes */
-    img {
-        max-width: 100%;
-        height: auto;
-    }
-    
-    /* Pill Nav */
-    .pill-nav-container {
-        width: 95%;
-    }
-}
-
-/* ============================================
-   TELAS MÉDIAS / PC PEQUENO (1025px - 1366px)
-   ============================================ */
-@media (min-width: 1025px) and (max-width: 1366px) {
+@media (min-width: 1024px) and (max-width: 1366px) {
     /* Container ajustado */
     .container {
         max-width: 95%;
@@ -6577,12 +6324,12 @@ body:hover #mouse-blur {
 }
 
 /* ============================================
-   AJUSTES GERAIS PARA EVITAR SOBREPOSIÇÃO
+   AJUSTES GERAIS PARA EVITAR SOBREPOSIÃ‡ÃƒO
    ============================================ */
 
 /* Ajuste em todas as telas menores que 1366px */
 @media (max-width: 1366px) {
-    /* Reduzir espaçamentos gerais */
+    /* Reduzir espaÃ§amentos gerais */
     .section {
         padding: var(--space-lg) 0;
     }
@@ -6600,7 +6347,7 @@ body:hover #mouse-blur {
         padding: var(--space-md);
     }
 
-    /* Botões de navegação do carrossel */
+    /* BotÃµes de navegaÃ§Ã£o do carrossel */
     .carousel-nav {
         padding: 0 0.5rem;
     }
@@ -6616,43 +6363,12 @@ body:hover #mouse-blur {
     }
 }
 
-/* Tablet em landscape / iPad horizontal */
-@media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
-    /* Reduzir ainda mais as alturas em landscape */
-    .hero {
-        min-height: 85vh;
-        padding: 3rem 0;
-    }
-
-    .section {
-        min-height: auto;
-        padding: 2.5rem 0;
-    }
-
-    .products-track {
-        height: 380px;
-    }
-
-    .dome-gallery-wrapper {
-        height: 380px;
-    }
-    
-    .hero-title-centered {
-        font-size: clamp(1.8rem, 6vw, 3rem) !important;
-    }
-    
-    /* Mapa menor em landscape */
-    .mapa-container {
-        height: 350px;
-    }
-}
-
 /* ============================================
-   IPAD ESPECÍFICO - Portrait (768x1024)
+   IPAD ESPECÃFICO - Portrait (768x1024)
    ============================================ */
 @media (width: 768px) and (height: 1024px),
        (width: 810px) and (height: 1080px) {
-    /* iPad padrão e iPad 10 - permitir adaptação natural */
+    /* iPad padrÃ£o e iPad 10 - permitir adaptaÃ§Ã£o natural */
     body {
         font-size: 14px;
     }
@@ -6667,11 +6383,11 @@ body:hover #mouse-blur {
 }
 
 /* ============================================
-   IPAD ESPECÍFICO - Landscape (1024x768)
+   IPAD ESPECÃFICO - Landscape (1024x768)
    ============================================ */
 @media (width: 1024px) and (height: 768px),
        (width: 1080px) and (height: 810px) {
-    /* iPad horizontal - permitir adaptação natural */
+    /* iPad horizontal - permitir adaptaÃ§Ã£o natural */
     .hero {
         min-height: 85vh;
     }
@@ -6682,245 +6398,7 @@ body:hover #mouse-blur {
 }
 
 /* ============================================
-   AJUSTES ESPECÍFICOS PARA EVITAR QUEBRA EM TABLET
-   ============================================ */
-@media (min-width: 769px) and (max-width: 1024px) {
-    /* CRÍTICO: Prevenir overflow horizontal */
-    * {
-        box-sizing: border-box;
-    }
-    
-    html, body {
-        overflow-x: hidden;
-        max-width: 100vw;
-    }
-    
-    .section {
-        overflow-x: hidden;
-        max-width: 100vw;
-    }
-    
-    /* Permitir grids se adaptarem naturalmente */
-    .plans-grid,
-    .products-grid,
-    .network-cards,
-    .magic-bento-grid,
-    .features-grid {
-        width: 100%;
-        max-width: 100%;
-    }
-    
-    /* Cards com largura máxima */
-    .plan-card,
-    .product-card,
-    .network-card,
-    .feature-item,
-    .spotlight-card,
-    .magic-bento-item {
-        max-width: 100%;
-        box-sizing: border-box;
-    }
-    
-    /* Imagens responsivas */
-    img,
-    svg,
-    canvas {
-        max-width: 100%;
-        height: auto;
-    }
-    
-    /* Hero ajustes críticos */
-    .hero-content,
-    .hero-title-centered,
-    .hero-bottom-fixed {
-        max-width: 90%;
-        box-sizing: border-box;
-    }
-    
-    /* Carrossel não ultrapassar */
-    .products-carousel,
-    .carousel-nav {
-        max-width: 100%;
-        overflow: visible;
-    }
-    
-    /* Textos não quebrarem layout */
-    h1, h2, h3, h4, h5, h6 {
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-    }
-    
-    /* Botões responsivos */
-    .btn {
-        white-space: normal;
-        text-align: center;
-    }
-    
-    /* Navegação fixa não quebrar */
-    .hamburger-nav,
-    .pill-nav-container {
-        max-width: 100vw;
-        box-sizing: border-box;
-    }
-    
-    /* Mapa e visualizações */
-    .mapa-container,
-    .card-swap-container {
-        max-width: 100%;
-        overflow: hidden;
-    }
-    
-    /* Dome gallery precisa de overflow visible para a esfera 3D */
-    .dome-gallery-wrapper {
-        max-width: 100%;
-        overflow: visible;
-    }
-    
-    /* Prevenir elementos flutuantes quebrarem */
-    .whatsapp-float {
-        position: fixed;
-        right: 15px;
-        bottom: 15px;
-        z-index: 9997;
-    }
-}
-
-/* Ajustes específicos para evitar ícones sobrepostos */
-@media (min-width: 769px) and (max-width: 1024px) {
-    /* Network Tools - garantir espaçamento */
-    .network-tool-icon {
-        width: 48px;
-        height: 48px;
-        margin-bottom: var(--space-sm);
-    }
-
-    .network-tool-icon svg {
-        width: 24px;
-        height: 24px;
-    }
-
-    /* Product Icons menores */
-    .product-icon {
-        width: 56px;
-        height: 56px;
-    }
-
-    .product-icon svg {
-        width: 28px;
-        height: 28px;
-    }
-
-    /* Plan Icons */
-    .plan-icon {
-        width: 56px;
-        height: 56px;
-    }
-
-    .plan-icon svg {
-        width: 28px;
-        height: 28px;
-    }
-
-    /* Espaçamento entre elementos */
-    .plan-header,
-    .product-header {
-        margin-bottom: var(--space-sm);
-    }
-
-    /* Listas com menos espaço */
-    .plan-features li,
-    .product-features li {
-        padding: 6px 0;
-        font-size: 0.9rem;
-    }
-
-    /* Títulos de cards menores */
-    .plan-title,
-    .product-type {
-        font-size: 1.2rem;
-    }
-
-    .plan-subtitle,
-    .product-subtitle {
-        font-size: 0.85rem;
-    }
-
-    /* Feature items menores */
-    .feature-item {
-        padding: 1.5rem;
-    }
-
-    /* Spotlight cards */
-    .spotlight-card {
-        padding: var(--space-md);
-    }
-
-    /* Magic Bento items */
-    .magic-bento-item {
-        padding: var(--space-md);
-        min-height: 180px;
-    }
-
-    /* Evitar overflow horizontal */
-    body {
-        overflow-x: hidden;
-    }
-
-    .section {
-        overflow-x: hidden;
-    }
-
-    /* Ajuste de imagens */
-    img {
-        max-width: 100%;
-        height: auto;
-    }
-
-    /* Botões em cards menores */
-    .plan-footer .btn,
-    .product-footer .btn {
-        font-size: 0.8rem;
-        padding: 0.7rem 1.2rem;
-    }
-}
-
-/* ============================================
-   AJUSTES ADICIONAIS PARA TABLET PORTRAIT
-   ============================================ */
-@media (min-width: 769px) and (max-width: 900px) {
-    /* Forçar 1 coluna em telas muito estreitas */
-    .plans-grid {
-        grid-template-columns: 1fr !important;
-        max-width: 500px;
-        margin: 0 auto;
-    }
-
-    .products-grid {
-        grid-template-columns: 1fr !important;
-    }
-
-    .magic-bento-grid {
-        grid-template-columns: 1fr !important;
-    }
-
-    .network-cards {
-        grid-template-columns: 1fr !important;
-    }
-
-    /* Carrossel menor */
-    .products-track .product-card {
-        width: 85%;
-        max-width: 400px;
-    }
-
-    /* Container mais estreito */
-    .container {
-        max-width: 85%;
-    }
-}
-
-/* ============================================
-   AJUSTES PARA TELAS MÉDIAS-ALTAS (1200px-1440px)
+   AJUSTES PARA TELAS MÃ‰DIAS-ALTAS (1200px-1440px)
    ============================================ */
 @media (min-width: 1200px) and (max-width: 1440px) {
     /* Ajustes sutis para telas entre 1200-1440px */
@@ -6943,17 +6421,17 @@ body:hover #mouse-blur {
 }
 
 /* ============================================
-   CORREÇÕES ESPECÍFICAS PARA EVITAR SOBREPOSIÇÃO
+   CORREÃ‡Ã•ES ESPECÃFICAS PARA EVITAR SOBREPOSIÃ‡ÃƒO
    ============================================ */
 
-/* Garantir que elementos não ultrapassem viewport */
+/* Garantir que elementos nÃ£o ultrapassem viewport */
 @media (max-width: 1366px) {
     /* Prevenir overflow horizontal */
     * {
         max-width: 100%;
     }
 
-    /* Exceções para elementos que precisam de width: 100% */
+    /* ExceÃ§Ãµes para elementos que precisam de width: 100% */
     body,
     html,
     .section,
@@ -6980,18 +6458,18 @@ body:hover #mouse-blur {
         padding: clamp(1rem, 2.5vw, 2rem);
     }
 
-    /* Títulos com tamanho fluido */
+    /* TÃ­tulos com tamanho fluido */
     h1, h2, h3, .section-title {
         font-size: clamp(1.5rem, 4vw, 3rem);
     }
 
-    /* Botões com padding fluido */
+    /* BotÃµes com padding fluido */
     .btn {
         padding: clamp(0.7rem, 1.5vw, 1rem) clamp(1.2rem, 2.5vw, 2rem);
         font-size: clamp(0.75rem, 1.5vw, 0.875rem);
     }
 
-    /* Ícones com tamanho responsivo */
+    /* Ãcones com tamanho responsivo */
     .product-icon,
     .plan-icon,
     .network-tool-icon {
@@ -7008,37 +6486,177 @@ body:hover #mouse-blur {
 }
 
 /* ============================================
-   FIX PARA ELEMENTOS FIXOS EM TABLET
+   TABLET INTELIGENTE (768px - 1023px)
+   SoluÃ§Ã£o: Grids automÃ¡ticos + flex-wrap
    ============================================ */
-@media (min-width: 769px) and (max-width: 1024px) {
-    /* Navegação fixa */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    
+    /* ---- REGRA GERAL: flex-wrap em todos os flex containers ---- */
     .hamburger-nav,
-    .pill-nav-container {
-        position: fixed;
-        width: 100%;
-        left: 0;
-        right: 0;
+    .hamburger-left,
+    .hamburger-actions,
+    .hero-content,
+    .hero-bottom-fixed,
+    .plan-header,
+    .product-header,
+    .btn-group,
+    .carousel-nav {
+        flex-wrap: wrap;
     }
-
-    /* WhatsApp float */
-    .whatsapp-float {
-        bottom: 20px;
-        right: 20px;
-        width: 50px;
-        height: 50px;
+    
+    /* ---- GRIDS AUTOMÃTICOS: Adaptar colunas conforme espaÃ§o ---- */
+    .plans-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: var(--space-md);
     }
-
-    /* Ajustar z-index para evitar sobreposição */
-    .hamburger-nav {
-        z-index: 9999;
+    
+    .products-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
-
-    .pill-nav-container {
-        z-index: 9998;
+    
+    .insights-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
-
-    /* Garantir que conteúdo não fique atrás do nav */
+    
+    .magic-bento-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    
+    .network-cards {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    
+    /* ---- CORREÃ‡ÃƒO DE LARGURAS FIXAS ---- */
+    .hero-bg-image {
+        max-width: 100%;
+        width: auto;
+    }
+    
+    .products-track .product-card {
+        width: clamp(300px, 80vw, 400px);
+        max-width: 90%;
+    }
+    
+    .container {
+        max-width: 95%;
+        padding: 0 var(--space-md);
+    }
+    
+    /* ---- HERO AJUSTES ---- */
     .hero {
-        padding-top: 80px;
+        min-height: 90vh;
+    }
+    
+    .hero-title-centered {
+        font-size: clamp(2.5rem, 8vw, 4rem);
+    }
+    
+    .hero-bg-glow {
+        width: clamp(400px, 60vw, 600px);
+        height: clamp(400px, 60vw, 600px);
+    }
+    
+    /* ---- TÃTULOS RESPONSIVOS ---- */
+    .section-title {
+        font-size: clamp(1.8rem, 5vw, 2.5rem);
+    }
+    
+    /* ---- CARROSSEL AJUSTES ---- */
+    .products-carousel {
+        max-width: 100%;
+        overflow: visible;
+    }
+    
+    .products-track {
+        height: auto;
+        min-height: 420px;
+    }
+    
+    /* ---- DOME GALLERY ---- */
+    .dome-gallery-wrapper {
+        height: clamp(350px, 50vw, 450px);
+        max-width: 100%;
+    }
+    
+    /* ---- EVITAR OVERFLOW HORIZONTAL ---- */
+    html, body {
+        overflow-x: hidden;
+    }
+    
+    img, svg, video, canvas {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    /* ---- BOTÃ•ES ADAPTÃVEIS ---- */
+    .btn {
+        white-space: normal;
+        text-align: center;
+        padding: clamp(0.7rem, 2vw, 1rem) clamp(1rem, 3vw, 1.5rem);
+    }
+    
+    /* ---- LOGO MAIOR NO TABLET ---- */
+    .hamburger-logo img {
+        height: 60px !important;
+        width: auto !important;
+    }
+    
+    /* ---- WHATSAPP FLUTUANTE MAIOR ---- */
+    .whatsapp-float {
+        width: 70px !important;
+        height: 70px !important;
+    }
+    
+    .whatsapp-float svg {
+        width: 36px !important;
+        height: 36px !important;
+    }
+    
+    /* ---- HERO SUBTITLE MAIS BAIXO ---- */
+    .hero-subtitle {
+        margin-top: 3rem !important;
+    }
+    
+    /* ---- DOME GALLERY NEON - apenas uma linha ---- */
+    .dome-gallery-neon-border::before {
+        display: none !important;
+    }
+    
+    /* ---- BENTO CARDS - remover segundo contorno ---- */
+    .bento-card--border-glow::after {
+        display: none !important;
+    }
+    
+    /* ---- ELECTRIC BORDER - apenas uma borda no tablet ---- */
+    .eb-glow-1 {
+        display: none !important;
+    }
+    
+    .eb-glow-2 {
+        border-width: 1px !important;
+        filter: blur(3px) !important;
+        opacity: 0.8 !important;
+    }
+    
+    .eb-background-glow {
+        display: none !important;
+    }
+    
+    .eb-canvas-container {
+        display: none !important;
+    }
+    
+    /* ---- DOME GALLERY CLIENTES - corrigir exibiÃ§Ã£o das logos ---- */
+    .dome-gallery-item {
+        min-width: 80px !important;
+        min-height: 80px !important;
+    }
+    
+    .dome-gallery-item-image {
+        inset: 3px !important;
+    }
+    
+    .dome-gallery-item-image img {
+        padding: 4px !important;
     }
 }

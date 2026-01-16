@@ -15,19 +15,23 @@
     // Lê configurações do SiteConfig ou usa valores padrão
     const SC = typeof SiteConfig !== 'undefined' ? SiteConfig : {};
     
-    // Detectar mobile
-    const isMobile = window.innerWidth <= 768;
+    // Detectar mobile e tablet - Padrão de mercado
+    const isMobile = window.innerWidth <= 767;
+    const isTablet = window.innerWidth >= 768 && window.innerWidth <= 1023;
     const isSmallMobile = window.innerWidth <= 480;
+    
+    // Tablet e mobile usam animação horizontal
+    const useHorizontalAnimation = isMobile || isTablet;
     
     // Configurações responsivas
     const CONFIG = {
-        width: isSmallMobile ? 280 : (isMobile ? 320 : (SC.cardSwapWidth || 500)),
-        height: isSmallMobile ? 240 : (isMobile ? 260 : (SC.cardSwapHeight || 300)),
-        cardDistance: isSmallMobile ? 25 : (isMobile ? 35 : (SC.cardSwapCardDistance || 50)),
-        verticalDistance: isSmallMobile ? 30 : (isMobile ? 40 : (SC.cardSwapVerticalDistance || 60)),
+        width: isSmallMobile ? 280 : (isMobile ? 320 : (isTablet ? 400 : (SC.cardSwapWidth || 500))),
+        height: isSmallMobile ? 200 : (isMobile ? 220 : (isTablet ? 260 : (SC.cardSwapHeight || 300))),
+        cardDistance: isSmallMobile ? 20 : (isMobile ? 30 : (isTablet ? 40 : (SC.cardSwapCardDistance || 50))),
+        verticalDistance: isSmallMobile ? 20 : (isMobile ? 25 : (isTablet ? 40 : (SC.cardSwapVerticalDistance || 60))),
         delay: SC.cardSwapDelay || 5000,
         pauseOnHover: SC.cardSwapPauseOnHover || false,
-        skewAmount: isMobile ? 4 : (SC.cardSwapSkewAmount || 6),
+        skewAmount: (isMobile || isTablet) ? 4 : (SC.cardSwapSkewAmount || 6),
         easing: SC.cardSwapEasing || 'elastic',
         hitboxEnabled: SC.cardSwapHitboxEnabled !== undefined ? SC.cardSwapHitboxEnabled : true,
         clickToAdvance: SC.cardSwapClickToAdvance !== undefined ? SC.cardSwapClickToAdvance : true,
@@ -122,6 +126,15 @@
     }
 
     function makeSlot(i, distX, distY, total) {
+        // No mobile, usar animação horizontal (para o lado) em vez de vertical
+        if (isMobile) {
+            return {
+                x: i * distX,
+                y: 0,  // Sem deslocamento vertical no mobile
+                z: -i * distX * 1.5,
+                zIndex: total - i
+            };
+        }
         return {
             x: i * distX,
             y: -i * distY,
@@ -195,12 +208,21 @@
         const tl = gsap.timeline();
         currentTl = tl;
 
-        // Drop front card
-        tl.to(elFront, {
-            y: '+=500',
-            duration: easingConfig.durDrop,
-            ease: easingConfig.ease
-        });
+        // Drop front card - mobile/tablet vai para o lado, desktop vai para baixo
+        if (useHorizontalAnimation) {
+            tl.to(elFront, {
+                x: '-=300',
+                opacity: 0,
+                duration: easingConfig.durDrop,
+                ease: easingConfig.ease
+            });
+        } else {
+            tl.to(elFront, {
+                y: '+=500',
+                duration: easingConfig.durDrop,
+                ease: easingConfig.ease
+            });
+        }
 
         // Promote remaining cards
         tl.addLabel('promote', `-=${easingConfig.durDrop * easingConfig.promoteOverlap}`);
@@ -223,13 +245,26 @@
         tl.call(() => {
             gsap.set(elFront, { zIndex: backSlot.zIndex });
         }, undefined, 'return');
-        tl.to(elFront, {
-            x: backSlot.x,
-            y: backSlot.y,
-            z: backSlot.z,
-            duration: easingConfig.durReturn,
-            ease: easingConfig.ease
-        }, 'return');
+        
+        // No mobile/tablet, restaurar opacidade ao voltar
+        if (useHorizontalAnimation) {
+            tl.to(elFront, {
+                x: backSlot.x,
+                y: backSlot.y,
+                z: backSlot.z,
+                opacity: 1,
+                duration: easingConfig.durReturn,
+                ease: easingConfig.ease
+            }, 'return');
+        } else {
+            tl.to(elFront, {
+                x: backSlot.x,
+                y: backSlot.y,
+                z: backSlot.z,
+                duration: easingConfig.durReturn,
+                ease: easingConfig.ease
+            }, 'return');
+        }
 
         // Update order
         tl.call(() => {
