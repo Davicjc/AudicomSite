@@ -72,7 +72,7 @@ const SiteConfig = {
     rippleGrid: false,
         // Subfunções do Ripple Grid:
         rippleGridRainbow: false,            // Modo arco-íris
-        rippleGridColor: '#3700ff38',          // Cor da grade (Azul Conexão)
+        rippleGridColor: '#00249C',          // Cor da grade (Azul Conexão)
         rippleGridRippleIntensity: 0.009,     // Intensidade do ripple
         rippleGridSize: 20.0,                // Tamanho da grade
         rippleGridThickness: 15.0,           // Espessura das linhas
@@ -89,9 +89,9 @@ const SiteConfig = {
         // Subfunções do Orb:
         orbSize: 1000,                        // Tamanho da esfera (px) - Desktop
         orbSizeMobile: 600,                   // Tamanho da esfera (px) - Mobile/Celular
-        orbColor1: '#0032D6',                // Cor primária 
-        orbColor2: '#00165E',                // Cor secundária 
-        orbColor3: '#001D7D',                // Cor de profundidade 
+        orbColor1: '#00249C',                // Cor primária (Azul Conexão)
+        orbColor2: '#081535',                // Cor secundária (Azul Estrutura)
+        orbColor3: '#2A2F36',                // Cor de profundidade (Grafite Infra)
         orbHue: 0,                           // Ajuste de matiz (0-360)
         orbMouseEffect: false,               // Efeito de distorção ao passar mouse
         orbHoverIntensity: 0.1,              // Intensidade do efeito hover

@@ -73,7 +73,7 @@
             tl.to(toggleTextInner, { y: '-1em', duration: 0.3, ease: 'power2.inOut' }, 0);
             tl.to(iconLine1, { rotation: 45, y: 0, duration: 0.3, ease: 'power2.inOut' }, 0);
             tl.to(iconLine2, { rotation: -45, y: 0, duration: 0.3, ease: 'power2.inOut' }, 0);
-            tl.to(toggle, { color: '#111', duration: 0.3 }, 0.2);
+            tl.to(toggle, { color: '#081535', duration: 0.3 }, 0.2);
             tl.to(logo, { filter: 'invert(1)', duration: 0.3 }, 0.2);
 
             // Camadas de fundo
@@ -127,7 +127,7 @@
             tl.to(toggleTextInner, { y: 0, duration: 0.3, ease: 'power2.inOut' }, 0.3);
             tl.to(iconLine1, { rotation: 0, y: 0, duration: 0.3, ease: 'power2.inOut' }, 0.3);
             tl.to(iconLine2, { rotation: 0, y: 0, duration: 0.3, ease: 'power2.inOut' }, 0.3);
-            tl.to(toggle, { color: '#fff', duration: 0.3 }, 0.4);
+            tl.to(toggle, { color: '#F4F6F9', duration: 0.3 }, 0.4);
             tl.to(logo, { filter: 'invert(0)', duration: 0.3 }, 0.4);
         }
 

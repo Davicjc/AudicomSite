@@ -96,7 +96,7 @@
                     point.x, point.y
                 );
                 gradient.addColorStop(0, `rgba(0, 36, 156, ${opacity * 0.3})`);
-                gradient.addColorStop(0.5, `rgba(0, 100, 255, ${opacity * 0.4})`);
+                gradient.addColorStop(0.5, `rgba(0, 36, 156, ${opacity * 0.5})`);
                 gradient.addColorStop(1, `rgba(143, 153, 168, ${opacity * 0.2})`);
                 
                 ctx.strokeStyle = gradient;
