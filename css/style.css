@@ -4159,6 +4159,7 @@ body:hover #mouse-blur {
         transform: translate(-50%, -50%);
         margin: 0;
         padding: 0;
+        background: transparent;
     }
     
     .hero-bg-image {
@@ -4166,8 +4167,10 @@ body:hover #mouse-blur {
         max-width: 700px;
         display: block;
         margin: 0 auto;
-        opacity: 0.3;
-        mix-blend-mode: lighten;
+        opacity: 0.35;
+        filter: none;
+        animation: none;
+        background: transparent;
     }
     
     .hero-bg-glow {
