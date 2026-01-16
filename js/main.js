@@ -247,7 +247,10 @@
                     observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.5 });
+        }, { 
+            threshold: 0.5,
+            rootMargin: '50px'
+        });
 
         speedValues.forEach(value => observer.observe(value));
     }
