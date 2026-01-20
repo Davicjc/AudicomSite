@@ -3181,6 +3181,29 @@ body:hover #mouse-blur {
     opacity: 1;
 }
 
+.footer-version {
+    font-size: 0.65rem;
+    color: var(--text-secondary);
+    opacity: 0.5;
+}
+
+.footer-cookies-btn {
+    font-size: 0.65rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 4px 10px;
+    border: 1px solid rgba(143, 153, 168, 0.3);
+    border-radius: 12px;
+    transition: all var(--transition-fast);
+    opacity: 0.7;
+}
+
+.footer-cookies-btn:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    opacity: 1;
+}
+
 @media (max-width: 767px) {
     .footer-content {
         flex-direction: column;
@@ -3189,6 +3212,11 @@ body:hover #mouse-blur {
     
     .footer-links {
         gap: 1rem;
+    }
+    
+    .footer-version,
+    .footer-cookies-btn {
+        font-size: 0.55rem;
     }
 }
 
