@@ -1538,24 +1538,7 @@ body:hover #mouse-blur {
     filter: blur(0px) drop-shadow(0 0 60px rgba(0, 36, 156, 0.5)) 
             drop-shadow(0 0 120px rgba(0, 36, 156, 0.3))
             brightness(1.2) contrast(1.1);
-    animation: floatLogoPresence 6s ease-in-out infinite;
-}
-
-@keyframes floatLogoPresence {
-    0%, 100% {
-        transform: translateY(0) scale(1);
-        opacity: 0.4;
-        filter: blur(0px) drop-shadow(0 0 60px rgba(0, 36, 156, 0.5)) 
-                drop-shadow(0 0 120px rgba(0, 36, 156, 0.3))
-                brightness(1.2) contrast(1.1);
-    }
-    50% {
-        transform: translateY(-20px) scale(1.02);
-        opacity: 0.5;
-        filter: blur(0px) drop-shadow(0 0 80px rgba(0, 36, 156, 0.7)) 
-                drop-shadow(0 0 150px rgba(0, 36, 156, 0.4))
-                brightness(1.25) contrast(1.15);
-    }
+    /* Animação removida - usa apenas a do container .hero-bg-logo */
 }
 
 .hero-bg-glow {
