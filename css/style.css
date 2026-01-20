@@ -3187,6 +3187,23 @@ body:hover #mouse-blur {
     opacity: 0.5;
 }
 
+#footer-signature {
+    font-size: 0.65rem;
+    color: var(--text-secondary);
+    opacity: 0.5;
+}
+
+#footer-signature a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+}
+
+#footer-signature a:hover {
+    color: var(--accent);
+    opacity: 1;
+}
+
 .footer-cookies-btn {
     font-size: 0.65rem;
     color: var(--text-secondary);
@@ -3215,7 +3232,8 @@ body:hover #mouse-blur {
     }
     
     .footer-version,
-    .footer-cookies-btn {
+    .footer-cookies-btn,
+    #footer-signature {
         font-size: 0.55rem;
     }
 }
