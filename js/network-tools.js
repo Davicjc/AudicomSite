@@ -33,6 +33,9 @@
     // ============================================
     const SC = typeof SiteConfig !== 'undefined' ? SiteConfig : {};
     
+    // Detectar se está em mobile
+    const isMobile = () => window.innerWidth <= 767;
+    
     const CONFIG = {
         speedTestHeight: SC.ferramentasSpeedTestHeight ?? 700,
         speedTestZoom: SC.ferramentasSpeedTestZoom || 100,
@@ -41,6 +44,32 @@
         lookingGlassZoom: SC.ferramentasLookingGlassZoom || 100,
         lookingGlassBloquearScroll: SC.ferramentasLookingGlassBloquearScroll === true
     };
+    
+    // Função para obter configuração (usa mesma do Speed Test para Looking Glass em mobile)
+    function getToolConfig(toolId) {
+        if (toolId === 'speedtest') {
+            return {
+                height: CONFIG.speedTestHeight,
+                zoom: CONFIG.speedTestZoom,
+                bloquearScroll: CONFIG.speedTestBloquearScroll
+            };
+        } else if (toolId === 'lookingglass') {
+            // Em mobile, Looking Glass usa mesma config do Speed Test
+            if (isMobile()) {
+                return {
+                    height: CONFIG.speedTestHeight,
+                    zoom: CONFIG.speedTestZoom,
+                    bloquearScroll: CONFIG.lookingGlassBloquearScroll
+                };
+            }
+            return {
+                height: CONFIG.lookingGlassHeight,
+                zoom: CONFIG.lookingGlassZoom,
+                bloquearScroll: CONFIG.lookingGlassBloquearScroll
+            };
+        }
+        return { height: 700, zoom: 100, bloquearScroll: true };
+    }
 
     // ============================================
     // ELEMENTOS DO DOM
@@ -148,13 +177,11 @@
             }
         }
         
-        // Aplicar configuração específica
+        // Aplicar configuração específica (usa getToolConfig para detectar mobile)
         setTimeout(() => {
-            if (toolId === 'speedtest') {
-                applyIframeConfig('#speedtest-iframe', CONFIG.speedTestHeight, CONFIG.speedTestZoom, CONFIG.speedTestBloquearScroll);
-            } else if (toolId === 'lookingglass') {
-                applyIframeConfig('#lookingglass-iframe', CONFIG.lookingGlassHeight, CONFIG.lookingGlassZoom, CONFIG.lookingGlassBloquearScroll);
-            }
+            const config = getToolConfig(toolId);
+            const selector = toolId === 'speedtest' ? '#speedtest-iframe' : '#lookingglass-iframe';
+            applyIframeConfig(selector, config.height, config.zoom, config.bloquearScroll);
         }, 100);
     }
 
