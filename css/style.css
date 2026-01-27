@@ -259,7 +259,12 @@ body:hover #mouse-blur {
     padding: 1rem 2rem;
     z-index: 9999;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    background: transparent;
+    
+    /* Glass simples e elegante */
+    background: rgba(8, 21, 53, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .hamburger-nav--hidden {
@@ -345,17 +350,29 @@ body:hover #mouse-blur {
     display: inline;
 }
 
-/* Tablet - esconder botÃµes de texto do header */
+/* Tablet - esconder botões de texto do header */
 @media (max-width: 1024px) {
     .header-buttons {
-        display: none; /* BotÃµes aparecem no menu overlay */
+        display: flex; /* Botões visíveis no mobile */
+        gap: 0.75rem;
+    }
+    
+    .header-btn {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.7rem;
     }
 }
 
 /* Mobile - ajustes finais */
 @media (max-width: 767px) {
     .header-buttons {
-        display: none; /* BotÃµes aparecem no menu overlay */
+        display: flex; /* Botões visíveis no mobile */
+        gap: 0.5rem;
+    }
+    
+    .header-btn {
+        font-size: 0.65rem;
+        padding: 0.35rem 0.5rem;
     }
     
     .btn-text-short {
@@ -5724,7 +5741,7 @@ body:hover #mouse-blur {
     
     .cobertura-content {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 1rem;
     }
     
     .mapa-container {
@@ -5732,32 +5749,51 @@ body:hover #mouse-blur {
         border-radius: 12px;
     }
     
-    .cidades-wrapper {
-        padding: 1rem;
+    .marcador-pin svg {
+        width: 24px !important;
+        height: 24px !important;
     }
     
-    .cidades-title {
-        font-size: 1rem;
-        margin-bottom: 0.75rem;
+    /* Lista de cidades - grid 3 colunas */
+    .cidades-lista {
+        padding: 0.75rem;
+    }
+    
+    .cidades-lista h3 {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .cidades-hint {
+        display: none;
     }
     
     .cities-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 0.5rem;
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0.4rem !important;
     }
     
     .city-item {
-        padding: 0.6rem 0.75rem;
-        font-size: 0.8rem;
+        padding: 0.4rem 0.3rem !important;
+        font-size: 0.7rem !important;
+        text-align: center;
+        justify-content: center;
+        white-space: nowrap;
     }
     
     .city-marker {
-        width: 8px;
-        height: 8px;
+        display: none;
     }
     
     .city-geral {
         grid-column: span 2;
+        font-size: 0.7rem !important;
+    }
+    
+    .city-geral svg {
+        width: 12px;
+        height: 12px;
     }
 }
 
