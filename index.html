@@ -80,9 +80,10 @@
                 <li><a href="#insights" class="hamburger-menu-link" data-index="2">Insights</a></li>
                 <li><a href="#sobre" class="hamburger-menu-link" data-index="3">Sobre</a></li>
                 <li><a href="#quem-atendemos" class="hamburger-menu-link" data-index="4">Quem Atendemos</a></li>
-                <li><a href="#cobertura" class="hamburger-menu-link" data-index="5">Cobertura</a></li>
-                <li><a href="#ferramentas" class="hamburger-menu-link" data-index="6">Ferramentas</a></li>
-                <li><a href="#contato" class="hamburger-menu-link" data-index="7">Contato</a></li>
+                <li><a href="#depoimentos" class="hamburger-menu-link" data-index="5">Depoimentos</a></li>
+                <li><a href="#cobertura" class="hamburger-menu-link" data-index="6">Cobertura</a></li>
+                <li><a href="#ferramentas" class="hamburger-menu-link" data-index="7">Ferramentas</a></li>
+                <li><a href="#contato" class="hamburger-menu-link" data-index="8">Contato</a></li>
             </ul>
             
             <!-- Botões de destaque no menu mobile -->
@@ -180,6 +181,7 @@
                 <li><a href="#insights" class="mobile-menu-link">Insights</a></li>
                 <li><a href="#sobre" class="mobile-menu-link">Sobre</a></li>
                 <li><a href="#quem-atendemos" class="mobile-menu-link">Quem Atendemos</a></li>
+                <li><a href="#depoimentos" class="mobile-menu-link">Depoimentos</a></li>
                 <li><a href="#cobertura" class="mobile-menu-link">Cobertura</a></li>
                 <li><a href="#ferramentas" class="mobile-menu-link">Ferramentas</a></li>
                 <li><a href="#contato" class="mobile-menu-link">Contato</a></li>
@@ -553,6 +555,36 @@
             </div>
         </section>
 
+        <!-- Depoimentos Section -->
+        <section id="depoimentos" class="section depoimentos">
+            <div class="container">
+                <div class="section-header centered">
+                    <span class="section-tag">Depoimentos</span>
+                    <h2 class="section-title">O que nossos clientes dizem</h2>
+                </div>
+                
+                <div class="depoimentos-wrapper">
+                    <button class="depoimento-nav depoimento-nav-prev" aria-label="Depoimento anterior">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </button>
+                    
+                    <div class="depoimentos-container">
+                        <!-- Cards serão inseridos via JavaScript -->
+                    </div>
+                    
+                    <button class="depoimento-nav depoimento-nav-next" aria-label="Próximo depoimento">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="depoimentos-dots"></div>
+            </div>
+        </section>
+
         <!-- Cobertura Section -->
         <section id="cobertura" class="section cobertura">
             <div class="container">
@@ -579,6 +611,10 @@
                                 </svg>
                                 Ver Todas
                             </button>
+                            <div class="city-item" data-cidade="igarapava">
+                                <span class="city-marker"></span>
+                                Igarapava - SP
+                            </div>
                             <div class="city-item" data-cidade="uberaba">
                                 <span class="city-marker"></span>
                                 Uberaba - MG
@@ -864,6 +900,7 @@
     <script src="js/dome-gallery.js"></script>
     <script src="js/bubble-menu.js"></script>
     <script src="js/fiber-trail.js"></script>
+    <script src="js/depoimentos.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

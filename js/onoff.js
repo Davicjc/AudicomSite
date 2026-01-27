@@ -355,6 +355,12 @@ const SiteConfig = {
         domeGalleryOpenedWidth: '300px',     // Largura da imagem aberta
         domeGalleryOpenedHeight: '300px',    // Altura da imagem aberta
     
+    // ---- SEÇÃO DEPOIMENTOS (testemunhos de clientes) ----
+    depoimentos: true,
+        // Subfunções do Depoimentos:
+        depoimentosAutoplay: true,           // Troca automática de depoimentos
+        depoimentosAutoplayDelay: 8000,      // Intervalo entre trocas (ms)
+    
     // ---- SEÇÃO COBERTURA / ONDE ESTAMOS ----
     secaoCobertura: true,
         // Subfunções do Mapa de Cobertura:

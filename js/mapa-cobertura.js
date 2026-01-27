@@ -17,90 +17,98 @@
     // ============================================
     const CIDADES = [
         {
+            nome: 'Igarapava',
+            id: 'igarapava',
+            lat: -20.0417952,
+            lng: -47.7644634,
+            principal: false,
+            descricao: 'Cobertura completa'
+        },
+        {
             nome: 'Uberaba',
             id: 'uberaba',
-            lat: -19.7472,
-            lng: -47.9318,
+            lat: -19.7533377,
+            lng: -47.9907325,
             principal: false,
             descricao: 'Cobertura completa'
         },
         {
             nome: 'Uberlândia',
             id: 'uberlandia',
-            lat: -18.9186,
-            lng: -48.2772,
+            lat: -18.9145008,
+            lng: -48.2401006,
             principal: true,  // Sede da empresa
             descricao: 'Sede - Cobertura total'
         },
         {
             nome: 'Tapuirama',
             id: 'tapuirama',
-            lat: -19.3219,
-            lng: -49.3881,
+            lat: -19.1446483,
+            lng: -47.9354456,
             principal: false,
             descricao: 'Cobertura completa'
         },
         {
             nome: 'Martinésia',
             id: 'martineza',
-            lat: -18.8083,
-            lng: -48.7389,
+            lat: -18.7474385,
+            lng: -48.4217583,
             principal: false,
             descricao: 'Cobertura completa'
         },
         {
             nome: 'Cruzeiro dos Peixotos',
             id: 'cruzeirodospeixotos',
-            lat: -19.4306,
-            lng: -48.3711,
+            lat: -18.7294246,
+            lng: -48.3698932,
             principal: false,
             descricao: 'Cobertura completa'
         },
         {
             nome: 'Tupaciguara',
             id: 'tupaciguara',
-            lat: -18.5931,
-            lng: -48.7050,
+            lat: -18.5987669,
+            lng: -48.6941603,
             principal: false,
             descricao: 'Cobertura completa'
         },
         {
             nome: 'Araguari',
             id: 'araguari',
-            lat: -18.6486,
-            lng: -48.1936,
+            lat: -18.6458792,
+            lng: -48.1982406,
             principal: false,
             descricao: 'Cobertura completa'
         },
         {
             nome: 'Indianópolis',
             id: 'indianopolis',
-            lat: -18.9822,
-            lng: -47.9186,
+            lat: -19.0379526,
+            lng: -47.9177702,
             principal: false,
             descricao: 'Cobertura completa'
         },
         {
             nome: 'Delta',
             id: 'delta',
-            lat: -19.9833,
-            lng: -47.7667,
+            lat: -19.9728552,
+            lng: -47.7762221,
             principal: false,
             descricao: 'Cobertura completa'
         },
         {
             nome: 'Cristalina',
             id: 'cristalina',
-            lat: -16.7694,
-            lng: -47.6133,
+            lat: -16.7672778,
+            lng: -47.6090289,
             principal: false,
             descricao: 'Cobertura completa'
         },
         {
             nome: 'São Paulo',
             id: 'saopaulo',
-            lat: -23.571931261574285,
-            lng: -46.66651968465904,
+            lat: -23.5494593,
+            lng: -46.6279256,
             principal: false,
             descricao: 'Cobertura completa'
         }
@@ -235,8 +243,12 @@
                     
                     // Recalcula tamanho do mapa para garantir centralização correta
                     mapa.invalidateSize();
+                    
+                    // Zoom específico para Tapuirama, Martinésia e Cruzeiro dos Peixotos (mais próximo)
+                    const zoomLevel = (cidadeId === 'tapuirama' || cidadeId === 'martineza' || cidadeId === 'cruzeirodospeixotos') ? 15 : 12;
+                    
                     // Usa flyTo para centralizar suavemente
-                    mapa.flyTo(marker.getLatLng(), 12, { 
+                    mapa.flyTo(marker.getLatLng(), zoomLevel, { 
                         animate: true,
                         duration: 0.5
                     });

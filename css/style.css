@@ -2758,6 +2758,283 @@ body:hover #mouse-blur {
 }
 
 /* ============================================
+   SEÇÃO DEPOIMENTOS - TESTIMONIALS
+   ============================================ */
+.depoimentos {
+    background: transparent;
+    padding: var(--space-xl) 0;
+    overflow: visible;
+}
+
+.depoimentos .section-header {
+    position: relative;
+    z-index: 5;
+}
+
+.depoimentos-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-lg);
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 60px;
+}
+
+.depoimentos-container {
+    position: relative;
+    width: 100%;
+}
+
+/* Card de Depoimento */
+.depoimento-card {
+    display: none;
+    width: 100%;
+    background: rgba(8, 21, 53, 0.7);
+    border: 1px solid rgba(0, 36, 156, 0.3);
+    border-radius: 16px;
+    padding: var(--space-md) var(--space-lg);
+    backdrop-filter: blur(10px);
+    animation: fadeInCard 0.5s ease forwards;
+}
+
+.depoimento-card.active {
+    display: block;
+}
+
+@keyframes fadeInCard {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.depoimento-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.depoimento-quote-icon {
+    color: var(--azul-conexao);
+}
+
+.depoimento-texto {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: var(--branco-tecnico);
+    font-style: italic;
+    margin: 0;
+}
+
+.depoimento-autor {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-top: var(--space-sm);
+    padding-top: var(--space-sm);
+    border-top: 1px solid rgba(0, 36, 156, 0.2);
+}
+
+.depoimento-foto {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--azul-conexao);
+    box-shadow: 0 0 15px rgba(0, 36, 156, 0.4);
+    flex-shrink: 0;
+}
+
+.depoimento-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.depoimento-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.depoimento-nome {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--branco-tecnico);
+    margin: 0;
+}
+
+.depoimento-cargo {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: var(--cinza-operacional);
+    margin: 0;
+}
+
+.depoimento-empresa {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    color: var(--azul-conexao);
+    font-weight: 500;
+    margin: 0;
+}
+
+/* Navegação */
+.depoimento-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(8, 21, 53, 0.9);
+    border: 1px solid rgba(0, 36, 156, 0.5);
+    color: var(--branco-tecnico);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.depoimento-nav-prev {
+    left: 0;
+}
+
+.depoimento-nav-next {
+    right: 0;
+}
+
+.depoimento-nav:hover {
+    background: var(--azul-conexao);
+    border-color: var(--azul-conexao);
+    box-shadow: 0 0 20px rgba(0, 36, 156, 0.5);
+}
+
+/* Dots de navegação */
+.depoimentos-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: var(--space-lg);
+}
+
+.depoimento-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(0, 36, 156, 0.3);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.depoimento-dot:hover {
+    background: rgba(0, 36, 156, 0.6);
+}
+
+.depoimento-dot.active {
+    background: var(--azul-conexao);
+    box-shadow: 0 0 10px rgba(0, 36, 156, 0.6);
+    transform: scale(1.2);
+}
+
+/* Responsivo - Tablet */
+@media (max-width: 768px) {
+    .depoimentos-wrapper {
+        padding: 0 50px;
+    }
+    
+    .depoimento-card {
+        padding: var(--space-md) var(--space-lg);
+    }
+    
+    .depoimento-texto {
+        font-size: 0.9rem;
+    }
+    
+    .depoimento-nav {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .depoimento-nav-prev {
+        left: 5px;
+    }
+    
+    .depoimento-nav-next {
+        right: 5px;
+    }
+}
+
+/* Responsivo - Mobile */
+@media (max-width: 480px) {
+    .depoimentos {
+        padding: var(--space-lg) 0;
+    }
+    
+    .depoimentos-wrapper {
+        padding: 0 var(--space-sm);
+    }
+    
+    .depoimento-card {
+        padding: var(--space-md);
+        border-radius: 16px;
+    }
+    
+    .depoimento-texto {
+        font-size: 0.85rem;
+        line-height: 1.6;
+    }
+    
+    .depoimento-autor {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .depoimento-info {
+        align-items: center;
+    }
+    
+    .depoimento-foto {
+        width: 55px;
+        height: 55px;
+    }
+    
+    .depoimento-nav {
+        position: static;
+        transform: none;
+        width: 36px;
+        height: 36px;
+        flex-shrink: 0;
+    }
+    
+    .depoimentos-wrapper {
+        display: flex;
+        align-items: center;
+        gap: var(--space-xs);
+    }
+    
+    .depoimento-nome {
+        font-size: 0.95rem;
+    }
+    
+    .depoimento-cargo,
+    .depoimento-empresa {
+        font-size: 0.8rem;
+    }
+}
+
+/* ============================================
    COBERTURA SECTION - MAPA
    ============================================ */
 .cobertura {
@@ -2786,6 +3063,32 @@ body:hover #mouse-blur {
 .mapa-container .leaflet-container {
     background: var(--bg-primary);
     font-family: var(--font-body);
+}
+
+/* Atribuição do Leaflet - discreta */
+.leaflet-control-attribution {
+    background: var(--grafite-infra, #2A2F36) !important;
+    font-size: 8px !important;
+    padding: 2px 6px !important;
+    border-radius: 4px 0 0 0 !important;
+}
+
+.leaflet-control-attribution:hover {
+    opacity: 1 !important;
+}
+
+.leaflet-control-attribution a {
+    color: var(--branco-tecnico, #F4F6F9) !important;
+    text-decoration: none !important;
+}
+
+.leaflet-control-attribution,
+.leaflet-control-attribution span {
+    color: var(--branco-tecnico, #F4F6F9) !important;
+}
+
+.leaflet-control-attribution svg {
+    display: none !important;
 }
 
 /* Popup customizado */
