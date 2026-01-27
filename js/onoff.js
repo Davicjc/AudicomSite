@@ -300,13 +300,13 @@ const SiteConfig = {
     secaoFerramentas: true,              // Mostrar seção Ferramentas de Rede
         // Subfunções do Ferramentas de Rede:
         // Speed Test:
-        ferramentasSpeedTestHeight: 700,     // Altura do iframe Speed Test (px)
+        ferramentasSpeedTestHeight: 1100,    // Altura do iframe Speed Test (px)
         ferramentasSpeedTestZoom: 100,       // Zoom do Speed Test (%)
         ferramentasSpeedTestBloquearScroll: true, // Bloquear rolagem (mas permite cliques)
         // Looking Glass:
         ferramentasLookingGlassHeight: 700,  // Altura do iframe Looking Glass (px)
-        ferramentasLookingGlassZoom: 80,     // Zoom do Looking Glass (%)
-        ferramentasLookingGlassBloquearScroll: true, // Bloquear rolagem (mas permite cliques)
+        ferramentasLookingGlassZoom: 100,    // Zoom do Looking Glass (%)
+        ferramentasLookingGlassBloquearScroll: false, // Liberar rolagem
     
     // Seção Sobre
     secaoSobre: true,

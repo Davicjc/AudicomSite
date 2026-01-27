@@ -4102,6 +4102,15 @@ body:hover #mouse-blur {
     border: none;
 }
 
+/* Looking Glass altura específica */
+#lookingglass-iframe {
+    height: 750px;
+}
+
+#lookingglass-iframe iframe {
+    height: 750px;
+}
+
 /* Classe para quando scroll estÃ¡ permitido (adicionada via JS) */
 .ferramenta-iframe.scroll-enabled iframe {
     pointer-events: auto;
@@ -4225,6 +4234,35 @@ body:hover #mouse-blur {
         --space-md: 1.5rem;
         --space-lg: 2.5rem;
         --space-xl: 4rem;
+    }
+    
+    /* ---- FERRAMENTAS: iframes no mobile - altura controlada pelo JS ---- */
+    .ferramenta-card.expanded #speedtest-iframe {
+        height: auto !important;
+        min-height: 900px !important;
+    }
+    
+    .ferramenta-card.expanded #speedtest-iframe iframe {
+        height: 100% !important;
+        min-height: 900px !important;
+    }
+    
+    .ferramenta-card.expanded #lookingglass-iframe {
+        height: auto !important;
+        min-height: 500px !important;
+    }
+    
+    .ferramenta-card.expanded #lookingglass-iframe iframe {
+        height: 100% !important;
+        min-height: 500px !important;
+    }
+    
+    /* Cards fechados devem colapsar */
+    .ferramenta-card:not(.expanded) #speedtest-iframe,
+    .ferramenta-card:not(.expanded) #lookingglass-iframe {
+        height: 0 !important;
+        min-height: 0 !important;
+        overflow: hidden !important;
     }
     
     /* Hero */
@@ -7136,6 +7174,29 @@ body:hover #mouse-blur {
     
     .eb-canvas-container {
         display: none !important;
+    }
+    
+    /* ---- FERRAMENTAS: iframes ---- */
+    #speedtest-iframe {
+        height: 750px !important;
+    }
+    
+    #speedtest-iframe iframe {
+        height: 750px !important;
+        min-height: 750px !important;
+    }
+    
+    /* ---- LOOKING GLASS TABLET ---- */
+    #lookingglass-iframe {
+        height: 750px !important;
+        width: 100% !important;
+        display: block !important;
+    }
+    
+    #lookingglass-iframe iframe {
+        height: 750px !important;
+        width: 100% !important;
+        display: block !important;
     }
     
     /* ---- DOME GALLERY CLIENTES - corrigir exibição das logos ---- */

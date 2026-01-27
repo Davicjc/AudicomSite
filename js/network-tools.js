@@ -219,8 +219,13 @@
         // Sempre permite cliques
         iframe.style.pointerEvents = 'auto';
 
-        // Bloquear scroll
+        // Bloquear scroll do iframe
         if (bloquearScroll) {
+            // Desabilitar scrolling no iframe
+            iframe.setAttribute('scrolling', 'no');
+            iframe.style.overflow = 'hidden';
+            
+            // Bloquear eventos de scroll no container
             container.addEventListener('wheel', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
