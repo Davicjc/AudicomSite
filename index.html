@@ -79,11 +79,12 @@
                 <li><a href="#produtos" class="hamburger-menu-link" data-index="1">Produtos</a></li>
                 <li><a href="#insights" class="hamburger-menu-link" data-index="2">Insights</a></li>
                 <li><a href="#sobre" class="hamburger-menu-link" data-index="3">Sobre</a></li>
-                <li><a href="#quem-atendemos" class="hamburger-menu-link" data-index="4">Quem Atendemos</a></li>
-                <li><a href="#depoimentos" class="hamburger-menu-link" data-index="5">Depoimentos</a></li>
-                <li><a href="#cobertura" class="hamburger-menu-link" data-index="6">Cobertura</a></li>
-                <li><a href="#ferramentas" class="hamburger-menu-link" data-index="7">Ferramentas</a></li>
-                <li><a href="#contato" class="hamburger-menu-link" data-index="8">Contato</a></li>
+                <li><a href="#timeline-sucesso" class="hamburger-menu-link" data-index="4">Nossa História</a></li>
+                <li><a href="#quem-atendemos" class="hamburger-menu-link" data-index="5">Quem Atendemos</a></li>
+                <li><a href="#depoimentos" class="hamburger-menu-link" data-index="6">Depoimentos</a></li>
+                <li><a href="#cobertura" class="hamburger-menu-link" data-index="7">Cobertura</a></li>
+                <li><a href="#ferramentas" class="hamburger-menu-link" data-index="8">Ferramentas</a></li>
+                <li><a href="#contato" class="hamburger-menu-link" data-index="9">Contato</a></li>
             </ul>
             
             <!-- Botões de destaque no menu mobile -->
@@ -539,6 +540,43 @@
             </div>
         </section>
 
+        <!-- Timeline de Sucesso Section -->
+        <section id="timeline-sucesso" class="section timeline-sucesso">
+            <div class="container">
+                <div class="timeline-sucesso-content">
+                    <!-- Header -->
+                    <div class="timeline-header">
+                        <div class="section-header centered">
+                            <span class="section-tag">Nossa Trajetória</span>
+                            <h2 class="section-title">Rota de Sucesso</h2>
+                        </div>
+                        <div class="timeline-intro">
+                            <p class="timeline-intro-text">
+                                Mais de duas décadas de inovação, crescimento e compromisso com a conectividade. 
+                                Conheça os marcos que construíram a Audicom Telecom.
+                            </p>
+                        </div>
+                        <button class="timeline-toggle-btn" type="button">
+                            <span class="toggle-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </span>
+                            <span class="toggle-text">Ver Nossa História</span>
+                        </button>
+                    </div>
+                    
+                    <!-- Timeline Wrapper (expansível) -->
+                    <div class="timeline-wrapper">
+                        <canvas class="timeline-fiber-canvas"></canvas>
+                        <div class="timeline-container">
+                            <!-- Cards serão inseridos via JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Quem Atendemos Section -->
         <section id="quem-atendemos" class="section quem-atendemos">
             <div class="container">
@@ -901,6 +939,7 @@
     <script src="js/bubble-menu.js"></script>
     <script src="js/fiber-trail.js"></script>
     <script src="js/depoimentos.js"></script>
+    <script src="js/timeline-sucesso.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

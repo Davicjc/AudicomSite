@@ -13,7 +13,7 @@ const SiteConfig = {
     // ============================================
     
     // ---- FIBER TRAIL (rastro de fibra no mouse) ----
-    fiberTrail: false,
+    fiberTrail: true,
         // Subfunções do Fiber Trail:
         fiberTrailMaxPoints: 20,             // Quantidade máxima de pontos no rastro
         fiberTrailLineWidth: 2,              // Espessura da linha
@@ -198,6 +198,19 @@ const SiteConfig = {
     spotlightCard: true,
         // Subfunções do Spotlight Card:
         spotlightCardColor: 'rgba(0, 36, 156, 0.2)',    // Cor do holofote (Azul Conexão)
+    
+    // ============================================
+    // TIMELINE DE SUCESSO (Rota Audicom)
+    // ============================================
+    
+    // ---- TIMELINE SUCESSO (histórico expansível da empresa) ----
+    timelineSucesso: true,
+        // Subfunções da Timeline Sucesso:
+        timelineSucessoAnimationDuration: 0.6,   // Duração da animação dos cards (segundos)
+        timelineSucessoFiberSpeed: 2,            // Velocidade das partículas de fibra
+        timelineSucessoParticleCount: 50,        // Quantidade de partículas no canvas
+        timelineSucessoGlowIntensity: 0.8,       // Intensidade do brilho nos nodes
+        timelineSucessoAutoCollapse: true,       // Recolher automaticamente ao sair da view
     
     // ============================================
     // SEÇÃO INSIGHTS
@@ -622,6 +635,12 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!SiteConfig.secaoSobre) {
         const secaoSobre = document.getElementById('sobre');
         if (secaoSobre) secaoSobre.style.display = 'none';
+    }
+    
+    // Seção Timeline de Sucesso
+    if (SiteConfig.timelineSucesso === false) {
+        const secaoTimeline = document.getElementById('timeline-sucesso');
+        if (secaoTimeline) secaoTimeline.style.display = 'none';
     }
     
     // Seção Quem Atendemos
