@@ -48,6 +48,11 @@ const SiteConfig = {
         fiberCanvasParticleSpeed: 0.3,       // Velocidade das partículas
         fiberCanvasFlowSpeed: 0.002,         // Velocidade do fluxo de dados
         fiberCanvasGlowIntensity: 0.8,       // Intensidade do brilho
+        // Scan Line (luz que sobe e desce):
+        fiberCanvasScanLine: false,           // Ativar linha de scan vertical
+        fiberCanvasScanLineSpeed: 0.0005,    // Velocidade da linha (menor = mais lenta)
+        fiberCanvasScanLineWidth: 100,       // Largura do efeito de brilho
+        fiberCanvasScanLineOpacity: 0.05,    // Opacidade máxima da linha
     
     // ---- FLOATING LINES (ondas animadas WebGL) ----
     floatingLines: false,

@@ -42,7 +42,12 @@
         connectionDistance: SC.fiberCanvasConnectionDistance || 150,
         particleSpeed: SC.fiberCanvasParticleSpeed || 0.3,
         flowSpeed: SC.fiberCanvasFlowSpeed || 0.002,
-        glowIntensity: SC.fiberCanvasGlowIntensity || 0.8
+        glowIntensity: SC.fiberCanvasGlowIntensity || 0.8,
+        // Configurações do Scan Line
+        scanLine: SC.fiberCanvasScanLine !== false,  // Ativado por padrão
+        scanLineSpeed: SC.fiberCanvasScanLineSpeed || 0.0005,
+        scanLineWidth: SC.fiberCanvasScanLineWidth || 100,
+        scanLineOpacity: SC.fiberCanvasScanLineOpacity || 0.05
     };
 
     /**
@@ -191,12 +196,15 @@
      * Draw scanning line effect
      */
     function drawScanLine(time) {
-        const scanY = (Math.sin(time * 0.0005) + 1) * 0.5 * height;
-        const scanWidth = 100;
+        // Verifica se o scanLine está ativado
+        if (!SETTINGS.scanLine) return;
+        
+        const scanY = (Math.sin(time * SETTINGS.scanLineSpeed) + 1) * 0.5 * height;
+        const scanWidth = SETTINGS.scanLineWidth;
 
         const gradient = ctx.createLinearGradient(0, scanY - scanWidth, 0, scanY + scanWidth);
         gradient.addColorStop(0, 'rgba(0, 36, 156, 0)');
-        gradient.addColorStop(0.5, 'rgba(0, 36, 156, 0.05)');
+        gradient.addColorStop(0.5, `rgba(0, 36, 156, ${SETTINGS.scanLineOpacity})`);
         gradient.addColorStop(1, 'rgba(0, 36, 156, 0)');
 
         ctx.fillStyle = gradient;
