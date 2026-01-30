@@ -250,7 +250,7 @@
             return { src: image.src || '', alt: image.alt || '' };
         });
         
-        // Embaralhar as imagens para distribuição mais aleatória
+        // Embaralhamento Fisher-Yates melhorado para distribuição mais aleatória
         const shuffleArray = (arr) => {
             const shuffled = [...arr];
             for (let i = shuffled.length - 1; i > 0; i--) {
@@ -260,54 +260,111 @@
             return shuffled;
         };
         
-        // Criar pool embaralhado múltiplas vezes para preencher todos os slots
+        // Distribuição equilibrada: garantir que todas as imagens apareçam igualmente
         let imagePool = [];
-        const repetitions = Math.ceil(totalSlots / normalizedImages.length);
-        for (let r = 0; r < repetitions; r++) {
+        const baseRepeats = Math.floor(totalSlots / normalizedImages.length);
+        const extraSlots = totalSlots % normalizedImages.length;
+        
+        // Primeiro, adicionar cada imagem o número base de vezes
+        for (let r = 0; r < baseRepeats; r++) {
             imagePool = imagePool.concat(shuffleArray(normalizedImages));
         }
         
-        // Pegar apenas os necessários
-        const usedImages = imagePool.slice(0, totalSlots);
+        // Então adicionar as imagens extras aleatoriamente
+        if (extraSlots > 0) {
+            const extraImages = shuffleArray(normalizedImages).slice(0, extraSlots);
+            imagePool = imagePool.concat(extraImages);
+        }
         
-        // Função para verificar se uma imagem é vizinha de outra igual
-        const isNearDuplicate = (arr, index, range = 3) => {
-            const current = arr[index].src;
-            for (let offset = 1; offset <= range; offset++) {
-                if (index - offset >= 0 && arr[index - offset].src === current) return true;
-                if (index + offset < arr.length && arr[index + offset].src === current) return true;
+        // Embaralhar o pool final múltiplas vezes para máxima aleatoriedade
+        for (let shuffle = 0; shuffle < 5; shuffle++) {
+            imagePool = shuffleArray(imagePool);
+        }
+        
+        const usedImages = imagePool;
+        
+        // Função para verificar se uma imagem é vizinha de outra igual (considerando grade 2D)
+        const isNearDuplicate = (arr, index, minDistance = 4) => {
+            const current = arr[index];
+            const currentCoord = coords[index];
+            
+            for (let i = 0; i < arr.length; i++) {
+                if (i === index || arr[i].src !== current.src) continue;
+                
+                const otherCoord = coords[i];
+                
+                // Calcular distância Manhattan na grade 2D
+                const deltaX = Math.abs(currentCoord.x - otherCoord.x);
+                const deltaY = Math.abs(currentCoord.y - otherCoord.y);
+                const manhattanDistance = deltaX + deltaY;
+                
+                // Se muito próximo na grade 2D, é problemático
+                if (manhattanDistance <= minDistance) {
+                    return true;
+                }
+                
+                // Também verificar proximidade no array linear
+                const linearDistance = Math.abs(i - index);
+                if (linearDistance <= 3) {
+                    return true;
+                }
             }
             return false;
         };
         
-        // Múltiplas passadas para minimizar repetições próximas
-        for (let pass = 0; pass < 3; pass++) {
+        // Algoritmo inteligente para evitar repetições próximas considerando posição 2D
+        for (let pass = 0; pass < 15; pass++) { // Mais passadas para melhor resultado
+            let improvementsMade = false;
+            
             for (let i = 0; i < usedImages.length; i++) {
-                if (isNearDuplicate(usedImages, i, 2)) {
-                    // Procurar uma imagem diferente para trocar
-                    for (let j = i + 3; j < usedImages.length; j++) {
-                        // Verificar se a troca melhora a situação
-                        const currentSrc = usedImages[i].src;
-                        const candidateSrc = usedImages[j].src;
+                if (isNearDuplicate(usedImages, i, 4)) { // Distância mínima de 4 na grade
+                    const currentCoord = coords[i];
+                    let bestSwapIndex = -1;
+                    let bestDistance = 0;
+                    
+                    // Procurar a melhor posição para trocar
+                    for (let j = 0; j < usedImages.length; j++) {
+                        if (i === j || usedImages[i].src === usedImages[j].src) continue;
                         
-                        // Verificar se o candidato não causará problema na posição i
-                        let candidateOk = true;
-                        for (let k = 1; k <= 2; k++) {
-                            if (i - k >= 0 && usedImages[i - k].src === candidateSrc) candidateOk = false;
-                            if (i + k < usedImages.length && i + k !== j && usedImages[i + k].src === candidateSrc) candidateOk = false;
-                        }
+                        // Simular a troca e verificar se melhora
+                        const tempArray = [...usedImages];
+                        [tempArray[i], tempArray[j]] = [tempArray[j], tempArray[i]];
                         
-                        // Verificar se mover o atual para j não causa problema
-                        let currentOk = true;
-                        for (let k = 1; k <= 2; k++) {
-                            if (j - k >= 0 && j - k !== i && usedImages[j - k].src === currentSrc) currentOk = false;
-                            if (j + k < usedImages.length && usedImages[j + k].src === currentSrc) currentOk = false;
+                        // Verificar se ambas as posições ficam melhores após a troca
+                        if (!isNearDuplicate(tempArray, i, 3) && !isNearDuplicate(tempArray, j, 3)) {
+                            // Calcular distância total para preferir trocas mais distantes
+                            const jCoord = coords[j];
+                            const distance = Math.abs(currentCoord.x - jCoord.x) + Math.abs(currentCoord.y - jCoord.y);
+                            
+                            if (distance > bestDistance) {
+                                bestDistance = distance;
+                                bestSwapIndex = j;
+                            }
                         }
-                        
-                        if (candidateOk && currentOk) {
-                            [usedImages[i], usedImages[j]] = [usedImages[j], usedImages[i]];
-                            break;
-                        }
+                    }
+                    
+                    // Fazer a melhor troca encontrada
+                    if (bestSwapIndex !== -1) {
+                        [usedImages[i], usedImages[bestSwapIndex]] = [usedImages[bestSwapIndex], usedImages[i]];
+                        improvementsMade = true;
+                    }
+                }
+            }
+            
+            // Se não houve melhorias nesta passada, pode parar mais cedo
+            if (!improvementsMade && pass > 5) break;
+        }
+        
+        // Verificação final e correção de casos extremos
+        for (let i = 0; i < usedImages.length - 1; i++) {
+            if (usedImages[i].src === usedImages[i + 1].src) {
+                // Procurar uma posição distante para trocar
+                for (let j = i + 8; j < usedImages.length; j++) {
+                    if (usedImages[i].src !== usedImages[j].src && 
+                        usedImages[i + 1].src !== usedImages[j].src &&
+                        j + 1 < usedImages.length && usedImages[j + 1].src !== usedImages[i].src) {
+                        [usedImages[i], usedImages[j]] = [usedImages[j], usedImages[i]];
+                        break;
                     }
                 }
             }
@@ -974,6 +1031,59 @@
         }
     }
     
+    /**
+     * Títulos das imagens do DomeGallery
+     */
+    const DomeGalleryTitulos = {
+        '1.png': 'SUPPORTE',
+        '2.png': 'CALLINK',
+        '3.png': 'KIBON',
+        '4.png': 'BRASMIX',
+        '5.png': 'MERCURE HOTEL',
+        '6.png': 'EDGEUNO',
+        '7.png': 'DECIO',
+        '8.png': 'BR.DIGITAL',
+        '9.png': 'ECOVIAS',
+        '10.png': 'BESTWAY',
+        '11.png': 'POLITIZ',
+        '12.png': 'START',
+        '13.png': 'GLOBAL TRANSPORTES',
+        '14.png': 'BAND',
+        '15.png': 'VITORIOSA',
+        '16.jpg': 'BOM JESUS',
+        '17.png': 'MERCADO LIVRE',
+        '18.png': 'OBRAMAX',
+        '19.jpg': 'ITV URBANISMO',
+        '20.png': 'GIGA+',
+        '21.png': 'EPS',
+        '22.png': 'BASF',
+        '23.png': 'RURALTECH',
+        '24.png': 'CARAMURU',
+        '25.png': 'INCONEW',
+        '26.png': 'INTERFAST',
+        '27.png': 'GWM',
+        '28.png': 'EMELL',
+        '29.png': 'SAGA'
+    };
+    
+    /**
+     * Função para obter o título de uma imagem
+     * @param {string} src - Caminho completo ou nome do arquivo
+     * @returns {string} - Título da imagem ou nome do arquivo se não encontrado
+     */
+    function getDomeGalleryTitulo(src) {
+        // Extrair apenas o nome do arquivo do caminho
+        const fileName = src.split('/').pop();
+        
+        // Retornar o título mapeado ou o nome do arquivo sem extensão
+        if (DomeGalleryTitulos[fileName]) {
+            return DomeGalleryTitulos[fileName];
+        }
+        
+        // Se não encontrar, retornar nome do arquivo sem extensão
+        return fileName.replace(/\.[^/.]+$/, '');
+    }
+    
     // Inicializar quando DOM estiver pronto
     function initDomeGallery() {
         const container = document.getElementById('dome-gallery-container');
@@ -989,27 +1099,35 @@
         
         // Coletar imagens da pasta assets/logos
         const images = [
-            { src: 'assets/logos/1.png', alt: 'Cliente 1' },
-            { src: 'assets/logos/2.png', alt: 'Cliente 2' },
-            { src: 'assets/logos/3.png', alt: 'Cliente 3' },
-            { src: 'assets/logos/4.png', alt: 'Cliente 4' },
-            { src: 'assets/logos/5.png', alt: 'Cliente 5' },
-            { src: 'assets/logos/6.png', alt: 'Cliente 6' },
-            { src: 'assets/logos/7.png', alt: 'Cliente 7' },
-            { src: 'assets/logos/8.png', alt: 'Cliente 8' },
-            { src: 'assets/logos/9.png', alt: 'Cliente 9' },
-            { src: 'assets/logos/10.png', alt: 'Cliente 10' },
-            { src: 'assets/logos/11.png', alt: 'Cliente 11' },
-            { src: 'assets/logos/12.png', alt: 'Cliente 12' },
-            { src: 'assets/logos/13.png', alt: 'Cliente 13' },
-            { src: 'assets/logos/14.png', alt: 'Cliente 14' },
-            { src: 'assets/logos/15.png', alt: 'Cliente 15' },
-            { src: 'assets/logos/16.jpg', alt: 'Cliente 16' },
-            { src: 'assets/logos/17.png', alt: 'Cliente 17' },
-            { src: 'assets/logos/18.png', alt: 'Cliente 18' },
-            { src: 'assets/logos/19.jpg', alt: 'Cliente 19' },
-            { src: 'assets/logos/20.png', alt: 'Cliente 20' },
-            { src: 'assets/logos/21.png', alt: 'Cliente 21' }
+            { src: 'assets/logos/1.png', alt: 'SUPPORTE' },
+            { src: 'assets/logos/2.png', alt: 'CALLINK' },
+            { src: 'assets/logos/3.png', alt: 'KIBON' },
+            { src: 'assets/logos/4.png', alt: 'BRASMIX' },
+            { src: 'assets/logos/5.png', alt: 'MERCURE HOTEL' },
+            { src: 'assets/logos/6.png', alt: 'EDGEUNO' },
+            { src: 'assets/logos/7.png', alt: 'DECIO' },
+            { src: 'assets/logos/8.png', alt: 'BR.DIGITAL' },
+            { src: 'assets/logos/9.png', alt: 'ECOVIAS' },
+            { src: 'assets/logos/10.png', alt: 'BESTWAY' },
+            { src: 'assets/logos/11.png', alt: 'POLITIZ' },
+            { src: 'assets/logos/12.png', alt: 'START' },
+            { src: 'assets/logos/13.png', alt: 'GLOBAL TRANSPORTES' },
+            { src: 'assets/logos/14.png', alt: 'BAND' },
+            { src: 'assets/logos/15.png', alt: 'VITORIOSA' },
+            { src: 'assets/logos/16.jpg', alt: 'BOM JESUS' },
+            { src: 'assets/logos/17.png', alt: 'MERCADO LIVRE' },
+            { src: 'assets/logos/18.png', alt: 'OBRAMAX' },
+            { src: 'assets/logos/19.jpg', alt: 'ITV URBANISMO' },
+            { src: 'assets/logos/20.png', alt: 'GIGA+' },
+            { src: 'assets/logos/21.png', alt: 'EPS' },
+            { src: 'assets/logos/22.png', alt: 'BASF' },
+            { src: 'assets/logos/23.png', alt: 'RURALTECH' },
+            { src: 'assets/logos/24.png', alt: 'CARAMURU' },
+            { src: 'assets/logos/25.png', alt: 'INCONEW' },
+            { src: 'assets/logos/26.png', alt: 'INTERFAST' },
+            { src: 'assets/logos/27.png', alt: 'GWM' },
+            { src: 'assets/logos/28.png', alt: 'EMELL' },
+            { src: 'assets/logos/29.png', alt: 'SAGA' }
         ];
         
         const gallery = new DomeGallery(container, images);
