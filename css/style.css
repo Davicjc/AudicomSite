@@ -7843,3 +7843,160 @@ body:hover #mouse-blur {
     }
 }
 
+/* ============================================
+   WHATSAPP HEADER BUBBLE - Balão no Header
+   ============================================ */
+.header-whatsapp-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Balão de conversa do header */
+.header-whatsapp-bubble {
+    position: absolute;
+    left: 50%;
+    top: calc(100% + 10px);
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #00249C 0%, #081535 100%);
+    color: #F4F6F9;
+    padding: 10px 14px;
+    border-radius: 18px;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+    min-width: max-content;
+    width: auto;
+    height: auto;
+    box-shadow: 
+        0 4px 15px rgba(0, 36, 156, 0.35),
+        0 2px 8px rgba(0, 0, 0, 0.15);
+    animation: headerBubbleAppear 0.5s ease-out, headerBubblePulse 3s ease-in-out 1s infinite;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Seta do balão apontando para cima (para o ícone) */
+.header-whatsapp-bubble::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: -6px;
+    transform: translateX(-50%);
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 8px solid #00249C;
+}
+
+/* Botão de fechar */
+.header-bubble-close {
+    width: 16px;
+    height: 16px;
+    border: none;
+    background: rgba(244, 246, 249, 0.25);
+    border-radius: 50%;
+    color: #F4F6F9;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    line-height: 1;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.header-bubble-close:hover {
+    background: rgba(244, 246, 249, 0.4);
+    transform: scale(1.1);
+}
+
+@keyframes headerBubbleAppear {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-10px) scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0) scale(1);
+    }
+}
+
+@keyframes headerBubblePulse {
+    0%, 100% {
+        box-shadow: 
+            0 4px 15px rgba(0, 36, 156, 0.35),
+            0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+    50% {
+        box-shadow: 
+            0 4px 20px rgba(0, 36, 156, 0.5),
+            0 2px 12px rgba(0, 0, 0, 0.2);
+    }
+}
+
+@keyframes headerBubbleDisappear {
+    0% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0) scale(1) rotate(0deg);
+    }
+    30% {
+        opacity: 0.8;
+        transform: translateX(-50%) translateY(-2px) scale(1.05) rotate(-1deg);
+    }
+    70% {
+        opacity: 0.3;
+        transform: translateX(-50%) translateY(5px) scale(0.9) rotate(1deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(10px) scale(0.7) rotate(0deg);
+        visibility: hidden;
+    }
+}
+
+/* Quando o balão está oculto */
+.header-whatsapp-bubble.hidden {
+    animation: headerBubbleDisappear 0.6s ease-in forwards;
+    pointer-events: none;
+}
+
+.header-whatsapp-bubble.showing {
+    animation: headerBubbleAppear 0.5s ease-out forwards;
+}
+
+/* Mobile - ajustes responsivos */
+@media (max-width: 768px) {
+    .header-whatsapp-bubble {
+        left: 50%;
+        top: calc(100% + 8px);
+        transform: translateX(-50%);
+        font-size: 11px;
+        padding: 9px 12px;
+        border-radius: 14px;
+        min-width: max-content;
+        width: auto;
+        height: auto;
+    }
+    
+    .header-whatsapp-bubble::after {
+        left: 50%;
+        top: -6px;
+        transform: translateX(-50%);
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-bottom: 8px solid #00249C;
+    }
+    
+    .header-bubble-close {
+        width: 14px;
+        height: 14px;
+        font-size: 10px;
+    }
+}
+
