@@ -4,7 +4,125 @@
    ============================================ */
 
 /* ============================================
-   ELECTRIC BORDER - Borda animada elÃ©trica
+   PAGE LOADER - Tela de carregamento com logo
+   ============================================ */
+.page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-primary, #081535);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+}
+
+.page-loader.expanding .loader-logo {
+    animation: logoExpand 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.page-loader.fade-out {
+    animation: loaderFadeOut 0.5s ease-out 0.8s forwards;
+}
+
+.loader-logo {
+    width: 80px;
+    height: auto;
+    opacity: 0.9;
+    animation: loaderPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes loaderPulse {
+    0%, 100% {
+        opacity: 0.7;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+}
+
+@keyframes logoExpand {
+    0% {
+        transform: scale(1);
+        opacity: 0.9;
+        filter: none;
+    }
+    60% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: scale(9);
+        opacity: 0.4;
+        filter: blur(0px) drop-shadow(0 0 60px rgba(0, 36, 156, 0.5)) 
+                drop-shadow(0 0 120px rgba(0, 36, 156, 0.3))
+                brightness(1.2) contrast(1.1);
+    }
+}
+
+/* Mobile: escala menor para não ultrapassar bordas */
+@keyframes logoExpandMobile {
+    0% {
+        transform: scale(1);
+        opacity: 0.9;
+        filter: none;
+    }
+    60% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: scale(5);
+        opacity: 0.4;
+        filter: blur(0px) drop-shadow(0 0 40px rgba(0, 36, 156, 0.5)) 
+                drop-shadow(0 0 80px rgba(0, 36, 156, 0.3))
+                brightness(1.2) contrast(1.1);
+    }
+}
+
+@media (max-width: 768px) {
+    .page-loader.expanding .loader-logo {
+        animation: logoExpandMobile 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+}
+
+@keyframes loaderFadeOut {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* Esconde a logo do hero durante o loading */
+.hero-bg-logo {
+    opacity: 0;
+    transition: opacity 0.4s ease-out;
+}
+
+.hero-bg-logo.visible {
+    opacity: 1;
+}
+
+/* ============================================
+   PAGE TRANSITION - Transição suave entre páginas
+   ============================================ */
+body {
+    opacity: 1;
+}
+
+body.page-leaving {
+    opacity: 0;
+    transition: opacity 0.25s ease-out;
+}
+
+/* ============================================
+   ELECTRIC BORDER - Borda animada elétrica
    ============================================ */
 .electric-border-wrapper {
     --electric-light-color: var(--electric-border-color, #00249C);
@@ -418,6 +536,130 @@ body:hover #mouse-blur {
     transform: scale(1.1);
 }
 
+/* ============================================
+   LANGUAGE SWITCHER - Dropdown PT/EN/ES
+   ============================================ */
+.lang-switcher-dropdown {
+    position: relative;
+    z-index: 10002;
+}
+
+.lang-switcher-btn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 10px;
+    background: transparent;
+    border: 1px solid rgba(143, 153, 168, 0.3);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lang-switcher-btn:hover {
+    border-color: var(--azul-conexao);
+    transform: translateY(-2px);
+}
+
+.lang-switcher-btn .lang-current {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: 0.5px;
+}
+
+.lang-switcher-btn svg {
+    color: var(--cinza-operacional);
+    transition: transform 0.3s ease;
+}
+
+.lang-switcher-dropdown.open .lang-switcher-btn svg {
+    transform: rotate(180deg);
+}
+
+.lang-switcher-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 50px;
+    background: var(--bg-primary);
+    border: 1px solid rgba(143, 153, 168, 0.3);
+    border-radius: 8px;
+    padding: 6px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.lang-switcher-dropdown.open .lang-switcher-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.lang-option {
+    display: block;
+    padding: 8px 12px;
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--cinza-operacional);
+    text-decoration: none;
+    text-align: center;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.lang-option:hover {
+    background: rgba(0, 36, 156, 0.2);
+    color: var(--text-primary);
+}
+
+.lang-option.active {
+    background: var(--azul-conexao);
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* Legacy support for old lang-switcher class */
+.lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lang-switcher:hover {
+    transform: translateY(-2px);
+}
+
+.lang-divider {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--cinza-operacional);
+}
+
+.lang-other {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--cinza-operacional);
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+.lang-switcher:hover .lang-other {
+    color: var(--text-primary);
+}
+
 /* Toggle Button - Elegante */
 .hamburger-toggle {
     position: relative;
@@ -766,6 +1008,17 @@ body:hover #mouse-blur {
     .hamburger-whatsapp svg {
         width: 18px;
         height: 18px;
+    }
+    
+    /* Language Switcher - Mobile */
+    .lang-switcher {
+        gap: 2px;
+    }
+    
+    .lang-current,
+    .lang-other,
+    .lang-divider {
+        font-size: 0.75rem;
     }
     
     .hamburger-bar {
@@ -2335,12 +2588,12 @@ body:hover #mouse-blur {
 }
 
 .product-modal-details h4::before {
-    content: 'âœ“';
+    content: '✓';
     color: var(--accent);
 }
 
 .product-modal-usecases h4::before {
-    content: 'â†’';
+    content: '→';
     color: var(--accent);
 }
 
@@ -2361,14 +2614,14 @@ body:hover #mouse-blur {
 }
 
 .product-modal-benefits li::before {
-    content: 'â€¢';
+    content: '•';
     color: var(--accent);
     font-weight: bold;
     flex-shrink: 0;
 }
 
 .product-modal-cases li::before {
-    content: 'â€“';
+    content: '—';
     color: var(--cinza-operacional);
     flex-shrink: 0;
 }
