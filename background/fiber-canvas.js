@@ -73,7 +73,7 @@
             this.size = Math.random() * 2 + 1;
             this.speedX = (Math.random() - 0.5) * SETTINGS.particleSpeed;
             this.speedY = (Math.random() - 0.5) * SETTINGS.particleSpeed;
-            this.opacity = Math.random() * 0.5 + 0.2;
+            this.opacity = Math.random() * 1 + 1;
             this.pulsePhase = Math.random() * Math.PI * 2;
             this.pulseSpeed = Math.random() * 0.02 + 0.01;
         }
@@ -132,7 +132,7 @@
                 const distance = Math.sqrt(dx * dx + dy * dy);
 
                 if (distance < SETTINGS.connectionDistance) {
-                    const opacity = (1 - distance / SETTINGS.connectionDistance) * 0.3;
+                    const opacity = (1 - distance / SETTINGS.connectionDistance) * 1.0;
                     
                     // Create gradient for fiber effect
                     const gradient = ctx.createLinearGradient(
@@ -148,7 +148,7 @@
                     ctx.moveTo(particles[i].x, particles[i].y);
                     ctx.lineTo(particles[j].x, particles[j].y);
                     ctx.strokeStyle = gradient;
-                    ctx.lineWidth = 0.5;
+                    ctx.lineWidth = 1;
                     ctx.stroke();
                 }
             }
@@ -218,8 +218,8 @@
         const deltaTime = timestamp - lastTime;
         lastTime = timestamp;
 
-        // Clear canvas with fade effect
-        ctx.fillStyle = 'rgba(8, 21, 53, 0.1)';
+        // Clear canvas completely (removes ghosting/trails)
+        ctx.fillStyle = COLORS.azulEstrutura;
         ctx.fillRect(0, 0, width, height);
 
         // Draw scan line
