@@ -1,0 +1,69 @@
+# =====================================================
+# Robots.txt para Audicom Telecom
+# https://audicom.com.br
+# =====================================================
+
+# Regras para todos os robôs
+User-agent: *
+Allow: /
+
+# Permitir páginas principais
+Allow: /index.html
+Allow: /en.html
+Allow: /es.html
+Allow: /sitemap.xml
+
+# Bloquear diretórios que não precisam ser indexados
+Disallow: /libs/
+Disallow: /*.json$
+Disallow: /*?*
+
+# Permitir arquivos estáticos importantes
+Allow: /css/
+Allow: /js/
+Allow: /assets/
+Allow: /background/
+
+# Regras específicas para Googlebot
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Regras para Googlebot-Image (importante para SEO de imagens)
+User-agent: Googlebot-Image
+Allow: /assets/
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.webp$
+Allow: /*.svg$
+Allow: /*.ico$
+
+# Regras para Bingbot
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+# Regras para outros bots de busca
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: facebot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+# Sitemap location
+Sitemap: https://audicom.com.br/sitemap.xml
