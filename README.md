@@ -1,6 +1,6 @@
 # 🌐 Audicom Telecom - Site Institucional
 
-![Audicom Telecom](assets/biglogo.png)
+![Audicom Telecom](assets/biglogo.webp)
 
 ## 📋 Sobre o Projeto
 
