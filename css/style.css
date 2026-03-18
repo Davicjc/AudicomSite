@@ -6771,7 +6771,7 @@ body:hover #mouse-blur {
 }
 
 .dome-gallery-item-image:hover img {
-    filter: grayscale(1) !important;
+    filter: none !important;
 }
 
 .dome-gallery-viewer {

@@ -61,9 +61,10 @@
         openedImageBorderRadius: SC.domeGalleryOpenedBorderRadius || '20px',
         openedImageWidth: SC.domeGalleryOpenedWidth || '250px',
         openedImageHeight: SC.domeGalleryOpenedHeight || '300px',
-        grayscale: SC.domeGalleryGrayscale !== false,
         autoRotate: SC.domeGalleryAutoRotate !== false,
         autoRotateSpeed: SC.domeGalleryAutoRotateSpeed || 0.15,
+        // Expansão de cards:
+        enableExpand: SC.domeGalleryEnableExpand !== false,
         // Container/Wrapper:
         background: SC.domeGalleryBackground || 'rgba(8, 21, 53, 0.8)',
         borderRadius: SC.domeGalleryBorderRadius || 18,
@@ -438,10 +439,8 @@
             this.rootEl.style.cssText = `
                 --segments-x: ${this.config.segments};
                 --segments-y: ${this.config.segments};
-                --overlay-blur-color: ${this.config.overlayBlurColor};
                 --tile-radius: ${this.config.imageBorderRadius};
                 --enlarge-radius: ${this.config.openedImageBorderRadius};
-                --image-filter: ${this.config.grayscale ? 'grayscale(1)' : 'none'};
             `;
             
             this.mainEl = document.createElement('main');
@@ -485,8 +484,7 @@
                 this.sphereEl.appendChild(item);
                 
                 // Event listeners
-                imageDiv.addEventListener('click', (e) => this.onTileClick(e));
-                imageDiv.addEventListener('pointerup', (e) => this.onTilePointerUp(e));
+               
             });
             
             stage.appendChild(this.sphereEl);
@@ -865,6 +863,7 @@
         }
         
         onTileClick(e) {
+
             if (this.dragging) return;
             if (this.moved) return;
             if (performance.now() - this.lastDragEndAt < 80) return;
@@ -873,6 +872,7 @@
         }
         
         onTilePointerUp(e) {
+            if (!this.config.enableExpand) return;
             if (e.pointerType !== 'touch') return;
             if (this.dragging) return;
             if (this.moved) return;

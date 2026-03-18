@@ -13,7 +13,7 @@ const SiteConfig = {
     // ============================================
     
     // ---- FIBER TRAIL (rastro de fibra no mouse) ----
-    fiberTrail: true,
+    fiberTrail: false,
         // Subfunções do Fiber Trail:
         fiberTrailMaxPoints: 20,             // Quantidade máxima de pontos no rastro
         fiberTrailLineWidth: 2,              // Espessura da linha
@@ -343,7 +343,7 @@ const SiteConfig = {
         domeGalleryDragEnabled: false,       // Arraste com mouse desativado
         domeGalleryEnlargeTransition: 300,   // Duração da transição ao abrir (ms)
         domeGalleryDragDampening: 2,         // Amortecimento do arraste
-        domeGalleryGrayscale: true,          // Imagens em escala de cinza
+        domeGalleryGrayscale: false,          // Imagens em escala de cinza - DESATIVADO
         domeGalleryAutoRotate: true,         // Rotação automática
         domeGalleryAutoRotateSpeed: 0.05,    // Velocidade da rotação automática (menor = mais lento)
         domeGalleryMostrarTitulo: true,      // Mostrar título ao expandir imagem
